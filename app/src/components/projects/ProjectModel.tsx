@@ -3,9 +3,15 @@ import Image from "next/image";
 
 interface ProjectModelProps {
   setIsProjectModelOpen: any;
+  githubLink: string;
+  productionLink: string;
 }
 
-const ProjectModel = ({ setIsProjectModelOpen }: ProjectModelProps) => {
+const ProjectModel = ({
+  setIsProjectModelOpen,
+  githubLink,
+  productionLink,
+}: ProjectModelProps) => {
   const data = {
     title: "SwiftBuy",
     description: `SwiftBuy is a
@@ -62,7 +68,7 @@ const ProjectModel = ({ setIsProjectModelOpen }: ProjectModelProps) => {
         </p>
         <div className="flex items-center my-6 dark:text-black w-[100%] gap-1">
           <a
-            // href={githubLink}
+            href={githubLink}
             target="_blank"
             className="flex cursor-pointer items-center justify-center gap-1 px-3  bg-black/80 text-white rounded-full w-[50%] py-2"
           >
@@ -70,7 +76,7 @@ const ProjectModel = ({ setIsProjectModelOpen }: ProjectModelProps) => {
             <p className="text-[11px] font-semibold">Code</p>
           </a>
           <a
-            // href={productionLink}
+            href={productionLink}
             target="_blank"
             className="flex cursor-pointer items-center justify-center gap-1 px-3 py-2 bg-[#0080ff] text-white rounded-full w-[50%]"
           >

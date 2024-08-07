@@ -112,7 +112,11 @@ const ProjectItem = ({
         </div>
       </motion.div>
       {isProjectModelOpen && (
-        <ProjectModel setIsProjectModelOpen={setIsProjectModelOpen} />
+        <ProjectModel
+          setIsProjectModelOpen={setIsProjectModelOpen}
+          githubLink={githubLink}
+          productionLink={productionLink}
+        />
       )}
     </>
   );
