@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  scroll-behavior: smooth;
+}
+
+/* Scroll bar track */
+::-webkit-scrollbar {
+  width: 8px; /* Width of the scroll bar */
+}
+
+/* Scroll bar thumb */
+::-webkit-scrollbar-thumb {
+  position: relative;
+  background-color: #357fff; /* Color of the scroll bar thumb */
+  border-radius: 4px; /* Rounded corners of the scroll bar thumb */
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: #155ad1;
+}
+
+/* Scroll bar track on the horizontal axis */
+::-webkit-scrollbar-track {
+  background-color: #f1f1f1; /* Color of the scroll bar track */
+}
+
+/* Scroll bar track on the vertical axis */
+::-webkit-scrollbar-track:vertical {
+  background-color: #f1f1f1; /* Color of the scroll bar track */
+}
+
+/* Scroll bar track on the horizontal axis when the thumb is being dragged */
+::-webkit-scrollbar-track:horizontal:active {
+  background-color: #ccc; /* Color of the scroll bar track when the thumb is being dragged */
+}
+
+/*  i can do this in tailwind with mergin class group-odd:group-hover:rotate-2 */
+.groupSkill:hover:nth-child(odd) .project-image-absolute {
+  scale: 1.01;
+  transform: rotate(-1deg);
+  -webkit-transform: rotate(-4deg);
+  -moz-transform: rotate(-4deg);
+  -ms-transform: rotate(-4deg);
+  -o-transform: rotate(-4deg);
+}
+
+.groupSkill:hover:nth-child(even) .project-image-absolute {
+  scale: 1.01;
+  transform: rotate(1deg);
+  -webkit-transform: rotate(4deg);
+  -moz-transform: rotate(4deg);
+  -ms-transform: rotate(4deg);
+  -o-transform: rotate(4deg);
+}

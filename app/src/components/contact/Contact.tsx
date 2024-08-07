@@ -1,0 +1,46 @@
+import { FaLinkedin } from "react-icons/fa6";
+import HeadingTitle from "../repeated/HeadingTitle";
+import { MdFileDownload } from "react-icons/md";
+import EmailButton from "../buttons/EmailButton";
+import { motion } from "framer-motion";
+
+const Contact = () => {
+  return (
+    <motion.div
+      initial={{ opacity: 0, scale: 0 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.6, type: "tween" }}
+      className="dark:text-white
+     container flex flex-col gap-2 max-w-[700px] text-center text-lg leading-relaxed items-center justify-center mb-32"
+    >
+      <HeadingTitle>Get In Touch</HeadingTitle>
+      <p className="">
+        I am currently looking for new opportunities, including freelance jobs.
+        If you have any projects or work that you think might be a good fit,
+        please don't hesitate to reach out to me. I will try to get back to you
+        as soon as possible.
+      </p>
+      {/* <a
+        target="_blank"
+        id="contact"
+        href="https://www.linkedin.com/in/mohamed-outerbah-b97469257/"
+        className="flex gap-2 px-6 py-2 items-center justify-center  duration-500 bg-white rounded-full hover:scale-105"
+      >
+        <FaLinkedin />
+        <p>Contact Me Here</p>
+      </a> */}
+      <div className="flex gap-2 my-2">
+        <a
+          id="contact"
+          href="https://github.com/Mohamed-gp"
+          className="flex cursor-pointer items-center  justify-center w-full gap-2 px-4 py-2 font-semibold text-white duration-300 bg-[#0080ff] border-2 border-white rounded-full group hover:scale-105 sm:w-auto sm:justify-normal"
+        >
+          <p>Message Here</p>
+          <FaLinkedin className="duration-500 group-hover:translate-x-[2px]" />
+        </a>
+        <EmailButton />
+      </div>
+    </motion.div>
+  );
+};
+export default Contact;
