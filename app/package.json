@@ -11,6 +11,8 @@
   "dependencies": {
     "@google/generative-ai": "^0.16.0",
     "@types/dom-speech-recognition": "^0.0.4",
+    "eslint": "^8.57.0",
+    "eslint-config-next": "^14.2.5",
     "framer-motion": "^11.3.23",
     "next": "14.2.5",
     "react": "^18",
