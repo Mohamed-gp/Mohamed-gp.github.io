@@ -9,7 +9,7 @@ const Hero = () => {
   return (
     <div
       ref={ref}
-      className="container dark:text-white flex items-center justify-center h-screen "
+      className="container dark:text-white flex items-center justify-center h-screen"
       id="home"
     >
       <motion.div
