@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 const Projects = () => {
   const { ref } = useSectionInView("Projects");
   return (
-    <div ref={ref} id="Projects">
+    <div ref={ref} id="projects">
       <div>
         <motion.div
           initial={{ y: 300, opacity: 0 }}
