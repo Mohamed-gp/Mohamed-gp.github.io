@@ -31,15 +31,15 @@ const ProjectModel = ({
         className="z-10 flex flex-col text-black overflow-auto px-12 bg-white py-6 rounded-lg border border-[#e5e7eb] min-w-[400px] mx-12 h-[434px]"
       >
         <div
-          className="flex my-6 justify-center items-center mx-auto overflow-clip w-[800px] h-[400px] 
+          className="flex my-6 justify-center items-center mx-auto overflow-clip max-w-[1000px] max-h-[500px] 
         "
         >
           <Image
             src={"/project1.png"}
             alt="test"
-            width={800}
+            width={1000}
             className=""
-            height={400}
+            height={800}
           />
         </div>
         <p className="text-center font-bold">{data.title}</p>
