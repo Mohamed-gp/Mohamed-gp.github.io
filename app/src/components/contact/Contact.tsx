@@ -20,7 +20,7 @@ const Contact = () => {
       <p className="">
         I am currently looking for new opportunities, including freelance jobs.
         If you have any projects or work that you think might be a good fit,
-        please don't hesitate to reach out to me. I will try to get back to you
+        don't hesitate to reach out to me. I will try to get back to you
         as soon as possible.
       </p>
       {/* <a
