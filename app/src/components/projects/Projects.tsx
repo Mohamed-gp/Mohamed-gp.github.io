@@ -75,7 +75,7 @@ const Projects = () => {
               />
               <ProjectItem
                 title="YumYum"
-                description="full Stack ecommerce website + mobile App"
+                description="full Stack food store website + mobile App"
                 imageProjectTitle="corpcomment.png"
                 skills={[
                   { filename: "typescript.svg", name: "typescript" },
