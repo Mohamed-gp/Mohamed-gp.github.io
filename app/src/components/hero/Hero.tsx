@@ -1,18 +1,23 @@
 import { FaArrowRight, FaGithub, FaLinkedin } from "react-icons/fa6";
 import { MdFileDownload } from "react-icons/md";
- import { motion } from "framer-motion";
+import { motion } from "framer-motion";
 import Image from "next/image";
+import { useSectionInView } from "@/app/hooks/hooks";
 
 const Hero = () => {
+  const { ref } = useSectionInView("Home");
   return (
     <div
+      ref={ref}
       className="container dark:text-white flex items-center justify-center h-screen "
       id="home"
     >
       <motion.div
-          initial={{ opacity: 0, scale: 0 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, type: "tween" }} className="flex flex-col gap-2 w-[720px] text-center items-center">
+        initial={{ opacity: 0, scale: 0 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.6, type: "tween" }}
+        className="flex flex-col gap-2 w-[720px] text-center items-center"
+      >
         <div className="w-32 flex justify-center items-center h-32 mx-auto overflow-hidden border-4 border-white rounded-full img">
           <Image
             loading="lazy"
@@ -48,7 +53,6 @@ const Hero = () => {
             <MdFileDownload className="duration-500 group-hover:translate-y-[3px]" />
           </a>
           <div className="flex items-center gap-1">
-            
             <a
               href="https://github.com/Mohamed-gp"
               target="_blank"

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Cairo } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "react-hot-toast";
+import ActiveSectionContextProvider from "@/context/activeSectionContext";
 
 const cairo = Cairo({ subsets: ["latin"] });
 
@@ -18,8 +19,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body suppressHydrationWarning={true} className={cairo.className}>
-        {children}
-        <Toaster />
+        <ActiveSectionContextProvider>
+          {children}
+          <Toaster />
+        </ActiveSectionContextProvider>
       </body>
     </html>
   );

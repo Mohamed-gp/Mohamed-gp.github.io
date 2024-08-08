@@ -1,8 +1,12 @@
+import { useSectionInView } from "@/app/hooks/hooks";
 import HeadingTitle from "../repeated/HeadingTitle";
 import { motion } from "framer-motion";
 const AboutMe = () => {
+  const { ref } = useSectionInView("About");
+
   return (
     <motion.div
+      ref={ref}
       initial={{ y: 300, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ delay: 0.7 }}

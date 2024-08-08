@@ -3,11 +3,14 @@ import HeadingTitle from "../repeated/HeadingTitle";
 import { MdFileDownload } from "react-icons/md";
 import EmailButton from "../buttons/EmailButton";
 import { motion } from "framer-motion";
+import { useSectionInView } from "@/app/hooks/hooks";
 
 const Contact = () => {
+  const { ref } = useSectionInView("Contact");
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0 }}
+      ref={ref}
+      initial={{ opacity: 0, scale: 0 }}  
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.6, type: "tween" }}
       className="dark:text-white
@@ -29,10 +32,11 @@ const Contact = () => {
         <FaLinkedin />
         <p>Contact Me Here</p>
       </a> */}
-      <div className="flex gap-2 my-2">
+      <div className="flex gap-2 my-2 sm:flex-row flex-col">
         <a
           id="contact"
-          href="https://github.com/Mohamed-gp"
+          target="_blank"
+          href="https://www.linkedin.com/in/mohamed-outerbah-b97469257/"
           className="flex cursor-pointer items-center  justify-center w-full gap-2 px-4 py-2 font-semibold text-white duration-300 bg-[#0080ff] border-2 border-white rounded-full group hover:scale-105 sm:w-auto sm:justify-normal"
         >
           <p>Message Here</p>

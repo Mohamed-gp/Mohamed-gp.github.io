@@ -6,6 +6,7 @@ import { FaGithub, FaInfo, FaLink } from "react-icons/fa6";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { RefObject, useRef, useState } from "react";
 import ProjectModel from "./ProjectModel";
+import { useSectionInView } from "@/app/hooks/hooks";
 
 interface ProjectItemProps {
   title: string;
@@ -32,8 +33,10 @@ const ProjectItem = ({
   const opacityProgress = useTransform(scrollYProgress, [0, 1], [0.5, 1]);
 
   const [isProjectModelOpen, setIsProjectModelOpen] = useState(false);
+  const { ref } = useSectionInView("Projects");
+
   return (
-    <>
+    <div ref={ref}>
       <motion.div
         ref={projectItemDiv}
         style={{
@@ -42,9 +45,9 @@ const ProjectItem = ({
           opacity: opacityProgress,
         }}
         transition={{ delay: 0.6 }}
-        className="relative sm:min-w-[500px] md:min-w-[700px] dark:bg-[#050A30] flex px-6  py-12 overflow-hidden duration-75 bg-gray-100 border group hover:bg-gray-200 dark:hover:bg-[#0a0f37c7] rounded-3xl border-black/20 even:justify-end groupSkill"
+        className=" relative sm:min-w-[500px] md:min-w-[700px] dark:bg-[#050A30] flex px-6  py-12 overflow-hidden duration-75 bg-gray-100 border group hover:bg-gray-200 dark:hover:bg-[#0a0f37c7] rounded-3xl border-black/20 even:justify-end groupSkill"
       >
-        <div className="flex flex-col w-[60%] text-left px-5">
+        <div className="flex flex-col w-full sm:w-[60%] text-left px-5">
           <div className="flex justify-between items-center ">
             <p className="text-2xl font-semibold">{title}</p>
             <button
@@ -100,7 +103,7 @@ const ProjectItem = ({
             </div>
           </div>
         </div>
-        <div className="absolute  group-even:left-[-150px] rounded-3xl overflow-hidden w-[400px] h-[800px] group-odd:right-[-150px]  duration-300 project-image-absolute">
+        <div className="hidden sm:block absolute  group-even:left-[-150px] rounded-3xl overflow-hidden w-[400px] h-[800px] group-odd:right-[-150px]  duration-300 project-image-absolute">
           <Image
             loading="lazy"
             src={`/${imageProjectTitle}`}
@@ -118,7 +121,7 @@ const ProjectItem = ({
           productionLink={productionLink}
         />
       )}
-    </>
+    </div>
   );
 };
 export default ProjectItem;

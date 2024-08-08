@@ -2,10 +2,13 @@ import HeadingTitle from "../repeated/HeadingTitle";
 import { projectsImagesSkills } from "../../lib/data";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { useSectionInView } from "@/app/hooks/hooks";
 
 const Skills = () => {
+  const { ref } = useSectionInView("Skills");
   return (
     <motion.div
+      ref={ref}
       initial={{ y: -300, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ delay: 0.4 }}
