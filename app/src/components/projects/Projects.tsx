@@ -52,24 +52,7 @@ const Projects = () => {
                 githubLink="hhttps://github.com/Mohamed-gp/Krelli_x86"
                 productionLink="https://swiftbuy1.netlify.app/"
               />
-              <ProjectItem
-                title="Krelli"
-                description="full Stack renting website"
-                imageProjectTitle="corpcomment.png"
-                skills={[
-                  { filename: "postgressql.svg", name: "postgressql" },
-                  { filename: "prisma.svg", name: "prisma" },
-                  { filename: "typescript.svg", name: "typescript" },
-                  { filename: "react.svg", name: "react" },
-                  { filename: "tailwindcss.svg", name: "tailwind css" },
-                  { filename: "reduxtoolkit.svg", name: "redux toolkit" },
-                  { filename: "nodejs.svg", name: "node js" },
-                  { filename: "jwt.svg", name: "jwt" },
-                  { filename: "expressjs.svg", name: "express js" },
-                ]}
-                githubLink="hhttps://github.com/Mohamed-gp/Krelli_x86"
-                productionLink="https://swiftbuy1.netlify.app/"
-              />
+
               <ProjectItem
                 title="SocialSync"
                 description="full Stack social media website"
