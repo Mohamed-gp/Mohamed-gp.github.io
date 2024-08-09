@@ -8,7 +8,7 @@ const ChatBot = () => {
   const [ismodelOpen, setismodelOpen] = useState(false);
   const [history, setHistory] = useState<any>([]);
   useEffect(() => {
-    setHistory(JSON.parse(localStorage.getItem("history") as string) || []);
+    setHistory(JSON.parse(localStorage.getItem("HISTORY") as string) || []);
   }, []);
 
   const sendMessageToGPT = async (e: any, message: string) => {
@@ -21,7 +21,6 @@ const ChatBot = () => {
     setmessage("");
 
     appendHistory(tmpMessage);
-    console.log("test")
     try {
       const rawResponse = await fetch("/api/gemeni", {
         method: "POST",
@@ -53,7 +52,7 @@ const ChatBot = () => {
       });
     }
     setHistory(tmp);
-    localStorage.setItem("history", JSON.stringify(tmp));
+    localStorage.setItem("HISTORY", JSON.stringify(tmp));
   };
 
   const [message, setmessage] = useState("");
