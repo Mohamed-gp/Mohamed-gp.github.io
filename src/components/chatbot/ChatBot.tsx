@@ -21,6 +21,7 @@ const ChatBot = () => {
     setmessage("");
 
     appendHistory(tmpMessage);
+    console.log("test")
     try {
       const rawResponse = await fetch("/api/gemeni", {
         method: "POST",
@@ -121,12 +122,10 @@ const ChatBot = () => {
             <div className="pr-4 max-h-[474px] overflow-y-auto py-2 flex-1">
               {/* <!--  User Chat Message --> */}
               {history?.map((input: any, index: number) => (
-                <>
+                // because is static
+                <div key={index}>
                   {index % 2 == 0 ? (
-                    <div
-                      key={index}
-                      className="flex gap-3 my-4 text-gray-600 text-sm flex-1"
-                    >
+                    <div className="flex gap-3 my-4 text-gray-600 text-sm flex-1">
                       <span className="relative flex shrink-0 overflow-hidden rounded-full w-8 h-8">
                         <div className="rounded-full bg-gray-100 border p-1">
                           <svg
@@ -179,7 +178,7 @@ const ChatBot = () => {
                       </p>
                     </div>
                   )}
-                </>
+                </div>
               ))}
             </div>
             {/* <!-- Input box  --> */}

@@ -5,10 +5,7 @@ export const POST = async (req: NextRequest) => {
   try {
     const body = await req.json();
     const { message, history } = body;
-    console.log(message);
-    console.log("history start");
-    console.log(history);
-    console.log("history end");
+
 
     if (!message) {
       return NextResponse.json(
