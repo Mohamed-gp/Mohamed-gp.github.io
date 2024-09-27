@@ -32,7 +32,9 @@ const Projects = () => {
                   { filename: "mongodb.svg", name: "mongodb" },
                 ]}
                 githubLink="https://github.com/Mohamed-gp/ecommerce_mern"
-                productionLink="https://swiftbuy1.netlify.app/"
+                productionLink="https://swiftbuy.production-server.tech/"
+                heroImage="/project1.png"
+                thereIsAdmin={true}
               />
               <ProjectItem
                 title="Krelli"
@@ -50,7 +52,9 @@ const Projects = () => {
                   { filename: "expressjs.svg", name: "express js" },
                 ]}
                 githubLink="hhttps://github.com/Mohamed-gp/Krelli_x86"
-                productionLink="https://swiftbuy1.netlify.app/"
+                productionLink="https://krelli.production-server.tech/"
+                heroImage="/project2.png"
+                thereIsAdmin={true}
               />
 
               <ProjectItem
@@ -71,7 +75,9 @@ const Projects = () => {
                   { filename: "mongodb.svg", name: "mongodb" },
                 ]}
                 githubLink="https://github.com/Mohamed-gp/SocialSync"
-                productionLink="https://swiftbuy1.netlify.app/"
+                productionLink="https://socialsync.production-server.tech/"
+                heroImage="/project3.png"
+                thereIsAdmin={false}
               />
               <ProjectItem
                 title="YumYum"
@@ -91,7 +97,9 @@ const Projects = () => {
                   { filename: "mongodb.svg", name: "mongodb" },
                 ]}
                 githubLink="https://github.com/Mohamed-gp/YumYum"
-                productionLink="https://swiftbuy1.netlify.app/"
+                productionLink="https://yumyum.production-server.tech/"
+                heroImage="/project2.png"
+                thereIsAdmin={true}
               />
             </div>
           </div>

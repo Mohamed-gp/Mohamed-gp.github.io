@@ -5,21 +5,24 @@ interface ProjectModelProps {
   setIsProjectModelOpen: any;
   githubLink: string;
   productionLink: string;
+  heroImage: string;
+  title: string;
+  description: string;
+  thereIsAdmin: boolean;
 }
 
 const ProjectModel = ({
   setIsProjectModelOpen,
   githubLink,
   productionLink,
+  heroImage,
+  description,
+  title,
+  thereIsAdmin,
 }: ProjectModelProps) => {
   const data = {
-    title: "SwiftBuy",
-    description: `SwiftBuy is a
-    comprehensive full-stack ecommerce website designed to provide users
-    with a seamless and efficient shopping experience. Developed using the
-    MERN stack (MongoDB, Express.js, React, Node.js), SwiftBuy leverages
-    modern web technologies to deliver a robust and scalable platform for
-    online retail.`,
+    title: title,
+    description: description,
   };
   return (
     <div
@@ -35,7 +38,7 @@ const ProjectModel = ({
         "
         >
           <Image
-            src={"/project1.png"}
+            src={heroImage}
             alt="test"
             width={1000}
             className=""
@@ -52,19 +55,23 @@ const ProjectModel = ({
         <p className=" pst-decimal text-left">test</p>
         <p className=" list-decimal text-left">test</p>
         <p className="font-bold">Demo Accounts</p>
-        <p className=" font-bold text-center">admin </p>
-        <p className="text-left ">
-          <span className="font-bold">email :</span> admin@admin.com
-        </p>
-        <p className="text-left ">
-          <span className="font-bold">password :</span> password
-        </p>
+        {thereIsAdmin && (
+          <>
+            <p className=" font-bold text-center">admin </p>
+            <p className="text-left ">
+              <span className="font-bold">email :</span> admin@admin.com
+            </p>
+            <p className="text-left ">
+              <span className="font-bold">password :</span> admin@admin.com
+            </p>
+          </>
+        )}
         <p className=" font-bold text-center">user</p>
         <p className="text-left ">
-          <span className="font-bold">email :</span> user@user.com
+          <span className="font-bold">email :</span> user@demo.com
         </p>
         <p className="text-left ">
-          <span className="font-bold">password :</span> password
+          <span className="font-bold">password :</span> user@demo.com
         </p>
         <div className="flex items-center my-6 dark:text-black w-[100%] gap-1">
           <a

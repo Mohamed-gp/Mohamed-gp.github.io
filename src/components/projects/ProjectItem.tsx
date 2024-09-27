@@ -15,6 +15,8 @@ interface ProjectItemProps {
   productionLink: string;
   imageProjectTitle: string;
   skills: { filename: string; name: string }[];
+  heroImage: string;
+  thereIsAdmin: boolean;
 }
 const ProjectItem = ({
   title,
@@ -23,6 +25,8 @@ const ProjectItem = ({
   productionLink,
   imageProjectTitle,
   skills,
+  heroImage,
+  thereIsAdmin,
 }: ProjectItemProps) => {
   const projectItemDiv = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -47,7 +51,8 @@ const ProjectItem = ({
         transition={{ delay: 0.6 }}
         className=" relative sm:min-w-[500px] md:min-w-[700px] dark:bg-[#050A30] flex px-6  py-12 overflow-hidden duration-75 bg-gray-100 border group hover:bg-gray-200 dark:hover:bg-[#0a0f37c7] rounded-3xl border-black/20 even:justify-end groupSkill"
       >
-        <div className="flex flex-col w-full sm:w-[60%] text-left px-5">
+        <div className="flex flex-col w-full  text-left px-5">
+          {/* <div className="flex flex-col w-full sm:w-[60%]  text-left px-5"> */}
           <div className="flex justify-between items-center ">
             <p className="text-2xl font-semibold">{title}</p>
             <button
@@ -103,22 +108,27 @@ const ProjectItem = ({
             </div>
           </div>
         </div>
-        <div className="hidden sm:block absolute  group-even:left-[-150px] rounded-3xl overflow-hidden w-[400px] h-[800px] group-odd:right-[-150px]  duration-300 project-image-absolute">
+        {/* <div className="hidden sm:block absolute  group-even:left-[-150px] rounded-3xl overflow-hidden w-[400px] h-[800px] group-odd:right-[-150px]  duration-300 project-image-absolute">
           <Image
             loading="lazy"
-            src={`/${imageProjectTitle}`}
+            // src={`/${imageProjectTitle}`}
+            src={`/project1.png`}
             width={400}
-            height={800}
+            height={400}
             alt=""
-            className="w-[400px] h-[800px] rounded-3xl"
+            className=" rounded-3xl"
           />
-        </div>
+        </div> */}
       </motion.div>
       {isProjectModelOpen && (
         <ProjectModel
           setIsProjectModelOpen={setIsProjectModelOpen}
           githubLink={githubLink}
           productionLink={productionLink}
+          heroImage={heroImage}
+          title={title}
+          description={description}
+          thereIsAdmin={thereIsAdmin}
         />
       )}
     </div>
