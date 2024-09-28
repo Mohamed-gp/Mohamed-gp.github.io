@@ -51,7 +51,7 @@ const Projects = () => {
                   { filename: "jwt.svg", name: "jwt" },
                   { filename: "expressjs.svg", name: "express js" },
                 ]}
-                githubLink="hhttps://github.com/Mohamed-gp/Krelli_x86"
+                githubLink="https://github.com/Mohamed-gp/Krelli_x86"
                 productionLink="https://krelli.production-server.tech/"
                 heroImage="/project2.png"
                 thereIsAdmin={true}
@@ -98,7 +98,7 @@ const Projects = () => {
                 ]}
                 githubLink="https://github.com/Mohamed-gp/YumYum"
                 productionLink="https://yumyum.production-server.tech/"
-                heroImage="/project2.png"
+                heroImage="/project4.png"
                 thereIsAdmin={true}
               />
             </div>
