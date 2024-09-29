@@ -18,3 +18,20 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - run: npm install
       - run: npm run build --if-present
+      - name: Set up SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.VPS_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H ${{ secrets.VPS_HOST }} >> ~/.ssh/known_hosts
+      - name: Sync files to VPS
+        run: |
+          rsync -avz -e "ssh -i ~/.ssh/id_rsa" --exclude='.git' --exclude='node_modules' ./ ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}:/home/mohamed/projects/Mohamed-gp.github.io
+      - name: Deploy to VPS
+        run: |
+          ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} << 'EOF'
+            cd /home/mohamed/projects/Mohamed-gp.github.io
+            npm install
+            npm run build
+            pm2 restart portfolio
+          EOF
