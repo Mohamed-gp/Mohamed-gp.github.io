@@ -1,56 +1,19 @@
 name: Deploy Next.js site to VPS
 
-on:
+on: 
   push:
-    branches: ["main"]
-  workflow_dispatch:
-
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: "pages"
-
+    branches: [main]
 jobs:
-  deploy:
+  build:
     runs-on: self-hosted
     strategy:
       matrix:
-        node-version: [14.x, 16.x]  # Example of using different Node.js versions
-
+        node-version: [14.x]
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Build project
-        run: npm run build
-
-      - name: Set up SSH
-        run: |
-          mkdir -p ~/.ssh
-          echo "${{ secrets.VPS_KEY }}" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan -H ${{ secrets.VPS_HOST }} >> ~/.ssh/known_hosts
-
-      - name: Sync files to VPS
-        run: |
-          rsync -avz -e "ssh -i ~/.ssh/id_rsa" --exclude='.git' --exclude='node_modules' ./ ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}:/home/mohamed/projects/Mohamed-gp.github.io
-
-      - name: Deploy to VPS
-        run: |
-          ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} << 'EOF'
-            cd /home/mohamed/projects/Mohamed-gp.github.io
-            npm install
-            npm run build
-            pm2 restart portfolio
-          EOF
+      - run: npm install
+      - run: npm run build --if-present
