@@ -3,6 +3,7 @@ name: Deploy Next.js site to VPS
 on: 
   push:
     branches: [main]
+  workflow_dispatch:  # Add this line to enable manual triggering
 
 jobs:
   build:
@@ -23,13 +24,13 @@ jobs:
           mkdir -p ~/.ssh
           echo "${{ secrets.VPS_KEY }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan -H ${{ secrets.VPS_HOST }} >> ~/.ssh/known_hosts
+          ssh-keyscan -p 22 -H ${{ secrets.VPS_HOST }} >> ~/.ssh/known_hosts
       - name: Sync files to VPS
         run: |
-          rsync -avz -e "ssh -i ~/.ssh/id_rsa" --exclude='.git' --exclude='node_modules' ./ ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}:/home/mohamed/projects/Mohamed-gp.github.io
+          rsync -avz -e "ssh -p 22 -i ~/.ssh/id_rsa" --exclude='.git' --exclude='node_modules' ./ ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}:/home/mohamed/projects/Mohamed-gp.github.io
       - name: Deploy to VPS
         run: |
-          ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} << 'EOF'
+          ssh -p 22 -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} << 'EOF'
             cd /home/mohamed/projects/Mohamed-gp.github.io
             npm install
             npm run build
