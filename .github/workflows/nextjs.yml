@@ -16,10 +16,24 @@ concurrency:
 jobs:
   deploy:
     runs-on: self-hosted
+    strategy:
+      matrix:
+        node-version: [14.x, 16.x]  # Example of using different Node.js versions
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build project
+        run: npm run build
 
       - name: Set up SSH
         run: |
@@ -28,11 +42,14 @@ jobs:
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan -H ${{ secrets.VPS_HOST }} >> ~/.ssh/known_hosts
 
+      - name: Sync files to VPS
+        run: |
+          rsync -avz -e "ssh -i ~/.ssh/id_rsa" --exclude='.git' --exclude='node_modules' ./ ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}:/home/mohamed/projects/Mohamed-gp.github.io
+
       - name: Deploy to VPS
         run: |
-          ssh -o StrictHostKeyChecking=no ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} << 'EOF'
+          ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} << 'EOF'
             cd /home/mohamed/projects/Mohamed-gp.github.io
-            git pull origin main
             npm install
             npm run build
             pm2 restart portfolio
