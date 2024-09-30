@@ -30,6 +30,7 @@ jobs:
       - name: Deploy to VPS
         run: |
           cd /home/mohamed/projects/Mohamed-gp.github.io
+          git pull
           npm install
           npm run build
           pm2 restart portfolio
