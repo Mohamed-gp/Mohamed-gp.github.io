@@ -31,10 +31,8 @@ jobs:
           git config --global core.sshCommand "ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no"
       - name: Deploy to VPS
         run: |
-          ssh -p 22 -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} << 'EOF'
-            cd /home/mohamed/projects/Mohamed-gp.github.io
-            git pull origin main
-            npm install
-            npm run build
-            pm2 restart portfolio
-          EOF
+          cd /home/mohamed/projects/Mohamed-gp.github.io
+          git pull origin main
+          npm install
+          npm run build
+          pm2 restart portfolio

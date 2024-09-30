@@ -1,5 +1,3 @@
-// public/manifest.json
-
 {
   "name": "PWA Next.js",
   "short_name": "pwa-nextjs",
