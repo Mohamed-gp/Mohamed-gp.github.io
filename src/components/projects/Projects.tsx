@@ -18,18 +18,31 @@ const Projects = () => {
             <HeadingTitle>Projects</HeadingTitle>
             <div className="flex flex-col my-5 gap-y-12">
               <ProjectItem
-                title="SwiftBuy"
-                description="full Stack ecommerce website"
-                imageProjectTitle="corpcomment.png"
-                skills={[
+                title="SwiftBuy - Ultimate eCommerce Platform"
+                description="A full-stack eCommerce platform featuring a comprehensive shopping experience with wishlist, advanced filtering, and secure payment integration using Stripe."
+                imageProjectTitle="swiftbuy.png"
+                techUsed={[
                   { filename: "typescript.svg", name: "typescript" },
                   { filename: "react.svg", name: "react" },
                   { filename: "tailwindcss.svg", name: "tailwind css" },
                   { filename: "reduxtoolkit.svg", name: "redux toolkit" },
                   { filename: "nodejs.svg", name: "node js" },
+                  { filename: "firebase.svg", name: "firebase" },
+                  { filename: "stripe.svg", name: "stripe" },
                   { filename: "jwt.svg", name: "jwt" },
                   { filename: "expressjs.svg", name: "express js" },
                   { filename: "mongodb.svg", name: "mongodb" },
+                ]}
+                features={[
+                  "Wishlist functionality",
+                  "Payment integration with Stripe",
+                  // "Advanced filtering options",
+                  "Filtering options",
+                  "User authentication and authorization",
+                  "Responsive design",
+                  "Admin dashboard for managing products and orders",
+                  "Real-time inventory management",
+                  "Order tracking and history",
                 ]}
                 githubLink="https://github.com/Mohamed-gp/ecommerce_mern"
                 productionLink="https://swiftbuy.production-server.tech/"
@@ -37,19 +50,33 @@ const Projects = () => {
                 thereIsAdmin={true}
               />
               <ProjectItem
-                title="Krelli"
-                description="full Stack renting website"
-                imageProjectTitle="corpcomment.png"
-                skills={[
+                title="Krelli - Comprehensive Renting Platform"
+                description="A full-stack renting platform offering a seamless experience for property rentals with advanced search, booking management, and secure payment processing."
+                imageProjectTitle="krelli.png"
+                techUsed={[
                   { filename: "postgressql.svg", name: "postgressql" },
                   { filename: "prisma.svg", name: "prisma" },
-                  { filename: "typescript.svg", name: "typescript" },
+                  { filename: "javascript.svg", name: "javascript" },
+                  { filename: "firebase.svg", name: "firebase" },
                   { filename: "react.svg", name: "react" },
                   { filename: "tailwindcss.svg", name: "tailwind css" },
+                  { filename: "firebase.svg", name: "firebase" },
+                  { filename: "stripe.svg", name: "stripe" },
+
                   { filename: "reduxtoolkit.svg", name: "redux toolkit" },
                   { filename: "nodejs.svg", name: "node js" },
                   { filename: "jwt.svg", name: "jwt" },
                   { filename: "expressjs.svg", name: "express js" },
+                ]}
+                features={[
+                  "Advanced property search",
+                  "Booking management system",
+                  "Payment integration with Stripe",
+                  "User authentication and authorization",
+                  "Responsive design",
+                  "Admin dashboard for managing listings and bookings",
+                  "Real-time availability updates",
+                  "User reviews and ratings",
                 ]}
                 githubLink="https://github.com/Mohamed-gp/Krelli_x86"
                 productionLink="https://krelli.production-server.tech/"
@@ -58,21 +85,29 @@ const Projects = () => {
               />
 
               <ProjectItem
-                title="SocialSync"
-                description="full Stack social media website"
-                imageProjectTitle="corpcomment.png"
-                skills={[
+                title="SocialSync - Dynamic Social Media Platform"
+                description="A full-stack social media platform enabling users to connect, share, and interact with advanced features like real-time messaging, post filtering, and secure authentication."
+                imageProjectTitle="socialsync.png"
+                techUsed={[
                   { filename: "typescript.svg", name: "typescript" },
-                  { filename: "nextjs.svg", name: "next js" },
                   { filename: "react.svg", name: "react" },
                   { filename: "tailwindcss.svg", name: "tailwind css" },
                   { filename: "reduxtoolkit.svg", name: "redux toolkit" },
-                  { filename: "nextauth.webp", name: "next auth" },
-                  { filename: "auth0.svg", name: "auth0" },
                   { filename: "nodejs.svg", name: "node js" },
+                  { filename: "firebase.svg", name: "firebase" },
                   { filename: "jwt.svg", name: "jwt" },
                   { filename: "expressjs.svg", name: "express js" },
                   { filename: "mongodb.svg", name: "mongodb" },
+                ]}
+                features={[
+                  "Real-time messaging",
+                  "Post filtering and search",
+                  "User authentication and authorization",
+                  "Responsive design",
+                  "Admin dashboard for managing users and content",
+                  "User profiles and activity feeds",
+                  "Like, comment, and share functionalities",
+                  "Notification system",
                 ]}
                 githubLink="https://github.com/Mohamed-gp/SocialSync"
                 productionLink="https://socialsync.production-server.tech/"
@@ -80,21 +115,31 @@ const Projects = () => {
                 thereIsAdmin={false}
               />
               <ProjectItem
-                title="YumYum"
-                description="full Stack food store website + mobile App"
-                imageProjectTitle="corpcomment.png"
-                skills={[
+                title="YumYum - Food Store and Delivery Platform"
+                description="A full-stack food store and delivery platform with a mobile app, offering a seamless ordering experience, real-time tracking, and secure payment integration."
+                imageProjectTitle="yumyum.png"
+                techUsed={[
                   { filename: "typescript.svg", name: "typescript" },
-                  { filename: "nextjs.svg", name: "next js" },
-                  { filename: "react.svg", name: "react" },
+                  { filename: "react.svg", name: "react + react native" },
                   { filename: "tailwindcss.svg", name: "tailwind css" },
                   { filename: "reduxtoolkit.svg", name: "redux toolkit" },
-                  { filename: "nextauth.webp", name: "next auth" },
-                  { filename: "auth0.svg", name: "auth0" },
                   { filename: "nodejs.svg", name: "node js" },
+                  { filename: "firebase.svg", name: "firebase" },
+                  { filename: "stripe.svg", name: "stripe" },
+
                   { filename: "jwt.svg", name: "jwt" },
                   { filename: "expressjs.svg", name: "express js" },
                   { filename: "mongodb.svg", name: "mongodb" },
+                ]}
+                features={[
+                  "Mobile app for iOS and Android",
+                  "Real-time order tracking",
+                  "Payment integration with Stripe",
+                  "User authentication and authorization",
+                  "Responsive design",
+                  "Admin dashboard for managing products and orders",
+                  "Menu management",
+                  // "Customer reviews and ratings",
                 ]}
                 githubLink="https://github.com/Mohamed-gp/YumYum"
                 productionLink="https://yumyum.production-server.tech/"

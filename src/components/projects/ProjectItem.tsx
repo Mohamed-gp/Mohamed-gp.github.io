@@ -13,8 +13,9 @@ interface ProjectItemProps {
   description: string;
   githubLink: string;
   productionLink: string;
+  features: string[];
   imageProjectTitle: string;
-  skills: { filename: string; name: string }[];
+  techUsed: { filename: string; name: string }[];
   heroImage: string;
   thereIsAdmin: boolean;
 }
@@ -23,8 +24,9 @@ const ProjectItem = ({
   description,
   githubLink,
   productionLink,
+  features,
   imageProjectTitle,
-  skills,
+  techUsed,
   heroImage,
   thereIsAdmin,
 }: ProjectItemProps) => {
@@ -98,27 +100,16 @@ const ProjectItem = ({
               </a>
             </div>
             <div className="flex flex-wrap items-center justify-start w-full gap-1 mt-3">
-              {skills.map((skill, ind) => (
+              {techUsed.map((tech, ind) => (
                 <ProjectSkill
-                  key={skill.name + ind + skill.filename}
-                  titleSkill={skill.name}
-                  fileName={skill.filename}
+                  key={tech.name + ind + tech.filename}
+                  titleSkill={tech.name}
+                  fileName={tech.filename}
                 />
               ))}
             </div>
           </div>
         </div>
-        {/* <div className="hidden sm:block absolute  group-even:left-[-150px] rounded-3xl overflow-hidden w-[400px] h-[800px] group-odd:right-[-150px]  duration-300 project-image-absolute">
-          <Image
-            loading="lazy"
-            // src={`/${imageProjectTitle}`}
-            src={`/project1.png`}
-            width={400}
-            height={400}
-            alt=""
-            className=" rounded-3xl"
-          />
-        </div> */}
       </motion.div>
       {isProjectModelOpen && (
         <ProjectModel
@@ -128,6 +119,7 @@ const ProjectItem = ({
           heroImage={heroImage}
           title={title}
           description={description}
+          features={features}
           thereIsAdmin={thereIsAdmin}
         />
       )}

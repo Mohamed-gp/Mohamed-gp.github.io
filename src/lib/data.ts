@@ -9,6 +9,7 @@ const navBarTitles = [
 ] as const;
 
 const projectsImagesSkills = [
+  { filename: "javascript.svg", name: "javascript" },
   { filename: "typescript.svg", name: "typescript" },
   { filename: "nextjs.svg", name: "next js" },
   { filename: "react.svg", name: "react" },
@@ -20,21 +21,24 @@ const projectsImagesSkills = [
   { filename: "reduxtoolkit.svg", name: "redux toolkit" },
   // { filename: "reactquery.svg", name: "react query" },
   // { filename: "swr.svg", name: "swr" },
-  // { filename: "prisma.svg", name: "prisma" },
+  { filename: "prisma.svg", name: "prisma" },
   // { filename: "zodlogo.svg", name: "zod" },
   // { filename: "langchain.png", name: "langchain" },
   { filename: "nextauth.webp", name: "next auth" },
-  { filename: "auth0.svg", name: "auth0" },
+  // { filename: "auth0.svg", name: "auth0" },
   { filename: "nodejs.svg", name: "node js" },
   // { filename: "deno.svg", name: "deno" },
   { filename: "jwt.svg", name: "jwt" },
   { filename: "expressjs.svg", name: "express js" },
   // { filename: "nestjs.svg", name: "nest js" },
   // { filename: "sanity.svg", name: "sanity" },
-  // { filename: "supabase.svg", name: "supabase" },
-  // { filename: "firebase.svg", name: "firebase" },
+  { filename: "supabase.svg", name: "supabase" },
+  { filename: "firebase.svg", name: "firebase" },
   { filename: "mongodb.svg", name: "mongodb" },
   { filename: "icons8-git.svg", name: "git" },
+  { filename: "stripe.svg", name: "stripe" },
+  
+
   // { filename: "postgressql.svg", name: "postgressql" },
   // { filename: "mysql.svg", name: "mysql" },
   // { filename: "sqlite.svg", name: "sqlite" },

@@ -15,7 +15,7 @@ const Skills = () => {
       id="skills"
       className="container dark:text-white flex items-center justify-center "
     >
-      <div className="flex flex-col gap-2 w-[720px] text-center items-center">
+      <div className="flex flex-col gap-2 w-[920px] text-center items-center">
         <HeadingTitle>Skills</HeadingTitle>
         <div className="flex flex-wrap justify-center gap-4 my-6">
           {projectsImagesSkills.map((skill, ind) => (

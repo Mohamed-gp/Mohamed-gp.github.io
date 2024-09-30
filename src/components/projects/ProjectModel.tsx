@@ -8,6 +8,7 @@ interface ProjectModelProps {
   heroImage: string;
   title: string;
   description: string;
+  features: string[];
   thereIsAdmin: boolean;
 }
 
@@ -18,6 +19,7 @@ const ProjectModel = ({
   heroImage,
   description,
   title,
+  features,
   thereIsAdmin,
 }: ProjectModelProps) => {
   const data = {
@@ -31,7 +33,7 @@ const ProjectModel = ({
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        className="z-10 flex flex-col text-black overflow-auto px-12 bg-white py-6 rounded-lg border border-[#e5e7eb] min-w-[400px] mx-12 h-[434px]"
+        className="z-10 flex flex-col text-black overflow-auto px-12 bg-white py-6 rounded-lg border border-[#e5e7eb] min-w-[400px] mx-12 h-[634px]"
       >
         <div
           className="flex my-6 justify-center items-center mx-auto overflow-clip max-w-[1000px] max-h-[500px] 
@@ -47,13 +49,15 @@ const ProjectModel = ({
         </div>
         <p className="text-center font-bold">{data.title}</p>
         <p className="leading-relaxed">{data.description}</p>
-        <p className="font-bold">Features</p>
-        <p className=" pst-decimal text-left">test</p>
-        <p className=" pst-decimal text-left">test</p>
-        <p className=" pst-decimal text-left">test</p>
-        <p className=" pst-decimal text-left">test</p>
-        <p className=" pst-decimal text-left">test</p>
-        <p className=" list-decimal text-left">test</p>
+        <p className="font-bold my-4">Features</p>
+
+        <ul className="list-disc">
+          {features.map((feature, index) => (
+            <li key={index} className="font-bold text-left ">
+              {feature}
+            </li>
+          ))}
+        </ul>
         <p className="font-bold">Demo Accounts</p>
         {thereIsAdmin && (
           <>
