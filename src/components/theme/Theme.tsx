@@ -4,11 +4,14 @@ import { FaMoon, FaSun } from "react-icons/fa6";
 import { motion } from "framer-motion";
 
 const Theme = () => {
-  const [theme, setTheme] = useState(
-    localStorage.getItem("theme") != null
-      ? localStorage.getItem("theme")
-      : "light"
-  );
+  const [theme, setTheme] = useState("light");
+  useEffect(() => {
+    setTheme(() => {
+      return localStorage.getItem("theme") != null
+        ? (localStorage.getItem("theme") as string)
+        : "light";
+    });
+  }, []);
 
   useEffect(() => {
     const html = document.querySelector("html");

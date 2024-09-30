@@ -119,6 +119,7 @@ const Projects = () => {
                 description="A full-stack food store and delivery platform with a mobile app, offering a seamless ordering experience, real-time tracking, and secure payment integration."
                 imageProjectTitle="yumyum.png"
                 techUsed={[
+                  { filename: "expo.svg", name: "expo" },
                   { filename: "typescript.svg", name: "typescript" },
                   { filename: "react.svg", name: "react + react native" },
                   { filename: "tailwindcss.svg", name: "tailwind css" },
