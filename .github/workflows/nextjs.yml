@@ -29,9 +29,7 @@ jobs:
           ssh-keyscan -p 22 -H ${{ secrets.VPS_HOST }} >> ~/.ssh/known_hosts
       - name: Deploy to VPS
         run: |
-          ssh -p 22 -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} << 'EOF'
-            cd /home/mohamed/projects/Mohamed-gp.github.io
-            npm install
-            npm run build
-            pm2 restart portfolio
-          EOF
+          cd /home/mohamed/projects/Mohamed-gp.github.io
+          npm install
+          npm run build
+          pm2 restart portfolio
