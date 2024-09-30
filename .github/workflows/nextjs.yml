@@ -27,10 +27,14 @@ jobs:
           eval "$(ssh-agent -s)"
           ssh-add ~/.ssh/id_rsa
           ssh-keyscan -p 22 -H ${{ secrets.VPS_HOST }} >> ~/.ssh/known_hosts
+          # Configure Git to use the SSH key
+          git config --global core.sshCommand "ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no"
       - name: Deploy to VPS
         run: |
-          cd /home/mohamed/projects/Mohamed-gp.github.io
-          git pull
-          npm install
-          npm run build
-          pm2 restart portfolio
+          ssh -p 22 -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} << 'EOF'
+            cd /home/mohamed/projects/Mohamed-gp.github.io
+            git pull origin main
+            npm install
+            npm run build
+            pm2 restart portfolio
+          EOF
