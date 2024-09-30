@@ -1,0 +1,21 @@
+// public/manifest.json
+
+{
+  "name": "PWA Next.js",
+  "short_name": "pwa-nextjs",
+  "theme_color": "#35155D",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "orientation": "portrait",
+  "scope": "/",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "icons/icon-72x72.png",
+      "sizes": "72x72",
+      "type": "/favicon.ico",
+      "purpose": "maskable any"
+    }
+  ],
+  "splash_pages": null
+}
