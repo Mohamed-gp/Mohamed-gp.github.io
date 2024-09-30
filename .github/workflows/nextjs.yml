@@ -1,16 +1,16 @@
 name: Deploy Next.js site to VPS
 
-on: 
+on:
   push:
     branches: [main]
-  workflow_dispatch:  # Add this line to enable manual triggering
+  workflow_dispatch: # Enable manual triggering
 
 jobs:
   build:
     runs-on: self-hosted
     strategy:
       matrix:
-        node-version: [18.x]  # Update to Node.js 18.x
+        node-version: [18.x] # Use Node.js 18.x
     steps:
       - uses: actions/checkout@v2
       - name: Use Node.js ${{ matrix.node-version }}
