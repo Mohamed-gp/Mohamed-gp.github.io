@@ -24,6 +24,7 @@ export const metadata: Metadata = {
   icons: [{ rel: "icon", url: "/firebase.svg" }],
 };
 
+
 export default function RootLayout({
   children,
 }: Readonly<{
