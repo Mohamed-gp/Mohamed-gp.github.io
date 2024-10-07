@@ -23,7 +23,6 @@ export const metadata: Metadata = {
   // icons: [{ rel: "icon", url: "/firebase.svg" }],
 };
 
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -33,8 +32,8 @@ export default function RootLayout({
     <html lang="en">
       <body suppressHydrationWarning={true} className={cairo.className}>
         <ActiveSectionContextProvider>
-          {children}
-          <Toaster />
+        {children}
+        <Toaster />
         </ActiveSectionContextProvider>
       </body>
     </html>

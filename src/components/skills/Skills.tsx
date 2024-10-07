@@ -1,3 +1,5 @@
+"use client"
+
 import HeadingTitle from "../repeated/HeadingTitle";
 import { projectsImagesSkills } from "../../lib/data";
 import Image from "next/image";

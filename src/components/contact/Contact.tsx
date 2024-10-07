@@ -1,3 +1,5 @@
+"use client";
+
 import { FaLinkedin } from "react-icons/fa6";
 import HeadingTitle from "../repeated/HeadingTitle";
 import EmailButton from "../buttons/EmailButton";
@@ -9,7 +11,7 @@ const Contact = () => {
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, scale: 0 }}  
+      initial={{ opacity: 0, scale: 0 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.6, type: "tween" }}
       className="dark:text-white
@@ -19,8 +21,8 @@ const Contact = () => {
       <p className="">
         I am currently looking for new opportunities, including freelance jobs.
         If you have any projects or work that you think might be a good fit,
-        don't hesitate to reach out to me. I will try to get back to you
-        as soon as possible.
+        don't hesitate to reach out to me. I will try to get back to you as soon
+        as possible.
       </p>
       <div className="flex gap-2 my-2 sm:flex-row flex-col">
         <a

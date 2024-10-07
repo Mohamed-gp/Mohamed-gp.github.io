@@ -1,3 +1,5 @@
+"use client";
+
 import { useSectionInView } from "@/app/hooks/hooks";
 import HeadingTitle from "../repeated/HeadingTitle";
 import ProjectItem from "./ProjectItem";

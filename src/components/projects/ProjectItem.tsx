@@ -1,10 +1,8 @@
-// import { FaGithub, FaLink } from "react-icons/fa6";
+"use client";
 import ProjectSkill from "./ProjectSkill";
-import { projectsImagesSkills } from "../../lib/data";
-import Image from "next/image";
 import { FaGithub, FaInfo, FaLink } from "react-icons/fa6";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { RefObject, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import ProjectModel from "./ProjectModel";
 import { useSectionInView } from "@/app/hooks/hooks";
 

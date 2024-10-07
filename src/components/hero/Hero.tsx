@@ -1,3 +1,4 @@
+"use client"
 import { FaArrowRight, FaGithub, FaLinkedin } from "react-icons/fa6";
 import { MdFileDownload } from "react-icons/md";
 import { motion } from "framer-motion";
