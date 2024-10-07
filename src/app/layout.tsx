@@ -10,7 +10,6 @@ export const metadata: Metadata = {
   title: "Mohamed Outerbah",
   description: "Mohamed Outerbah Portfolio",
   generator: "Next.js",
-  manifest: "/manifest.json",
   keywords: ["nextjs", "next14", "pwa", "next-pwa"],
   themeColor: [{ media: "(prefers-color-scheme: dark)", color: "#fff" }],
   authors: [
@@ -21,7 +20,7 @@ export const metadata: Metadata = {
   ],
   viewport:
     "minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, viewport-fit=cover",
-  icons: [{ rel: "icon", url: "/firebase.svg" }],
+  // icons: [{ rel: "icon", url: "/firebase.svg" }],
 };
 
 
