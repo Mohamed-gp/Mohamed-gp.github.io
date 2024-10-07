@@ -78,6 +78,8 @@ const ChatBot = () => {
         onClick={() => setismodelOpen((prev) => !prev)}
         className="fixed bg-[#0080ff] bottom-8 right-8  object-cover flex items-center justify-center text-sm font-medium disabled:pointer-events-none disabled:opacity-50 border rounded-full w-16 h-16 m-0 cursor-pointer border-gray-200 bg-none p-0 normal-case leading-5 hover:text-gray-900 z-10"
         type="button"
+        name="chatbot-open-button"
+        
         aria-haspopup="dialog"
         aria-expanded="false"
         data-state="closed"

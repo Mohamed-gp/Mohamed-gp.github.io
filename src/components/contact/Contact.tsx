@@ -1,6 +1,5 @@
 import { FaLinkedin } from "react-icons/fa6";
 import HeadingTitle from "../repeated/HeadingTitle";
-import { MdFileDownload } from "react-icons/md";
 import EmailButton from "../buttons/EmailButton";
 import { motion } from "framer-motion";
 import { useSectionInView } from "@/app/hooks/hooks";
@@ -23,15 +22,6 @@ const Contact = () => {
         don't hesitate to reach out to me. I will try to get back to you
         as soon as possible.
       </p>
-      {/* <a
-        target="_blank"
-        id="contact"
-        href="https://www.linkedin.com/in/mohamed-outerbah-b97469257/"
-        className="flex gap-2 px-6 py-2 items-center justify-center  duration-500 bg-white rounded-full hover:scale-105"
-      >
-        <FaLinkedin />
-        <p>Contact Me Here</p>
-      </a> */}
       <div className="flex gap-2 my-2 sm:flex-row flex-col">
         <a
           id="contact"

@@ -1,4 +1,3 @@
-"use client";
 import BodyFilter from "@/components/body-filter/BodyFilter";
 import AboutMe from "../components/about-me/AboutMe";
 import Footer from "../components/footer/Footer";

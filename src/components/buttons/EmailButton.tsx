@@ -17,17 +17,18 @@ const EmailButton = () => {
         borderRadius: "10px",
         background: "#333",
         color: "#fff",
-        textAlign : "center",
-        fontSize : "20px",
-        padding : "10px 10px"
+        textAlign: "center",
+        fontSize: "20px",
+        padding: "10px 10px",
       },
     });
-    
+
     return result;
   };
   return (
     <button
       onClick={() => copyHandler(text)}
+      name="email-copy-button"
       className="flex dark:text-black items-center justify-center w-full gap-2 px-4 py-2 font-semibold duration-300 bg-white border rounded-full border-black/40 group hover:scale-105 sm:w-auto sm:justify-normal"
     >
       <p>{text}</p>
