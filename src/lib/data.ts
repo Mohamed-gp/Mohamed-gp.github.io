@@ -10,6 +10,7 @@ const navBarTitles = [
 
 const projectsImagesSkills = [
   { filename: "javascript.svg", name: "javascript" },
+  { filename: "sql.png",name : "sql"},
   { filename: "typescript.svg", name: "typescript" },
   { filename: "nextjs.svg", name: "next js" },
   { filename: "react.svg", name: "react" },
