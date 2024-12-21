@@ -36,12 +36,10 @@ jobs:
 
       - name: Push Docker image to VPS and deploy
         run: |
-          ssh -o StrictHostKeyChecking=no mohamed@104.248.17.127 <<EOF
-            cd ${{ secrets.REPO_LOCATION_IN_VPS }} || exit 1
-            git pull origin main || exit 1
-            docker-compose down || exit 1
-            docker-compose up --build -d || exit 1
-          EOF
+          cd ${{ secrets.REPO_LOCATION_IN_VPS }} || exit 1
+          git pull origin main || exit 1
+          docker-compose down || exit 1
+          docker-compose up --build -d || exit 1
 
 # name: Deploy Next.js site to VPS without Docker
 
