@@ -23,7 +23,7 @@ function Home() {
       <Contact />
       <Footer />
       <Theme />
-      <ChatBot />
+      {/* <ChatBot /> */}
     </>
   );
 }
