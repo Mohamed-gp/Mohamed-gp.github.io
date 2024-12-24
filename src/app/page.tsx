@@ -3,7 +3,7 @@ import AboutMe from "../components/about-me/AboutMe";
 import Footer from "../components/footer/Footer";
 import Hero from "../components/hero/Hero";
 import Projects from "../components/projects/Projects";
-// import SectionDivider from "./components/section-divider/SectionDivider";
+import SectionDivider from "@/components/section-divider/SectionDivider";
 import Skills from "../components/skills/Skills";
 import Header from "@/components/header/Header";
 import Theme from "@/components/theme/Theme";
@@ -25,7 +25,7 @@ function Home() {
       <Footer />
       <Theme />
       <ConsoleLog />
-      {/* <ChatBot /> */}
+      <ChatBot />
     </>
   );
 }
