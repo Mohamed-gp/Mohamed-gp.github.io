@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import HeadingTitle from "../repeated/HeadingTitle";
 import { projectsImagesSkills } from "../../lib/data";
@@ -47,3 +47,6 @@ const Skills = () => {
   );
 };
 export default Skills;
+
+
+

@@ -9,6 +9,7 @@ import Header from "@/components/header/Header";
 import Theme from "@/components/theme/Theme";
 import Contact from "@/components/contact/Contact";
 import ChatBot from "@/components/chatbot/ChatBot";
+import ConsoleLog from "@/components/consoleLog/ConsoleLog";
 
 function Home() {
   return (
@@ -23,6 +24,7 @@ function Home() {
       <Contact />
       <Footer />
       <Theme />
+      <ConsoleLog />
       {/* <ChatBot /> */}
     </>
   );
