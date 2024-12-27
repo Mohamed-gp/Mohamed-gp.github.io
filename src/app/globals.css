@@ -2,55 +2,84 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
+:root {
+  --primary-color: #0080ff;
+}
+
+.text-primary {
+  color: var(--primary-color);
+}
+
+.bg-primary {
+  background-color: var(--primary-color);
+}
+
+.border-primary {
+  border-color: var(--primary-color);
+}
+
+.hover\:bg-primary:hover {
+  background-color: var(--primary-color);
+}
+
+.hover\:text-primary:hover {
+  color: var(--primary-color);
+}
+
+*,
+body {
   scroll-behavior: smooth;
 }
-
-/* Scroll bar track */
-::-webkit-scrollbar {
-  width: 8px; /* Width of the scroll bar */
+html,
+body {
+  overflow-x: hidden;
 }
 
-/* Scroll bar thumb */
-::-webkit-scrollbar-thumb {
-  position: relative;
-  background-color: #357fff; /* Color of the scroll bar thumb */
-  border-radius: 4px; /* Rounded corners of the scroll bar thumb */
-}
-::-webkit-scrollbar-thumb:hover {
-  background-color: #155ad1;
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
-/* Scroll bar track on the horizontal axis */
-::-webkit-scrollbar-track {
-  background-color: #f1f1f1; /* Color of the scroll bar track */
+#__next {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
-/* Scroll bar track on the vertical axis */
-::-webkit-scrollbar-track:vertical {
-  background-color: #f1f1f1; /* Color of the scroll bar track */
+main {
+  flex: 1 0 auto;
 }
 
-/* Scroll bar track on the horizontal axis when the thumb is being dragged */
-::-webkit-scrollbar-track:horizontal:active {
-  background-color: #ccc; /* Color of the scroll bar track when the thumb is being dragged */
+footer {
+  flex-shrink: 0;
 }
 
-/*  i can do this in tailwind with mergin class group-odd:group-hover:rotate-2 */
-.groupSkill:hover:nth-child(odd) .project-image-absolute {
-  scale: 1.01;
-  transform: rotate(-1deg);
-  -webkit-transform: rotate(-4deg);
-  -moz-transform: rotate(-4deg);
-  -ms-transform: rotate(-4deg);
-  -o-transform: rotate(-4deg);
+* {
+  cursor: default;
 }
 
-.groupSkill:hover:nth-child(even) .project-image-absolute {
-  scale: 1.01;
-  transform: rotate(1deg);
-  -webkit-transform: rotate(4deg);
-  -moz-transform: rotate(4deg);
-  -ms-transform: rotate(4deg);
-  -o-transform: rotate(4deg);
+a,
+button,
+[role="button"] {
+  cursor: pointer;
+}
+
+.mouse-shadow {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+@keyframes flood {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.flood-animation {
+  animation: flood 2s ease-out forwards;
 }

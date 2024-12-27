@@ -22,7 +22,7 @@ const Hero = () => {
         <div className="w-32 flex justify-center items-center h-32 mx-auto overflow-hidden border-4 border-white rounded-full img">
           <Image
             loading="lazy"
-            src="/last-upscaler-blurwindows-picturefliped.jpg"
+            src="/profileImage.jpg"
             alt="avatar"
             width={500}
             height={500}
