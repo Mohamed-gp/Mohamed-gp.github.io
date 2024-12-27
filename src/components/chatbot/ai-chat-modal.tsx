@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { X, Send } from "lucide-react";
 import { activeModelContext } from "@/context/ActiveModelContext";
 
-export function AIChatModal() {
+export default function AIChatModal() {
   const [messages, setMessages] = useState<{ text: string; isUser: boolean }[]>(
     []
   );
