@@ -1,31 +1,35 @@
-import BodyFilter from "@/components/body-filter/BodyFilter";
-import AboutMe from "../components/about-me/AboutMe";
-import Footer from "../components/footer/Footer";
-import Hero from "../components/hero/Hero";
-import Projects from "../components/projects/Projects";
-// import SectionDivider from "./components/section-divider/SectionDivider";
-import Skills from "../components/skills/Skills";
-import Header from "@/components/header/Header";
-import Theme from "@/components/theme/Theme";
-import Contact from "@/components/contact/Contact";
-import ChatBot from "@/components/chatbot/ChatBot";
+"use client";
 
-function Home() {
+import { useState } from "react";
+import { Navbar } from "../components/navbar";
+import { Hero } from "../components/hero";
+import { About } from "../components/about";
+import { Skills } from "../components/skills";
+import { Projects } from "../components/projects";
+import { Contact } from "../components/contact";
+import { Footer } from "../components/footer";
+import { MouseShadow } from "../components/effects";
+import { MouseClickEffect } from "../components/mouse-click-effect";
+import { GoToTop } from "../components/go-to-top";
+import { ChatIcon } from "../components/chat-icon";
+import { AIChatModal } from "../components/ai-chat-modal";
+
+export default function Home() {
+
   return (
     <>
-      {/* <SectionDivider /> */}
-      <BodyFilter />
-      <Header />
+      <Navbar />
       <Hero />
-      <AboutMe />
+      <About />
       <Skills />
       <Projects />
       <Contact />
       <Footer />
-      <Theme />
-      {/* <ChatBot /> */}
+      {/* <MouseShadow /> */}
+      {/* <MouseClickEffect /> */}
+      <GoToTop />
+      <ChatIcon />
+      <AIChatModal />
     </>
   );
 }
-
-export default Home;

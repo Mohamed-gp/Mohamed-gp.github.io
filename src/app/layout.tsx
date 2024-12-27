@@ -3,6 +3,8 @@ import { Cairo } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "react-hot-toast";
 import ActiveSectionContextProvider from "@/context/activeSectionContext";
+import ThemeProvider from "@/context/ThemeContext";
+import ActiveModelProvider from "@/context/ActiveModelContext";
 
 const cairo = Cairo({ subsets: ["latin"] });
 
@@ -15,7 +17,7 @@ export const metadata: Metadata = {
       url: "https://www.linkedin.com/in/mohamed-outerbah-b97469257/",
     },
   ],
-  manifest : "/manifest.json",
+  manifest: "/manifest.json",
 };
 
 export default function RootLayout({
@@ -24,11 +26,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html
+      lang="en"
+      className="flex flex-col min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300"
+    >
       <body suppressHydrationWarning={true} className={cairo.className}>
         <ActiveSectionContextProvider>
-        {children}
-        <Toaster />
+          <ActiveModelProvider>
+            <ThemeProvider>{children}</ThemeProvider>
+          </ActiveModelProvider>
+          <Toaster />
         </ActiveSectionContextProvider>
       </body>
     </html>

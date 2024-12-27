@@ -1,24 +1,25 @@
 "use client";
 
-import HeadingTitle from "../repeated/HeadingTitle";
-import { projectsImagesSkills } from "../../lib/data";
-import Image from "next/image";
 import { motion } from "framer-motion";
-import { useSectionInView } from "@/app/hooks/hooks";
+import Image from "next/image";
+import { projectsImagesSkills } from "../lib/data";
 
-const Skills = () => {
-  const { ref } = useSectionInView("Skills");
+const skills = [
+  { name: "React", icon: "/icons/react.svg" },
+  { name: "Next.js", icon: "/icons/nextjs.svg" },
+  { name: "TypeScript", icon: "/icons/typescript.svg" },
+  { name: "Node.js", icon: "/icons/nodejs.svg" },
+  { name: "CSS/Sass", icon: "/icons/sass.svg" },
+  { name: "GraphQL", icon: "/icons/graphql.svg" },
+];
+
+export function Skills() {
   return (
-    <motion.div
-      ref={ref}
-      initial={{ y: -300, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ delay: 0.4 }}
-      id="skills"
-      className="container dark:text-white flex items-center justify-center "
-    >
-      <div className="flex flex-col gap-2 w-[920px] text-center items-center">
-        <HeadingTitle>Skills</HeadingTitle>
+    <section className="py-20 bg-white dark:bg-gray-800">
+      <div className="container mx-auto px-4">
+        <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12">
+          My Skills
+        </h2>
         <div className="flex flex-wrap justify-center gap-4 my-6">
           {projectsImagesSkills.map((skill, ind) => (
             <div
@@ -43,10 +44,6 @@ const Skills = () => {
           ))}
         </div>
       </div>
-    </motion.div>
+    </section>
   );
-};
-export default Skills;
-
-
-
+}
