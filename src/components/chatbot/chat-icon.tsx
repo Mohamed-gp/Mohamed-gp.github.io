@@ -4,7 +4,7 @@ import { activeModelContext } from "@/context/ActiveModelContext";
 import { MessageCircle } from "lucide-react";
 import { useContext } from "react";
 
-export function ChatIcon() {
+export default function ChatIcon() {
   const activeModel = useContext(activeModelContext);
 
   return (

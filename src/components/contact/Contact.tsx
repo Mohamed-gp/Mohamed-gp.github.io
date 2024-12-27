@@ -1,42 +1,48 @@
-"use client";
-
-import { FaLinkedin } from "react-icons/fa6";
-import HeadingTitle from "../repeated/HeadingTitle";
-import EmailButton from "../buttons/EmailButton";
+"use client"
 import { motion } from "framer-motion";
-import { useSectionInView } from "@/app/hooks/hooks";
+import { Mail, Linkedin } from "lucide-react";
 
-const Contact = () => {
-  const { ref } = useSectionInView("Contact");
+export default function Contact() {
   return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, scale: 0 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.6, type: "tween" }}
-      className="dark:text-white
-     container flex flex-col gap-2 max-w-[700px] text-center text-lg leading-relaxed items-center justify-center mb-32"
-    >
-      <HeadingTitle>Get In Touch</HeadingTitle>
-      <p className="">
-        I am currently looking for new opportunities, including freelance jobs.
-        If you have any projects or work that you think might be a good fit,
-        don't hesitate to reach out to me. I will try to get back to you as soon
-        as possible.
-      </p>
-      <div className="flex gap-2 my-2 sm:flex-row flex-col">
-        <a
-          id="contact"
-          target="_blank"
-          href="https://www.linkedin.com/in/mohamed-outerbah-b97469257/"
-          className="flex cursor-pointer items-center  justify-center w-full gap-2 px-4 py-2 font-semibold text-white duration-300 bg-[#0080ff] border-2 border-white rounded-full group hover:scale-105 sm:w-auto sm:justify-normal"
+    <section id="contact" className="py-20 bg-gray-50 dark:bg-gray-900">
+      <div className="container mx-auto px-4">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="max-w-4xl mx-auto text-center"
         >
-          <p>Message Here</p>
-          <FaLinkedin className="duration-500 group-hover:translate-x-[2px]" />
-        </a>
-        <EmailButton />
+          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-8">
+            Contact
+          </h2>
+          <p className="text-xl text-gray-600 dark:text-gray-300 mb-8">
+            I'm always open to new opportunities and collaborations. Feel free
+            to reach out!
+          </p>
+          <div className="flex justify-center space-x-6">
+            <motion.a
+              href="mailto:your.email@example.com"
+              className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Mail className="w-5 h-5 mr-2" />
+              Email Me
+            </motion.a>
+            <motion.a
+              href="https://linkedin.com/in/yourusername"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center px-6 py-3 border border-gray-300 text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Linkedin className="w-5 h-5 mr-2" />
+              LinkedIn
+            </motion.a>
+          </div>
+        </motion.div>
       </div>
-    </motion.div>
+    </section>
   );
-};
-export default Contact;
+}

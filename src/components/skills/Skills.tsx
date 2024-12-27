@@ -6,7 +6,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { useSectionInView } from "@/app/hooks/hooks";
 
-const Skills = () => {
+export default function Skills() {
   const { ref } = useSectionInView("Skills");
   return (
     <motion.div
@@ -45,8 +45,4 @@ const Skills = () => {
       </div>
     </motion.div>
   );
-};
-export default Skills;
-
-
-
+}
