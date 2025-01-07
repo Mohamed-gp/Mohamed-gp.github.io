@@ -3,7 +3,9 @@
 import { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Github, ExternalLink, Info } from "lucide-react";
+import { ExternalLink, Info } from "lucide-react";
+import { FaGithub } from "react-icons/fa6";
+
 import { ProjectModal } from "./ProjectModal";
 import { projects } from "@/lib/data";
 
@@ -34,14 +36,19 @@ export default function Projects() {
                 className="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
               >
                 <div className="flex flex-col md:flex-row">
-                  <div className="md:w-1/2 relative h-[300px] md:h-auto">
+                  <a
+                    href={project.liveLink}
+                    target="_blank"
+                    className="md:w-1/2 relative h-[300px] md:h-auto overflow-hidden "
+                  >
                     <Image
                       src={project.image}
                       alt={project.title}
                       layout="fill"
                       objectFit="cover"
+                      className="hover:scale-105 duration-300 !cursor-pointer"
                     />
-                  </div>
+                  </a>
                   <div className="md:w-1/2 p-6 flex flex-col justify-between">
                     <div>
                       <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
@@ -54,7 +61,7 @@ export default function Projects() {
                         {project.techUsed.map((tech, index) => (
                           <div
                             key={index}
-                            className="flex items-center bg-gray-200 dark:bg-gray-700 rounded-full px-3 py-1"
+                            className="flex items-center bg-gray-200 dark:bg-gray-700 rounded-full px-3 py-1 hover:-translate-y-1 duration-300"
                           >
                             <Image
                               src={tech.filename}
@@ -90,7 +97,7 @@ export default function Projects() {
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                       >
-                        <Github className="w-5 h-5 mr-2" />
+                        <FaGithub className="w-5 h-5 mr-2" />
                         GitHub
                       </motion.a>
                       <motion.button

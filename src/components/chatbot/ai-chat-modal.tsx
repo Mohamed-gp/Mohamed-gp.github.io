@@ -68,13 +68,13 @@ export default function AIChatModal() {
               ))}
             </div>
             <div className="p-4 border-t dark:border-gray-700">
-              <div className="flex items-center">
+              <div className="flex ">
                 <input
                   type="text"
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   placeholder="Type your message..."
-                  className="flex-grow p-2 border rounded-l-md dark:border-gray-600 dark:bg-gray-700 dark:text-white"
+                  className="flex-grow p-2 border focus:outline-none rounded-l-md dark:border-gray-600 dark:bg-gray-700 dark:text-white"
                   onKeyPress={(e) => e.key === "Enter" && handleSendMessage()}
                 />
                 <button

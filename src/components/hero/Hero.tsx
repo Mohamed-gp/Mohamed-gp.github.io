@@ -11,7 +11,7 @@ export default function Hero() {
       style={{ minHeight: "calc(100vh)" }}
       className="relative flex justify-center items-center p-12 lg:py-20 overflow-hidden bg-gray-50 dark:bg-gray-900"
     >
-      <div className="container mx-auto px-4">
+      <div className="container px-4">
         <div className="flex flex-col-reverse gap-y-6 lg:flex-row items-center">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -19,7 +19,7 @@ export default function Hero() {
             transition={{ duration: 0.5 }}
             className="lg:w-1/2 flex flex-col justify-center items-center lg:block"
           >
-            <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6">
+            <h1 className="text-2xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-6">
               Hello, I'm <span className="text-primary">Mohamed Outerbah</span>
             </h1>
             <p className="text-xl text-gray-600 dark:text-gray-300 mb-8">
@@ -30,7 +30,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.5 }}
-              className="flex space-x-4"
+              className="flex gap-4  sm:flex-row flex-col"
             >
               <a
                 href="#projects"

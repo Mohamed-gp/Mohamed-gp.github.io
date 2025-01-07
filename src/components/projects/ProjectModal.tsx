@@ -108,6 +108,19 @@ export function ProjectModal({ isOpen, onClose, project }: ProjectModalProps) {
                 </p>
               </div>
               <div>
+                <p className="font-bold mt-4 text-gray-900 dark:text-white">
+                  Features
+                </p>
+                <ul className="list-disc">
+                  {project.features.map((feature, index) => (
+                    <li
+                      key={index}
+                      className="text-left  text-gray-900 dark:text-white"
+                    >
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
                 <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
                   Technologies Used
                 </h3>
@@ -130,19 +143,6 @@ export function ProjectModal({ isOpen, onClose, project }: ProjectModalProps) {
                     </div>
                   ))}
                 </div>
-                <p className="font-bold mt-4 text-gray-900 dark:text-white">
-                  Features
-                </p>
-                <ul className="list-disc">
-                  {project.features.map((feature, index) => (
-                    <li
-                      key={index}
-                      className="font-bold text-left  text-gray-900 dark:text-white"
-                    >
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
 
                 <div className="flex items-center my-6 dark:text-black w-[100%] gap-1">
                   <a
