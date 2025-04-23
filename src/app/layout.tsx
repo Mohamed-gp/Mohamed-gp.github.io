@@ -1,10 +1,7 @@
 import type { Metadata } from "next";
 import { Cairo } from "next/font/google";
 import "./globals.css";
-import { Toaster } from "react-hot-toast";
-import ActiveSectionContextProvider from "@/context/activeSectionContext";
-import ThemeProvider from "@/context/ThemeContext";
-import ActiveModelProvider from "@/context/ActiveModelContext";
+import { ThemeProvider } from "@/components/theme-provider/ThemeProvider";
 
 const cairo = Cairo({ subsets: ["latin"] });
 
@@ -14,10 +11,38 @@ export const metadata: Metadata = {
   authors: [
     {
       name: "Mohamed Outerbah",
-      url: "https://www.linkedin.com/in/mohamed-outerbah-b97469257/",
+      url: "https://www.linkedin.com/in/mohamed-outerbah-b97469257",
     },
   ],
+  creator: "Mohamed Outerbah",
+  publisher: "Mohamed Outerbah",
+  alternates: {
+    canonical: "https://mohamedouterbah.tech", // Replace with your actual URL
+  },
+  keywords: [
+    "web developer",
+    "full stack",
+    "developer",
+    "portfolio",
+    "react",
+    "next.js",
+    "javascript",
+    "typescript",
+    "css",
+    "html",
+    "tailwind",
+  ],
+  robots: {
+    index: true,
+    follow: true,
+  },
+  icons: {
+    icon: "/favicon.ico",
+  },
   manifest: "/manifest.json",
+  other: {
+    github: "https://github.com/Mohamed-gp", // Add your GitHub profile here
+  },
 };
 
 export default function RootLayout({
@@ -26,17 +51,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className="flex flex-col min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300"
-    >
-      <body suppressHydrationWarning={true} className={cairo.className}>
-        <ActiveSectionContextProvider>
-          <ActiveModelProvider>
-            <ThemeProvider>{children}</ThemeProvider>
-          </ActiveModelProvider>
-          <Toaster />
-        </ActiveSectionContextProvider>
+    <html lang="en" suppressHydrationWarning>
+      <body className={cairo.className}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dar"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

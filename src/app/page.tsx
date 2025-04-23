@@ -1,33 +1,26 @@
-import Header from "../components/header/Header";
-import Hero from "../components/hero/Hero";
-import AboutMe from "../components/about-me/AboutMe";
+import Hero from "@/components/hero/Hero";
+import About from "@/components/about/About";
 import Skills from "@/components/skills/Skills";
-import Projects from "../components/projects/Projects";
-import Contact from "../components/contact/Contact";
-import Footer from "@/components/footer/Footer";
-// import { MouseShadow } from "../components/effects";
-// import { MouseClickEffect } from "../components/mouse-click-effect";
-import GoToTop from "../components/goToTop/go-to-top";
-import ChatIcon from "../components/chatbot/chat-icon";
-import AIChatModal from "../components/chatbot/ai-chat-modal";
-import ConsoleLog from "@/components/consoleLog/ConsoleLog";
+import Projects from "@/components/projects/Projects";
+import Testimonials from "@/components/testimonials/Testimonials";
+import Experience from "@/components/experience/Experience";
+import Footer from "@/components/foooter/Footer";
+import Header from "@/components/header/Header";
+
+import ScrollToTop from "@/components/scroll-to-top/ScrollToTop";
 
 export default function Home() {
   return (
-    <>
+    <main className="min-h-screen">
       <Header />
       <Hero />
-      <AboutMe />
+      <About />
       <Skills />
       <Projects />
-      <Contact />
+      <Experience />
+      <Testimonials />
       <Footer />
-      <GoToTop />
-      <ChatIcon />
-      <AIChatModal />
-      <ConsoleLog />
-      {/* <MouseClickEffect /> */}
-      {/* <MouseShadow /> */}
-    </>
+      <ScrollToTop />
+    </main>
   );
 }
