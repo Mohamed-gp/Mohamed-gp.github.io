@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { ArrowRight, Download, Github, Linkedin, Mail } from "lucide-react";
 import Link from "next/link";
-import ProfilePicture from "@/../public/profilePicture2mb.png";
+import ProfilePicture from "@/../public/profile/profilePicture2mb.png";
 import Image from "next/image";
 
 export default function Hero() {
@@ -65,7 +65,7 @@ export default function Hero() {
               <Link
                 href="https://github.com/Mohamed-gp"
                 target="_blank"
-                className="hover:text-primary transition-colors"
+                className="hover:text-primary transition-colors cursor-pointer"
               >
                 <Github className="h-6 w-6" />
                 <span className="sr-only">GitHub</span>
@@ -73,14 +73,15 @@ export default function Hero() {
               <Link
                 href="https://www.linkedin.com/in/mohamed-outerbah-b97469257"
                 target="_blank"
-                className="hover:text-primary transition-colors"
+                className="hover:text-primary transition-colors cursor-pointer"
               >
                 <Linkedin className="h-6 w-6" />
                 <span className="sr-only">LinkedIn</span>
               </Link>
               <Link
                 href="mailto:mohamedterba6@gmail.com"
-                className="hover:text-primary transition-colors"
+                target="_blank"
+                className="hover:text-primary transition-colors cursor-pointer"
               >
                 <Mail className="h-6 w-6" />
                 <span className="sr-only">Email</span>

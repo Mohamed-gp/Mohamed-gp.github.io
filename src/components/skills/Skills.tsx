@@ -51,7 +51,7 @@ export default function Skills() {
                   <Image
                     loading="lazy"
                     className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12"
-                    src={`/${skill?.filename}`}
+                    src={`/skills/${skill?.filename}`}
                     alt={skill.name}
                     width={100}
                     height={100}

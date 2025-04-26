@@ -63,10 +63,10 @@ export default function About() {
               for creating elegant solutions to complex problems.
             </p>
             <p className="text-muted-foreground">
-              I'm currently studying Computer Science while working on freelance
-              projects that allow me to apply my knowledge in real-world
-              scenarios. Each project is an opportunity to learn and grow as a
-              developer.
+              I've focused on building my expertise through hands-on freelance
+              projects that challenge me to deliver professional solutions for
+              clients worldwide. Each project provides valuable experience and
+              expands my professional capabilities.
             </p>
             <p className="text-muted-foreground">
               I'm constantly learning and adapting to new technologies, ensuring

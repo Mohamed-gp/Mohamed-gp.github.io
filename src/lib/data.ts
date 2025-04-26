@@ -10,12 +10,12 @@ const navBarTitles = [
 
 const projectsImagesSkills = [
   // docker and kubernetes in learning journey
-  { filename: "javascript.svg", name: "javascript" },
+  { filename: "typescript.svg", name: "typescript" },
   { filename: "sql.png",name : "sql"},
   // { filename: "sql1.png",name : "sql"},
   
-  { filename: "typescript.svg", name: "typescript" },
   { filename: "nextjs.svg", name: "next js" },
+  { filename: "javascript.svg", name: "javascript" },
   { filename: "react.svg", name: "react" },
   // { filename: "astrojs.svg", name: "astro js" }, if it commented i will learn it later because you must limit your skills
   // { filename: "tauri.svg", name: "tauri" },
