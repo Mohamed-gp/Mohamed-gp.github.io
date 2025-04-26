@@ -102,44 +102,29 @@ export default function Footer() {
             </h3>
             <ul className="space-y-1 sm:space-y-2 text-sm">
               <li>
-                <Link
-                  href="#"
-                  className="text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  Web Development
-                </Link>
+                <p className="text-muted-foreground hover:text-foreground transition-colors">
+                  Full Stack Development
+                </p>
               </li>
               <li>
-                <Link
-                  href="#"
-                  className="text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  Mobile App Development
-                </Link>
+                <p className="text-muted-foreground hover:text-foreground transition-colors">
+                  Debugging & Troubleshooting
+                </p>
               </li>
               <li>
-                <Link
-                  href="#"
-                  className="text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  E-commerce Solutions
-                </Link>
+                <p className="text-muted-foreground hover:text-foreground transition-colors">
+                  API Development & Integration
+                </p>
               </li>
               <li>
-                <Link
-                  href="#"
-                  className="text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  UI/UX Design
-                </Link>
+                <p className="text-muted-foreground hover:text-foreground transition-colors">
+                  UI/UX Implementation
+                </p>
               </li>
               <li>
-                <Link
-                  href="#"
-                  className="text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  Consulting
-                </Link>
+                <p className="text-muted-foreground hover:text-foreground transition-colors">
+                  Technical Consulting
+                </p>
               </li>
             </ul>
           </div>
@@ -147,7 +132,7 @@ export default function Footer() {
 
         <div className="border-t mt-8 sm:mt-12 pt-4 sm:pt-6 flex flex-col md:flex-row justify-between items-center">
           <p className="text-sm text-muted-foreground">
-            &copy; {currentYear} DevPortfolio. All rights reserved.
+            &copy; {currentYear} Mohamed Outerbah. All rights reserved.
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <Link
