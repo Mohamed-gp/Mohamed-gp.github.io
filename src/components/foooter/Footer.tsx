@@ -39,6 +39,7 @@ export default function Footer() {
                 <span className="sr-only">LinkedIn</span>
               </Link>
               <Link
+                target="_blank"
                 href="mailto:mohamedterba6@gmail.com"
                 className="hover:text-primary transition-colors"
               >
