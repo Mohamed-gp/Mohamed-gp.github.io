@@ -15,6 +15,7 @@ import {
   FileDown,
   Calendar,
   Building,
+  Box,
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -95,6 +96,27 @@ export default function Experience() {
       color: "from-purple-500/20 to-indigo-500/20",
     },
     {
+      title: "Innobyte Hackathon",
+      organization: "ByteCraft",
+      website: "https://innobyte.vercel.app",
+      date: "December 2023",
+      description:
+        "Participated in the hackathon, developing innovative solutions among 18 teams at Syphax Hotel.",
+      image: "/achievement/innobyte.png",
+      icon: <Trophy className="h-5 w-5 text-blue-500" />,
+      color: "from-emerald-500/20 to-green-500/20",
+    },
+    {
+      title: "WeHack Logistics Optimization",
+      organization: "Einstein's Club",
+      date: "November 2024",
+      description:
+        "Participated in WeHack hackathon focused on optimizing logistics systems and supply chain solutions.",
+      image: null,
+      icon: <Box className="h-5 w-5 text-orange-500" />,
+      color: "from-orange-500/20 to-red-500/20",
+    },
+    {
       title: "Salam Hack Online",
       organization: "Salam Hack",
       date: "2025",
@@ -104,17 +126,6 @@ export default function Experience() {
       image: null,
       icon: <Award className="h-5 w-5 text-blue-500" />,
       color: "from-blue-500/20 to-cyan-500/20",
-    },
-    {
-      title: "Innobyte Hackathon",
-      organization: "ByteCraft",
-      website: "https://innobyte.vercel.app",
-      date: "December 2024",
-      description:
-        "Participated in the hackathon, developing innovative solutions among 18 teams at Syphax Hotel.",
-      file: "/achievement/innobyte.pdf",
-      icon: <Trophy className="h-5 w-5 text-blue-500" />,
-      color: "from-emerald-500/20 to-green-500/20",
     },
   ];
 
