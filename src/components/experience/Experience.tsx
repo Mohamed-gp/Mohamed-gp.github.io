@@ -12,7 +12,6 @@ import {
   Medal,
   Star,
   ExternalLink,
-  FileDown,
   Calendar,
   Building,
   Box,
@@ -124,6 +123,7 @@ export default function Experience() {
       description:
         "Participated in the Salam Hack Online competition, developing solutions to real-world problems.",
       image: null,
+      file: null,
       icon: <Award className="h-5 w-5 text-blue-500" />,
       color: "from-blue-500/20 to-cyan-500/20",
     },
@@ -443,14 +443,7 @@ export default function Experience() {
                               </Button>
                             )}
 
-                            {cert.file && (
-                              <Button asChild variant="outline" size="sm">
-                                <Link href={`${cert.file}`} target="_blank">
-                                  <FileDown className="h-4 w-4 mr-2" />
-                                  Download Certificate
-                                </Link>
-                              </Button>
-                            )}
+                           
                           </div>
                         </div>
                       </div>
