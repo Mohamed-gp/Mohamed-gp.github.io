@@ -23,7 +23,7 @@ export default function Footer() {
             </p>
             <div className="flex space-x-4">
               <Link
-                href="https://github.com"
+                href="https://github.com/Mohamed-gp"
                 target="_blank"
                 className="hover:text-primary transition-colors"
               >
@@ -31,7 +31,7 @@ export default function Footer() {
                 <span className="sr-only">GitHub</span>
               </Link>
               <Link
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/mohamed-outerbah-b97469257"
                 target="_blank"
                 className="hover:text-primary transition-colors"
               >
@@ -72,6 +72,14 @@ export default function Footer() {
               </li>
               <li>
                 <Link
+                  href="#experience"
+                  className="text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  Experience
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="#skills"
                   className="text-muted-foreground hover:text-foreground transition-colors"
                 >
@@ -80,18 +88,18 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="#projects"
-                  className="text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  Projects
-                </Link>
-              </li>
-              <li>
-                <Link
                   href="#testimonials"
                   className="text-muted-foreground hover:text-foreground transition-colors"
                 >
                   Testimonials
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="#projects"
+                  className="text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  Projects
                 </Link>
               </li>
             </ul>
@@ -131,24 +139,10 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t mt-8 sm:mt-12 pt-4 sm:pt-6 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-sm text-muted-foreground">
+        <div className="border-t mt-8 sm:mt-12 pt-4 sm:pt-6">
+          <p className="text-sm text-muted-foreground text-center">
             &copy; {currentYear} Mohamed Outerbah. All rights reserved.
           </p>
-          <div className="flex space-x-6 mt-4 md:mt-0">
-            <Link
-              href="#"
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-            >
-              Privacy Policy
-            </Link>
-            <Link
-              href="#"
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-            >
-              Terms of Service
-            </Link>
-          </div>
         </div>
       </div>
     </footer>

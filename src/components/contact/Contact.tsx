@@ -1,228 +1,158 @@
-"use client"
+"use client";
 
-import type React from "react"
-
-import { motion } from "framer-motion"
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { Mail, MapPin, Phone, Send } from "lucide-react"
-import { useState } from "react"
-import { toast } from "@/hooks/use-toast"
+import { motion } from "framer-motion";
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent } from "@/components/ui/card";
+import { Github, Linkedin, Mail } from "lucide-react";
 
 export default function Contact() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  })
-  const [isSubmitting, setIsSubmitting] = useState(false)
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target
-    setFormData((prev) => ({ ...prev, [name]: value }))
-  }
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500))
-
-    toast({
-      title: "Message sent!",
-      description: "Thank you for your message. I'll get back to you soon.",
-    })
-
-    setFormData({
-      name: "",
-      email: "",
-      subject: "",
-      message: "",
-    })
-    setIsSubmitting(false)
-  }
-
   return (
-    <section id="contact" className="py-20">
-      <div className="container">
+    <section id="contact" className="py-20 bg-muted/30 dark:bg-gray-900/30">
+      <div className="container px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-16 max-w-3xl mx-auto"
+          className="text-center mb-12 max-w-3xl mx-auto"
         >
-          <Badge variant="outline" className="mb-4 px-3 py-1 text-sm border-primary/20">
+          <Badge
+            variant="outline"
+            className="mb-4 px-3 py-1 text-sm border-primary/20 bg-primary/5 dark:bg-primary/10"
+          >
             Get In Touch
           </Badge>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Let's Work Together</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Let's Connect</h2>
           <p className="text-muted-foreground">
-            Have a project in mind or want to discuss potential opportunities? I'd love to hear from you. Fill out the
-            form below, and I'll get back to you as soon as possible.
+            Have a project in mind or want to discuss potential opportunities?
+            Feel free to reach out through any of these channels.
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-3 gap-10">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="space-y-6"
-          >
-            <Card>
-              <CardContent className="p-6 flex items-start gap-4">
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                  <Mail className="h-6 w-6 text-primary" />
-                </div>
-                <div>
-                  <h3 className="font-semibold mb-1">Email</h3>
-                  <p className="text-muted-foreground mb-2">For general inquiries and project discussions</p>
-                  <a href="mailto:contact@example.com" className="text-primary hover:underline">
-                    contact@example.com
+        <div className="max-w-3xl mx-auto">
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
+            {/* Email Card */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+            >
+              <Card className="overflow-hidden border-primary/10 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 h-full">
+                <CardContent className="p-6 flex flex-col items-center text-center h-full">
+                  <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mb-4">
+                    <Mail className="h-8 w-8 text-primary" />
+                  </div>
+                  <h3 className="font-bold text-xl mb-2">Email</h3>
+                  <p className="text-muted-foreground mb-4 text-sm">
+                    For direct inquiries and collaborations
+                  </p>
+                  <a
+                    href="mailto:mohamedterba6@gmail.com"
+                    target="_blank"
+                    className="mt-auto inline-flex items-center text-primary hover:underline font-medium"
+                  >
+                    mohamedterba6@gmail.com
                   </a>
-                </div>
-              </CardContent>
-            </Card>
+                </CardContent>
+              </Card>
+            </motion.div>
 
-            <Card>
-              <CardContent className="p-6 flex items-start gap-4">
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                  <Phone className="h-6 w-6 text-primary" />
-                </div>
-                <div>
-                  <h3 className="font-semibold mb-1">Phone</h3>
-                  <p className="text-muted-foreground mb-2">Available Monday to Friday, 9am to 6pm</p>
-                  <a href="tel:+1234567890" className="text-primary hover:underline">
-                    +1 (234) 567-890
+            {/* LinkedIn Card */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
+              <Card className="overflow-hidden border-primary/10 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 h-full">
+                <CardContent className="p-6 flex flex-col items-center text-center h-full">
+                  <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mb-4">
+                    <Linkedin className="h-8 w-8 text-primary" />
+                  </div>
+                  <h3 className="font-bold text-xl mb-2">LinkedIn</h3>
+                  <p className="text-muted-foreground mb-4 text-sm">
+                    Connect with me professionally
+                  </p>
+                  <a
+                    href="https://www.linkedin.com/in/mohamed-outerbah-b97469257"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-auto inline-flex items-center gap-1 text-primary hover:underline font-medium"
+                  >
+                    View Profile
+                    <svg
+                      className="h-3.5 w-3.5"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                    >
+                      <path
+                        d="M7 17L17 7M17 7H8M17 7V16"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
                   </a>
-                </div>
-              </CardContent>
-            </Card>
+                </CardContent>
+              </Card>
+            </motion.div>
 
-            <Card>
-              <CardContent className="p-6 flex items-start gap-4">
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                  <MapPin className="h-6 w-6 text-primary" />
-                </div>
-                <div>
-                  <h3 className="font-semibold mb-1">Location</h3>
-                  <p className="text-muted-foreground mb-2">Available for remote work worldwide</p>
-                  <p className="text-primary">San Francisco, CA</p>
-                </div>
-              </CardContent>
-            </Card>
-          </motion.div>
+            {/* GitHub Card */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+            >
+              <Card className="overflow-hidden border-primary/10 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 h-full">
+                <CardContent className="p-6 flex flex-col items-center text-center h-full">
+                  <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mb-4">
+                    <Github className="h-8 w-8 text-primary" />
+                  </div>
+                  <h3 className="font-bold text-xl mb-2">GitHub</h3>
+                  <p className="text-muted-foreground mb-4 text-sm">
+                    Check out my open source work
+                  </p>
+                  <a
+                    href="https://github.com/Mohamed-gp"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-auto inline-flex items-center gap-1 text-primary hover:underline font-medium"
+                  >
+                    View Projects
+                    <svg
+                      className="h-3.5 w-3.5"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                    >
+                      <path
+                        d="M7 17L17 7M17 7H8M17 7V16"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </a>
+                </CardContent>
+              </Card>
+            </motion.div>
+          </div>
 
+          {/* Additional message */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="lg:col-span-2"
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="text-center mt-12 text-muted-foreground"
           >
-            <Card>
-              <CardContent className="p-6">
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div className="space-y-2">
-                      <label htmlFor="name" className="text-sm font-medium">
-                        Your Name
-                      </label>
-                      <Input
-                        id="name"
-                        name="name"
-                        placeholder="John Doe"
-                        value={formData.name}
-                        onChange={handleChange}
-                        required
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <label htmlFor="email" className="text-sm font-medium">
-                        Your Email
-                      </label>
-                      <Input
-                        id="email"
-                        name="email"
-                        type="email"
-                        placeholder="john@example.com"
-                        value={formData.email}
-                        onChange={handleChange}
-                        required
-                      />
-                    </div>
-                  </div>
-                  <div className="space-y-2">
-                    <label htmlFor="subject" className="text-sm font-medium">
-                      Subject
-                    </label>
-                    <Input
-                      id="subject"
-                      name="subject"
-                      placeholder="Project Inquiry"
-                      value={formData.subject}
-                      onChange={handleChange}
-                      required
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <label htmlFor="message" className="text-sm font-medium">
-                      Message
-                    </label>
-                    <Textarea
-                      id="message"
-                      name="message"
-                      placeholder="Tell me about your project..."
-                      rows={6}
-                      value={formData.message}
-                      onChange={handleChange}
-                      required
-                    />
-                  </div>
-                  <Button type="submit" className="w-full" disabled={isSubmitting}>
-                    {isSubmitting ? (
-                      <span className="flex items-center">
-                        <svg
-                          className="animate-spin -ml-1 mr-2 h-4 w-4 text-white"
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                        >
-                          <circle
-                            className="opacity-25"
-                            cx="12"
-                            cy="12"
-                            r="10"
-                            stroke="currentColor"
-                            strokeWidth="4"
-                          ></circle>
-                          <path
-                            className="opacity-75"
-                            fill="currentColor"
-                            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                          ></path>
-                        </svg>
-                        Sending...
-                      </span>
-                    ) : (
-                      <span className="flex items-center">
-                        <Send className="mr-2 h-4 w-4" />
-                        Send Message
-                      </span>
-                    )}
-                  </Button>
-                </form>
-              </CardContent>
-            </Card>
+            <p>Looking forward to connecting with you!</p>
           </motion.div>
         </div>
       </div>
     </section>
-  )
+  );
 }
