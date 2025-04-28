@@ -55,7 +55,7 @@ export default function RootLayout({
       <body className={cairo.className}>
         <ThemeProvider
           attribute="class"
-          defaultTheme="dar"
+          defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >

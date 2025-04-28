@@ -28,7 +28,7 @@ const projectsImagesSkills = [
   { filename: "prisma.svg", name: "prisma" },
   { filename: "zodlogo.svg", name: "zod" },
   // { filename: "langchain.png", name: "langchain" },
-  { filename: "nextauth.webp", name: "next auth" },
+  { filename: "nextauth.webp", name: "auth js" },
   // { filename: "auth0.svg", name: "auth0" },
   { filename: "nodejs.svg", name: "node js" },
   { filename: "deno.svg", name: "deno" },

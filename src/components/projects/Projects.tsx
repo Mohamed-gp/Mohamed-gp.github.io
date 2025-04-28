@@ -227,20 +227,22 @@ function ComingSoonCard({ project, index }: { project: any; index: number }) {
           </div>
         </div>
 
-        <CardContent className="flex-1 p-6 space-y-5">
+        <CardContent className="flex-1 p-6 space-y-5 dark:bg-gray-800/50">
           <div className="space-y-2">
-            <h3 className="text-xl font-bold">{project.title}</h3>
-            <p className="text-muted-foreground text-sm">
+            <h3 className="text-xl font-bold dark:text-white">
+              {project.title}
+            </h3>
+            <p className="text-muted-foreground dark:text-gray-300 text-sm">
               {project.description}
             </p>
           </div>
 
-          {/* Stylized tech tag placeholders */}
+          {/* Stylized tech tag placeholders - improved for dark mode */}
           <div className="flex flex-wrap gap-2">
             {Array.from({ length: 4 }).map((_, i) => (
               <div
                 key={i}
-                className="h-7 rounded-full flex items-center space-x-1 px-3 animate-pulse"
+                className="h-7 rounded-full flex items-center space-x-1 px-3 animate-pulse border border-transparent dark:border-gray-700/40"
                 style={{
                   background: `linear-gradient(to right, ${getRandomGradient(
                     i
@@ -249,25 +251,25 @@ function ComingSoonCard({ project, index }: { project: any; index: number }) {
                   animationDuration: "2s",
                 }}
               >
-                <div className="w-2 h-2 rounded-full bg-background/80"></div>
-                <div className="h-2 w-12 rounded-full bg-background/80"></div>
+                <div className="w-2 h-2 rounded-full bg-background/90 dark:bg-gray-200"></div>
+                <div className="h-2.5 w-12 rounded-full bg-background/90 dark:bg-gray-200/90"></div>
               </div>
             ))}
           </div>
 
-          {/* Feature list placeholders */}
-          <div className="space-y-3 pt-3">
+          {/* Feature list placeholders - improved for dark mode */}
+          <div className="space-y-3.5 pt-3">
             <div className="flex items-start">
-              <div className="w-4 h-4 rounded-full bg-primary/20 flex-shrink-0 mt-0.5 mr-3 animate-pulse"></div>
-              <div className="w-full h-3 bg-muted-foreground/20 rounded-full"></div>
+              <div className="w-4 h-4 rounded-full bg-primary/30 dark:bg-primary/50 flex-shrink-0 mt-0.5 mr-3 animate-pulse"></div>
+              <div className="w-full h-3 bg-muted-foreground/20 dark:bg-gray-500/40 rounded-full"></div>
             </div>
             <div className="flex items-start">
-              <div className="w-4 h-4 rounded-full bg-primary/20 flex-shrink-0 mt-0.5 mr-3 animate-pulse"></div>
-              <div className="w-3/4 h-3 bg-muted-foreground/20 rounded-full"></div>
+              <div className="w-4 h-4 rounded-full bg-primary/30 dark:bg-primary/50 flex-shrink-0 mt-0.5 mr-3 animate-pulse"></div>
+              <div className="w-3/4 h-3 bg-muted-foreground/20 dark:bg-gray-500/40 rounded-full"></div>
             </div>
             <div className="flex items-start">
-              <div className="w-4 h-4 rounded-full bg-primary/20 flex-shrink-0 mt-0.5 mr-3 animate-pulse"></div>
-              <div className="w-5/6 h-3 bg-muted-foreground/20 rounded-full"></div>
+              <div className="w-4 h-4 rounded-full bg-primary/30 dark:bg-primary/50 flex-shrink-0 mt-0.5 mr-3 animate-pulse"></div>
+              <div className="w-5/6 h-3 bg-muted-foreground/20 dark:bg-gray-500/40 rounded-full"></div>
             </div>
           </div>
         </CardContent>
@@ -290,12 +292,12 @@ function ComingSoonCard({ project, index }: { project: any; index: number }) {
 // Helper function to generate random gradients for the tech tags
 function getRandomGradient(index: number) {
   const gradients = [
-    "rgba(79, 70, 229, 0.2) 0%, rgba(45, 212, 191, 0.2) 100%",
-    "rgba(249, 115, 22, 0.2) 0%, rgba(234, 88, 12, 0.2) 100%",
-    "rgba(16, 185, 129, 0.2) 0%, rgba(5, 150, 105, 0.2) 100%",
-    "rgba(239, 68, 68, 0.2) 0%, rgba(220, 38, 38, 0.2) 100%",
-    "rgba(59, 130, 246, 0.2) 0%, rgba(37, 99, 235, 0.2) 100%",
-    "rgba(168, 85, 247, 0.2) 0%, rgba(139, 92, 246, 0.2) 100%",
+    "rgba(79, 70, 229, 0.3) 0%, rgba(45, 212, 191, 0.3) 100%",
+    "rgba(249, 115, 22, 0.3) 0%, rgba(234, 88, 12, 0.3) 100%",
+    "rgba(16, 185, 129, 0.3) 0%, rgba(5, 150, 105, 0.3) 100%",
+    "rgba(239, 68, 68, 0.3) 0%, rgba(220, 38, 38, 0.3) 100%",
+    "rgba(59, 130, 246, 0.3) 0%, rgba(37, 99, 235, 0.3) 100%",
+    "rgba(168, 85, 247, 0.3) 0%, rgba(139, 92, 246, 0.3) 100%",
   ];
   return gradients[index % gradients.length];
 }
