@@ -102,6 +102,14 @@ export default function Footer() {
                   Projects
                 </Link>
               </li>
+              <li>
+                <Link
+                  href="#contact"
+                  className="text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  Contact
+                </Link>
+              </li>
             </ul>
           </div>
 
