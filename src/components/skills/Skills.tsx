@@ -2,6 +2,7 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
+import { Input } from "@/components/ui/input";
 import Image from "next/image";
 import { projectsImagesSkills } from "@/lib/data";
 import { useState, useEffect } from "react";
@@ -142,6 +143,26 @@ export default function Skills() {
               </button>
             ))}
           </div>
+
+          {/* Search input (uncomment when needed) */}
+          {/* <div className="relative w-full max-w-xs">
+            <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
+            <Input
+              type="text"
+              placeholder="Search skills..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="pl-9 pr-9 h-10 bg-muted/40 dark:bg-gray-800/40 backdrop-blur-sm border-muted dark:border-gray-700/50"
+            />
+            {searchQuery && (
+              <button
+                onClick={() => setSearchQuery("")}
+                className="absolute right-2.5 top-2.5 text-muted-foreground hover:text-foreground transition-colors"
+              >
+                <X className="h-4 w-4" />
+              </button>
+            )}
+          </div> */}
         </div>
 
         {mounted && (
@@ -205,27 +226,30 @@ export default function Skills() {
                             "w-14 h-14 sm:w-16 sm:h-16 md:w-18 md:h-18",
                             "rounded-full",
                             "transition-all duration-300",
-                            "bg-gray-50 dark:bg-gray-800",
-                            "border border-gray-200/80 dark:border-gray-700/80",
-                            "shadow-sm dark:shadow-md",
-                            "group-hover:shadow-md dark:group-hover:shadow-lg",
+                            "bg-gray-100/80 dark:bg-gray-800" /* Lighter background for better contrast */,
+                            "border border-gray-300/50 dark:border-gray-700/80" /* More visible border */,
+                            "shadow-md dark:shadow-md" /* Improved shadow in light mode */,
+                            "group-hover:shadow-lg dark:group-hover:shadow-lg",
                             "group-hover:border-primary/30 dark:group-hover:border-primary/30"
                           )}
                           whileHover={{ scale: 1.05 }}
                           whileTap={{ scale: 0.95 }}
                         >
+                          {/* Background contrast layer for light mode */}
+                          <div className="absolute inset-[10%] rounded-full bg-white/90 dark:bg-transparent"></div>
+
                           {/* Light reflection */}
-                          <div className="absolute inset-0 rounded-full bg-gradient-to-b from-white/20 to-transparent dark:from-white/10 dark:to-transparent opacity-70"></div>
+                          <div className="absolute inset-0 rounded-full bg-gradient-to-b from-white/50 to-transparent dark:from-white/10 dark:to-transparent opacity-90"></div>
 
                           {/* The icon */}
-                          <div className="relative z-10 flex items-center justify-center w-full h-full p-3.5">
+                          <div className="relative z-10 flex items-center justify-center w-full h-full p-3">
                             <Image
                               loading="lazy"
                               className={cn(
                                 "w-full h-full",
                                 "object-contain transition-all duration-300 group-hover:scale-110",
-                                "drop-shadow-[0_1px_1px_rgba(0,0,0,0.1)] dark:drop-shadow-[0_1px_1px_rgba(0,0,0,0.2)]",
-                                "dark:brightness-110"
+                                "drop-shadow-[0_2px_2px_rgba(0,0,0,0.15)] dark:drop-shadow-[0_1px_1px_rgba(0,0,0,0.2)]" /* Stronger drop shadow */,
+                                "contrast-125 dark:brightness-110" /* Better contrast in light mode */
                               )}
                               src={`/skills/${skill?.filename}`}
                               alt={skill.name}
@@ -281,4 +305,3 @@ export default function Skills() {
     </section>
   );
 }
-// to do search and python ... 
