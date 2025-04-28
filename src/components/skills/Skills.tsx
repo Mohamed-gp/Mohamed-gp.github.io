@@ -122,7 +122,7 @@ export default function Skills() {
         {/* Search and filter controls */}
         <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-8">
           {/* Category filter pills */}
-          <div className="inline-flex p-1.5 rounded-full gap-2 bg-muted/40 backdrop-blur-sm border border-muted/30 dark:bg-gray-800/40 dark:border-gray-700/30">
+          <div className="inline-flex p-1.5 rounded-full gap-2 justify-center bg-muted/40 backdrop-blur-sm border border-muted/30 dark:bg-gray-800/40 dark:border-gray-700/30">
             {categories.map((category) => (
               <button
                 key={category.id}
@@ -173,7 +173,7 @@ export default function Skills() {
                 </motion.div>
               ) : (
                 <motion.div
-                  className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-4 sm:gap-6"
+                  className="flex flex-wrap justify-center gap-4 sm:gap-6"
                   layout
                   transition={{ type: "spring", stiffness: 300, damping: 30 }}
                 >
@@ -281,3 +281,4 @@ export default function Skills() {
     </section>
   );
 }
+// to do search and python ... 
