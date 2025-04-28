@@ -168,125 +168,81 @@ export default function Skills() {
         {mounted && (
           <AnimatePresence mode="wait">
             <motion.div
-              key={`${activeCategory}-${searchQuery}`}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.2 }}
-              className="flex flex-col gap-2 max-w-[920px] mx-auto text-center items-center"
+              className="flex flex-wrap justify-center gap-4 sm:gap-6"
+              layout
+              transition={{ type: "spring", stiffness: 300, damping: 30 }}
             >
-              {filteredSkills.length === 0 ? (
+              {filteredSkills.map((skill, ind) => (
                 <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="py-12 text-center text-muted-foreground"
-                >
-                  <p>No skills found matching your criteria.</p>
-                  <button
-                    onClick={() => {
-                      setSearchQuery("");
-                      setActiveCategory("all");
-                    }}
-                    className="mt-2 text-primary hover:underline"
-                  >
-                    Clear filters
-                  </button>
-                </motion.div>
-              ) : (
-                <motion.div
-                  className="flex flex-wrap justify-center gap-4 sm:gap-6"
+                  key={ind + skill?.filename}
+                  className="flex flex-col gap-2 items-center justify-center group"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.3, delay: ind * staggerDelay }}
                   layout
-                  transition={{ type: "spring", stiffness: 300, damping: 30 }}
                 >
-                  {filteredSkills.map((skill, ind) => (
+                  <div className="relative">
+                    {/* Skill level indicator (subtle ring) */}
+                    <div
+                      className={cn(
+                        "absolute -inset-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm",
+                        skill.level === 5
+                          ? "bg-primary/30"
+                          : skill.level === 4
+                          ? "bg-blue-500/30"
+                          : "bg-violet-500/30"
+                      )}
+                    ></div>
+
                     <motion.div
-                      key={ind + skill?.filename}
-                      className="flex flex-col gap-2 items-center justify-center group"
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      transition={{ duration: 0.3, delay: ind * staggerDelay }}
-                      layout
+                      className={cn(
+                        "relative flex items-center justify-center",
+                        "w-14 h-14 sm:w-16 sm:h-16 md:w-18 md:h-18",
+                        "rounded-full",
+                        "transition-all duration-300",
+                        "bg-gray-800/90 dark:bg-gray-800" /* Dark background for better contrast in BOTH modes */,
+                        "border border-gray-700/50 dark:border-gray-700/80" /* Dark border for light mode too */,
+                        "shadow-md dark:shadow-md",
+                        "group-hover:shadow-lg dark:group-hover:shadow-lg",
+                        "group-hover:border-primary/30 dark:group-hover:border-primary/30"
+                      )}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
                     >
-                      <div className="relative">
-                        {/* Skill level indicator (subtle ring) */}
-                        <div
+                      {/* Light reflection */}
+                      <div className="absolute inset-0 rounded-full bg-gradient-to-b from-white/20 to-transparent dark:from-white/10 dark:to-transparent opacity-70"></div>
+
+                      {/* The icon */}
+                      <div className="relative z-10 flex items-center justify-center w-full h-full p-3">
+                        <Image
+                          loading="lazy"
                           className={cn(
-                            "absolute -inset-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm",
-                            skill.level === 5
-                              ? "bg-primary/30"
-                              : skill.level === 4
-                              ? "bg-blue-500/30"
-                              : "bg-violet-500/30"
+                            "w-full h-full",
+                            "object-contain transition-all duration-300 group-hover:scale-110",
+                            "drop-shadow-[0_2px_2px_rgba(255,255,255,0.15)]" /* Light drop shadow for dark backgrounds */,
+                            "brightness-[1.15] contrast-[1.15]" /* Increased brightness and contrast */
                           )}
-                        ></div>
-
-                        <motion.div
-                          className={cn(
-                            "relative flex items-center justify-center",
-                            "w-14 h-14 sm:w-16 sm:h-16 md:w-18 md:h-18",
-                            "rounded-full",
-                            "transition-all duration-300",
-                            "bg-gray-100/80 dark:bg-gray-800" /* Lighter background for better contrast */,
-                            "border border-gray-300/50 dark:border-gray-700/80" /* More visible border */,
-                            "shadow-md dark:shadow-md" /* Improved shadow in light mode */,
-                            "group-hover:shadow-lg dark:group-hover:shadow-lg",
-                            "group-hover:border-primary/30 dark:group-hover:border-primary/30"
-                          )}
-                          whileHover={{ scale: 1.05 }}
-                          whileTap={{ scale: 0.95 }}
-                        >
-                          {/* Background contrast layer for light mode */}
-                          <div className="absolute inset-[10%] rounded-full bg-white/90 dark:bg-transparent"></div>
-
-                          {/* Light reflection */}
-                          <div className="absolute inset-0 rounded-full bg-gradient-to-b from-white/50 to-transparent dark:from-white/10 dark:to-transparent opacity-90"></div>
-
-                          {/* The icon */}
-                          <div className="relative z-10 flex items-center justify-center w-full h-full p-3">
-                            <Image
-                              loading="lazy"
-                              className={cn(
-                                "w-full h-full",
-                                "object-contain transition-all duration-300 group-hover:scale-110",
-                                "drop-shadow-[0_2px_2px_rgba(0,0,0,0.15)] dark:drop-shadow-[0_1px_1px_rgba(0,0,0,0.2)]" /* Stronger drop shadow */,
-                                "contrast-125 dark:brightness-110" /* Better contrast in light mode */
-                              )}
-                              src={`/skills/${skill?.filename}`}
-                              alt={skill.name}
-                              width={100}
-                              height={100}
-                              quality={90}
-                            />
-                          </div>
-                        </motion.div>
+                          src={`/skills/${skill?.filename}`}
+                          alt={skill.name}
+                          width={100}
+                          height={100}
+                          quality={90}
+                        />
                       </div>
-
-                      {/* Skill name with better visibility */}
-                      <motion.p
-                        className="font-medium text-foreground dark:text-gray-200 text-xs sm:text-sm transition-colors"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ delay: 0.1 + ind * staggerDelay }}
-                      >
-                        {skill?.name}
-                      </motion.p>
                     </motion.div>
-                  ))}
-                </motion.div>
-              )}
+                  </div>
 
-              {/* Improved count indicator */}
-              <motion.div
-                className="mt-8 text-center text-xs text-muted-foreground bg-muted/40 dark:bg-gray-800/40 px-3 py-1.5 rounded-full backdrop-blur-sm"
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5 }}
-              >
-                <p>
-                  Showing {filteredSkills.length} of {categorizedSkills.length}{" "}
-                  skills
-                </p>
-              </motion.div>
+                  {/* Skill name with better visibility */}
+                  <motion.p
+                    className="font-medium text-foreground dark:text-gray-200 text-xs sm:text-sm transition-colors"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.1 + ind * staggerDelay }}
+                  >
+                    {skill?.name}
+                  </motion.p>
+                </motion.div>
+              ))}
             </motion.div>
           </AnimatePresence>
         )}
