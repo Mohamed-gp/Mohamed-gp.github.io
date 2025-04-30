@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Cairo } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider/ThemeProvider";
+import { Analytics } from "@vercel/analytics/react"
+
 
 const cairo = Cairo({ subsets: ["latin"] });
 
@@ -61,6 +63,7 @@ export default function RootLayout({
         >
           {children}
         </ThemeProvider>
+        <Analytics/>
       </body>
     </html>
   );
