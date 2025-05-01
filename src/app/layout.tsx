@@ -1,10 +1,5 @@
-import type { Metadata } from "next";
-import { Cairo } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/components/theme-provider/ThemeProvider";
-import { Analytics } from "@vercel/analytics/react";
 
-const cairo = Cairo({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Mohamed Outerbah",
@@ -46,6 +41,20 @@ export const metadata: Metadata = {
   },
 };
 
+import type { Metadata } from "next";
+import { Cairo } from "next/font/google";
+import "./globals.css";
+import { ThemeProviderWrapper } from "@/components/theme-provider/ThemeProviderWrapper";
+import dynamic from "next/dynamic";
+
+// Load Analytics only in production and client-side
+const Analytics = dynamic(
+  () => import("@vercel/analytics/react").then((mod) => mod.Analytics),
+  { ssr: false }
+);
+
+const cairo = Cairo({ subsets: ["latin"] });
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -54,67 +63,11 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-(function() {
-  try {
-    const storageKey = 'theme-preference';
-    let theme;
-    try {
-      theme = localStorage.getItem(storageKey);
-    } catch (e) {
-      // If localStorage is not available, default to system
-      theme = 'system';
-    }
-    
-    // If no theme is found, default to system
-    theme = theme || 'system';
-    
-    function setThemeClass() {
-      const isDark = theme === 'dark' || 
-        (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
-      
-      if (isDark) {
-        document.documentElement.classList.add('dark');
-      } else {
-        document.documentElement.classList.remove('dark');
-      }
-    }
-    
-    // Set initial theme
-    setThemeClass();
-    
-    // Watch for system changes
-    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-    if (theme === 'system') {
-      // Add event listener with modern API
-      if (mediaQuery.addEventListener) {
-        mediaQuery.addEventListener('change', setThemeClass);
-      } else if (mediaQuery.addListener) {
-        // For older browsers
-        mediaQuery.addListener(setThemeClass);
-      }
-    }
-  } catch (e) {
-    console.error('Theme setup failed:', e);
-  }
-})();
-`,
-          }}
-        />
+        <script src="/scripts/theme-switcher.js" defer></script>
       </head>
       <body className={cairo.className} suppressHydrationWarning>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-          storageKey="theme-preference"
-        >
-          {children}
-        </ThemeProvider>
-        <Analytics />
+        <ThemeProviderWrapper>{children}</ThemeProviderWrapper>
+        {process.env.NODE_ENV === "production" && <Analytics />}
       </body>
     </html>
   );
