@@ -103,11 +103,8 @@ export default function Hero() {
                   alt="profile-picture"
                   width={500}
                   height={500}
-                  priority={true} // Critical for LCP
-                  quality={100} // Maximum quality for profile picture
+                  priority
                   className="rounded-full object-cover w-full h-full relative z-10"
-                  placeholder="blur"
-                  sizes="(max-width: 768px) 280px, (max-width: 1024px) 350px, 500px"
                 />
               </div>
             </div>
