@@ -5,8 +5,8 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { ArrowRight, Download, Github, Linkedin, Mail } from "lucide-react";
 import Link from "next/link";
-import ProfilePicture from "@/../public/profile/profilePicture2mb.png";
 import Image from "next/image";
+import ProfilePicture from "@/../public/profile/profilePicture2mb.png";
 
 export default function Hero() {
   const [text, setText] = useState("");
@@ -28,8 +28,6 @@ export default function Hero() {
       <div className="flex-1 flex items-center">
         <div className="container px-4 sm:px-6 grid lg:grid-cols-2 gap-8 md:gap-12 items-center pt-20">
           <motion.div
-            style={{ willChange: 'transform, opacity' }}
-
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -92,8 +90,6 @@ export default function Hero() {
           </motion.div>
 
           <motion.div
-            style={{ willChange: 'transform, opacity' }}
-
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
@@ -101,24 +97,20 @@ export default function Hero() {
           >
             <div className="relative z-10 aspect-square">
               <div className="w-full h-full rounded-full bg-gradient-to-br from-purple-600 to-pink-600 opacity-20 absolute animate-pulse" />
-              <div className="w-[95%] h-[95%] rounded-full bg-gradient-to-br from-purple-600 to-pink-600 opacity-10 absolute top-[2.5%] left-[2.5%] animate-pulse animation-delay-1000" />
-              <div className="w-[90%] h-[90%] rounded-full bg-gradient-to-br from-purple-600 to-pink-600 opacity-5 absolute top-[5%] left-[5%] animate-pulse animation-delay-2000" />
               <div className="w-full h-full aspect-square flex justify-center items-center">
                 <Image
                   src={ProfilePicture}
                   alt="profile-picture"
                   width={500}
                   height={500}
-                  priority
-                  quality={80} 
+                  priority={true} // Critical for LCP
+                  quality={75} // Reduced from 80 for better performance
                   className="rounded-full object-cover w-full h-full relative z-10"
-                  placeholder="blur" 
+                  placeholder="blur"
+                  sizes="(max-width: 768px) 280px, (max-width: 1024px) 350px, 500px"
                 />
               </div>
             </div>
-
-            <div className="absolute -top-10 -right-10 w-40 h-40 bg-purple-600/10 rounded-full blur-3xl" />
-            <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-pink-600/10 rounded-full blur-3xl" />
           </motion.div>
         </div>
       </div>

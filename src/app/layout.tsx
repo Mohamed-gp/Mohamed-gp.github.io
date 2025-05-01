@@ -46,7 +46,12 @@ import "./globals.css";
 import { ThemeProviderWrapper } from "@/components/theme-provider/ThemeProviderWrapper";
 import { Analytics } from "@vercel/analytics/react";
 
-const cairo = Cairo({ subsets: ["latin"] });
+const cairo = Cairo({
+  subsets: ["latin"],
+  display: "swap", // Prevents layout shift
+  preload: true,
+  adjustFontFallback: true,
+});
 
 export default function RootLayout({
   children,
@@ -56,6 +61,15 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        {/* Preload critical resources */}
+        <link rel="preload" href="/scripts/theme-switcher.js" as="script" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <script src="/scripts/theme-switcher.js" defer></script>
       </head>
       <body className={cairo.className} suppressHydrationWarning>
