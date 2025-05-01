@@ -6,7 +6,6 @@ import Testimonials from "@/components/testimonials/Testimonials";
 import Experience from "@/components/experience/Experience";
 import Footer from "@/components/foooter/Footer";
 import Header from "@/components/header/Header";
-
 import ScrollToTop from "@/components/scroll-to-top/ScrollToTop";
 import Contact from "@/components/contact/Contact";
 
