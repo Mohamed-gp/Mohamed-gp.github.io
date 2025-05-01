@@ -13,12 +13,28 @@ import {
 import { useEffect, useState } from "react";
 
 export function ThemeToggle() {
-  const { setTheme } = useTheme();
+  const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  // Listen for system preference changes if theme is set to system
+  useEffect(() => {
+    if (theme === "system" && mounted) {
+      const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+      const handleChange = () => {
+        // Force a re-render when system preference changes
+        document.documentElement.style.colorScheme = mediaQuery.matches
+          ? "dark"
+          : "light";
+      };
+
+      mediaQuery.addEventListener("change", handleChange);
+      return () => mediaQuery.removeEventListener("change", handleChange);
+    }
+  }, [theme, mounted]);
 
   if (!mounted) {
     return null;
