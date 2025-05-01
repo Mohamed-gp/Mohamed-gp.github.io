@@ -97,6 +97,8 @@ export default function Skills() {
 
       <div className="container px-4 sm:px-6 relative">
         <motion.div
+          style={{ willChange: 'transform, opacity' }}
+
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -168,12 +170,16 @@ export default function Skills() {
         {mounted && (
           <AnimatePresence mode="wait">
             <motion.div
+              style={{ willChange: 'transform, opacity' }}
+
               className="flex flex-wrap justify-center gap-4 sm:gap-6"
               layout
               transition={{ type: "spring", stiffness: 300, damping: 30 }}
             >
               {filteredSkills.map((skill, ind) => (
                 <motion.div
+                style={{ willChange: 'transform, opacity' }}
+
                   key={ind + skill?.filename}
                   className="flex flex-col gap-2 items-center justify-center group"
                   initial={{ opacity: 0, scale: 0.8 }}
@@ -195,6 +201,8 @@ export default function Skills() {
                     ></div>
 
                     <motion.div
+                      style={{ willChange: 'transform, opacity' }}
+
                       className={cn(
                         "relative flex items-center justify-center",
                         "w-14 h-14 sm:w-16 sm:h-16 md:w-18 md:h-18",
@@ -234,6 +242,8 @@ export default function Skills() {
 
                   {/* Skill name with better visibility */}
                   <motion.p
+                    style={{ willChange: 'transform, opacity' }}
+
                     className="font-medium text-foreground dark:text-gray-200 text-xs sm:text-sm transition-colors"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}

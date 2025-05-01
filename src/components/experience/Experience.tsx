@@ -52,6 +52,10 @@ export default function Experience() {
         "MongoDB",
         "and more",
       ],
+      rating: {
+        score: 4.8,
+        platform: "Fiverr",
+      },
     },
     {
       title: "Web Development Intern",
@@ -164,6 +168,7 @@ export default function Experience() {
     <section id="experience" className="py-16 sm:py-20">
       <div className="container px-4 sm:px-6">
         <motion.div
+          style={{ willChange: "transform, opacity" }}
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -187,6 +192,7 @@ export default function Experience() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
           <motion.div
+            style={{ willChange: "transform, opacity" }}
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -236,6 +242,27 @@ export default function Experience() {
                         </Link>
                       )}
                     </p>
+                    {job.rating && (
+                      <div className="flex items-center gap-1.5">
+                        <div className="flex">
+                          {[...Array(5)].map((_, i) => (
+                            <Star
+                              key={i}
+                              className={`h-4 w-4 ${
+                                i < Math.floor(job.rating.score)
+                                  ? "text-yellow-400 fill-yellow-400"
+                                  : i < job.rating.score
+                                  ? "text-yellow-400 fill-yellow-400" // For the partial star
+                                  : "text-muted"
+                              }`}
+                            />
+                          ))}
+                        </div>
+                        <span className="text-sm font-medium">
+                          {job.rating.score} on {job.rating.platform}
+                        </span>
+                      </div>
+                    )}
                     <p className="text-muted-foreground text-sm">
                       {job.description}
                     </p>
@@ -257,6 +284,7 @@ export default function Experience() {
           </motion.div>
 
           <motion.div
+            style={{ willChange: "transform, opacity" }}
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -303,7 +331,7 @@ export default function Experience() {
                     Certifications & Achievements
                   </h3>
                 </div>
-                
+
                 {/* Pagination indicator */}
                 <div className="text-sm text-muted-foreground">
                   {currentPage} / {totalPages}
@@ -313,6 +341,7 @@ export default function Experience() {
               <div className="space-y-3 sm:space-y-4">
                 {paginatedCertifications.map((cert, index) => (
                   <motion.div
+                    style={{ willChange: "transform, opacity" }}
                     key={index}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -508,7 +537,7 @@ export default function Experience() {
                   >
                     <ChevronLeft className="h-4 w-4" />
                   </Button>
-                  
+
                   {/* Page indicators */}
                   <div className="flex gap-1">
                     {Array.from({ length: totalPages }).map((_, i) => (
@@ -524,7 +553,7 @@ export default function Experience() {
                       />
                     ))}
                   </div>
-                  
+
                   <Button
                     variant="outline"
                     size="icon"

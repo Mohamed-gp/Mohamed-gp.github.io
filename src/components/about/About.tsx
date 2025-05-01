@@ -22,6 +22,7 @@ export default function About() {
     <section id="about" className="py-20 bg-muted/30">
       <div className="container">
         <motion.div
+          style={{ willChange: "transform, opacity" }}
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -49,6 +50,7 @@ export default function About() {
 
         <div className="grid md:grid-cols-2 gap-8 mb-16">
           <motion.div
+            style={{ willChange: "transform, opacity" }}
             custom={0}
             variants={fadeIn}
             initial="hidden"
@@ -77,6 +79,8 @@ export default function About() {
           </motion.div>
 
           <motion.div
+            style={{ willChange: 'transform, opacity' }}
+
             custom={1}
             variants={fadeIn}
             initial="hidden"

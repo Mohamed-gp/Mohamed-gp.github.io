@@ -1,6 +1,5 @@
 import "./globals.css";
 
-
 export const metadata: Metadata = {
   title: "Mohamed Outerbah",
   description: "Mohamed Outerbah Portfolio",
@@ -45,13 +44,7 @@ import type { Metadata } from "next";
 import { Cairo } from "next/font/google";
 import "./globals.css";
 import { ThemeProviderWrapper } from "@/components/theme-provider/ThemeProviderWrapper";
-import dynamic from "next/dynamic";
-
-// Load Analytics only in production and client-side
-const Analytics = dynamic(
-  () => import("@vercel/analytics/react").then((mod) => mod.Analytics),
-  { ssr: false }
-);
+import { Analytics } from "@vercel/analytics/react";
 
 const cairo = Cairo({ subsets: ["latin"] });
 
@@ -67,7 +60,7 @@ export default function RootLayout({
       </head>
       <body className={cairo.className} suppressHydrationWarning>
         <ThemeProviderWrapper>{children}</ThemeProviderWrapper>
-        {process.env.NODE_ENV === "production" && <Analytics />}
+        <Analytics />
       </body>
     </html>
   );

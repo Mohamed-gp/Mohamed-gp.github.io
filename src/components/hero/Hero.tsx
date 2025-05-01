@@ -28,6 +28,8 @@ export default function Hero() {
       <div className="flex-1 flex items-center">
         <div className="container px-4 sm:px-6 grid lg:grid-cols-2 gap-8 md:gap-12 items-center pt-20">
           <motion.div
+            style={{ willChange: 'transform, opacity' }}
+
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -90,6 +92,8 @@ export default function Hero() {
           </motion.div>
 
           <motion.div
+            style={{ willChange: 'transform, opacity' }}
+
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
@@ -106,7 +110,9 @@ export default function Hero() {
                   width={500}
                   height={500}
                   priority
+                  quality={80} 
                   className="rounded-full object-cover w-full h-full relative z-10"
+                  placeholder="blur" 
                 />
               </div>
             </div>

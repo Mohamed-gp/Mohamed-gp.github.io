@@ -85,6 +85,7 @@ export default function Testimonials() {
     <section id="testimonials" className="py-16 sm:py-20 bg-muted/30">
       <div className="container px-4 sm:px-6">
         <motion.div
+          style={{ willChange: "transform, opacity" }}
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -135,6 +136,7 @@ export default function Testimonials() {
               style={{
                 cursor: isDragging ? "grabbing" : "grab",
                 width: `${testimonials.length * 100}%`,
+                willChange: "transform, opacity",
               }}
             >
               {testimonials.map((testimonial) => (
