@@ -230,7 +230,7 @@ export default function Experience() {
                       </Badge>
                     </div>
                     <p className="text-primary font-medium text-sm sm:text-base flex items-center gap-2">
-                      {job.company == "Fiverr" ? (
+                      {job.company == "Fiverr" && job?.website ? (
                         <Link
                           href={job.website}
                           target="_blank"
