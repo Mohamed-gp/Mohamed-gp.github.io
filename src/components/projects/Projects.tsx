@@ -206,13 +206,13 @@ function ComingSoonCard({ project, index }: { project: any; index: number }) {
           </div>
 
           {/* Blurred placeholder image */}
-          <Image
-            src="/placeholder.svg?height=400&width=600"
+          {/* <Image
+            // src="/placeholder.svg?height=400&width=600"
             alt="Project placeholder"
             width={600}
             height={400}
             className="w-full h-full object-cover opacity-20 blur-sm"
-          />
+          /> */}
 
           {/* Coming soon badge with glow */}
           <div className="absolute flex items-center justify-center">
