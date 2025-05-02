@@ -22,8 +22,8 @@ const projectsImagesSkills = [
   // Backend
   { filename: "nodejs.svg", name: "Node.js" },
   { filename: "expressjs.svg", name: "Express.js" },
-  { filename: "go.svg", name: "Go" },
-  { filename: "fiber.png", name: "Go Fiber" },
+  // { filename: "go.svg", name: "Go" },
+  // { filename: "fiber.png", name: "Go Fiber" },
   { filename: "dingo.png", name: "Dingo (DI)" },
   { filename: "laravel.svg", name: "Laravel" },
   { filename: "deno.svg", name: "Deno" },
@@ -48,7 +48,7 @@ const projectsImagesSkills = [
   { filename: "icons8-git.svg", name: "Git" },
   { filename: "Jest.svg", name: "Jest" },
   { filename: "zodlogo.svg", name: "Zod" },
-  { filename: "electronjs.svg", name: "Electron" },
+  // { filename: "electronjs.svg", name: "Electron" },
 ] as const;
 // const projectsImagesSkills = [
 //   { filename: "typescript.svg", name: "typescript" },
