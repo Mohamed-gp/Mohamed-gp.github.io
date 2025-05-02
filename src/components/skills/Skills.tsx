@@ -47,7 +47,7 @@ const categories = [
 ];
 
 // Generate a deterministic skill level based on skill name
-function getSkillLevel(skillName : string) {
+function getSkillLevel(skillName: string) {
   const expertSkills = [
     "typescript",
     "javascript",
@@ -194,24 +194,24 @@ export default function Skills() {
           </p>
         </motion.div>
 
-        {/* Search and filter controls */}
-        <div className="flex flex-col justify-center items-center gap-4 mb-8">
-          {/* Category filter pills */}
-          <div className="inline-flex p-1.5 rounded-full gap-2 justify-center bg-muted/40 backdrop-blur-sm border border-muted/30 dark:bg-gray-800/40 dark:border-gray-700/30">
+        {/* Search and filter controls - FIXED FOR MOBILE */}
+        <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-8">
+          {/* Category filter pills - FIXED FOR MOBILE */}
+          <div className="flex flex-wrap justify-center w-full overflow-x-auto py-1 px-1.5 rounded-full gap-1 sm:gap-2 bg-muted/40 backdrop-blur-sm border border-muted/30 dark:bg-gray-800/40 dark:border-gray-700/30">
             {categories.map((category) => (
               <button
                 key={category.id}
                 onClick={() => setActiveCategory(category.id)}
                 className={cn(
-                  "px-3 py-1.5 text-sm font-medium rounded-full transition-all flex items-center gap-1.5",
+                  "px-2 sm:px-3 py-1.5 text-xs sm:text-sm font-medium rounded-full transition-all flex items-center gap-1 sm:gap-1.5 shrink-0",
                   activeCategory === category.id
                     ? "bg-primary text-primary-foreground shadow-sm"
                     : "text-muted-foreground hover:text-foreground hover:bg-muted dark:hover:bg-gray-700/50"
                 )}
               >
                 {category.icon}
-                <span className="hidden sm:inline">{category.label}</span>
-                <span className="inline sm:hidden">
+                <span className="hidden xs:inline">{category.label}</span>
+                <span className="inline xs:hidden">
                   {category.id === "all" ? "All" : category.label.split(" ")[0]}
                 </span>
               </button>
@@ -225,7 +225,7 @@ export default function Skills() {
               placeholder="Search skills..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="pl-9 pr-9 rounded-xl h-10 bg-muted/40 dark:bg-gray-800/40 backdrop-blur-sm border-muted dark:border-gray-700/50"
+              className="pl-9 pr-9 h-10 bg-muted/40 dark:bg-gray-800/40 backdrop-blur-sm border-muted dark:border-gray-700/50"
             />
             {searchQuery && (
               <button
@@ -333,6 +333,16 @@ export default function Skills() {
             transparent 1px
           );
           background-size: 24px 24px;
+        }
+
+        /* Add xs breakpoint for better control on very small screens */
+        @media (min-width: 480px) {
+          .xs\\:inline {
+            display: inline;
+          }
+          .xs\\:hidden {
+            display: none;
+          }
         }
       `}</style>
     </section>
