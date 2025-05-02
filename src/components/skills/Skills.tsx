@@ -195,7 +195,7 @@ export default function Skills() {
         </motion.div>
 
         {/* Search and filter controls */}
-        <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-8">
+        <div className="flex flex-col justify-center items-center gap-4 mb-8">
           {/* Category filter pills */}
           <div className="inline-flex p-1.5 rounded-full gap-2 justify-center bg-muted/40 backdrop-blur-sm border border-muted/30 dark:bg-gray-800/40 dark:border-gray-700/30">
             {categories.map((category) => (
@@ -225,7 +225,7 @@ export default function Skills() {
               placeholder="Search skills..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="pl-9 pr-9 h-10 bg-muted/40 dark:bg-gray-800/40 backdrop-blur-sm border-muted dark:border-gray-700/50"
+              className="pl-9 pr-9 rounded-xl h-10 bg-muted/40 dark:bg-gray-800/40 backdrop-blur-sm border-muted dark:border-gray-700/50"
             />
             {searchQuery && (
               <button
