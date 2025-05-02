@@ -47,7 +47,7 @@ const categories = [
 ];
 
 // Generate a deterministic skill level based on skill name
-function getSkillLevel(skillName) {
+function getSkillLevel(skillName : string) {
   const expertSkills = [
     "typescript",
     "javascript",
