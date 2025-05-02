@@ -7,7 +7,15 @@ import Image from "next/image";
 import { projectsImagesSkills } from "@/lib/data";
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
-import { BrainCircuit, Search, X, Zap } from "lucide-react";
+import {
+  BrainCircuit,
+  Code2,
+  Database,
+  Layers,
+  Search,
+  X,
+  Zap,
+} from "lucide-react";
 
 // Enhanced categories with icons
 const categories = [
@@ -16,57 +24,122 @@ const categories = [
     label: "All Skills",
     icon: <BrainCircuit className="h-3.5 w-3.5" />,
   },
-  { id: "frontend", label: "Frontend", icon: <Zap className="h-3.5 w-3.5" /> },
-  { id: "backend", label: "Backend", icon: <Zap className="h-3.5 w-3.5" /> },
+  {
+    id: "frontend",
+    label: "Frontend",
+    icon: <Code2 className="h-3.5 w-3.5" />,
+  },
+  {
+    id: "backend",
+    label: "Backend",
+    icon: <Database className="h-3.5 w-3.5" />,
+  },
+  {
+    id: "devops",
+    label: "DevOps",
+    icon: <Layers className="h-3.5 w-3.5" />,
+  },
   {
     id: "tools",
-    label: "Tools & DevOps",
+    label: "Tools & Others",
     icon: <Zap className="h-3.5 w-3.5" />,
   },
 ];
 
-// Add skill levels and sort by proficiency
-const categorizedSkills = projectsImagesSkills
-  .map((skill) => {
-    let category = "tools";
-    let level = Math.floor(Math.random() * 3) + 3; // Random level between 3-5 for demo
+// Generate a deterministic skill level based on skill name
+function getSkillLevel(skillName) {
+  const expertSkills = [
+    "typescript",
+    "javascript",
+    "react",
+    "next js",
+    "tailwind css",
+    "node js",
+  ];
+  const advancedSkills = [
+    "express js",
+    "mongodb",
+    "mysql",
+    "supabase",
+    "firebase",
+    "go",
+    "redux toolkit",
+  ];
 
-    if (
-      [
-        "react",
-        "next",
-        "html",
-        "css",
-        "javascript",
-        "typescript",
-        "tailwind",
-        "shadcn",
-        "vue",
-      ].some((tech) => skill.name.toLowerCase().includes(tech))
-    ) {
-      category = "frontend";
-    } else if (
-      [
-        "node",
-        "express",
-        "mongodb",
-        "mysql",
-        "postgres",
-        "graphql",
-        "firebase",
-        "supabase",
-      ].some((tech) => skill.name.toLowerCase().includes(tech))
-    ) {
-      category = "backend";
-    }
+  const normalizedName = skillName.toLowerCase();
 
-    return {
-      ...skill,
-      category,
-      level, // 5 = expert, 4 = advanced, 3 = intermediate
-    };
-  })
-  .sort((a, b) => b.level - a.level);
+  if (expertSkills.includes(normalizedName)) {
+    return 5; // Expert
+  } else if (advancedSkills.includes(normalizedName)) {
+    return 4; // Advanced
+  }
+  return 3; // Intermediate
+}
+
+// Deduplicate and categorize skills
+const uniqueSkillsMap = new Map();
+
+projectsImagesSkills.forEach((skill) => {
+  // If we already have this skill by name, skip it
+  if (uniqueSkillsMap.has(skill.name.toLowerCase())) {
+    return;
+  }
+
+  let category = "tools";
+
+  if (
+    [
+      "react",
+      "next",
+      "html",
+      "css",
+      "javascript",
+      "typescript",
+      "tailwind",
+      "mui",
+      "shadcn",
+    ].some((tech) => skill.name.toLowerCase().includes(tech))
+  ) {
+    category = "frontend";
+  } else if (
+    [
+      "node",
+      "express",
+      "mongodb",
+      "mysql",
+      "postgres",
+      "graphql",
+      "firebase",
+      "supabase",
+      "go",
+      "fiber",
+      "prisma",
+      "dingo",
+      "laravel",
+    ].some((tech) => skill.name.toLowerCase().includes(tech))
+  ) {
+    category = "backend";
+  } else if (
+    ["docker", "kubernetes", "git", "ci", "cd", "aws", "azure", "vercel"].some(
+      (tech) => skill.name.toLowerCase().includes(tech)
+    )
+  ) {
+    category = "devops";
+  }
+
+  const level = getSkillLevel(skill.name);
+
+  uniqueSkillsMap.set(skill.name.toLowerCase(), {
+    ...skill,
+    category,
+    level,
+  });
+});
+
+// Convert Map back to array and sort by level
+const categorizedSkills = Array.from(uniqueSkillsMap.values()).sort(
+  (a, b) => b.level - a.level
+);
 
 export default function Skills() {
   const [activeCategory, setActiveCategory] = useState("all");
@@ -97,8 +170,7 @@ export default function Skills() {
 
       <div className="container px-4 sm:px-6 relative">
         <motion.div
-          style={{ willChange: 'transform, opacity' }}
-
+          style={{ willChange: "transform, opacity" }}
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -146,8 +218,7 @@ export default function Skills() {
             ))}
           </div>
 
-          {/* Search input (uncomment when needed) */}
-          {/* <div className="relative w-full max-w-xs">
+          <div className="relative w-full max-w-xs">
             <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
             <Input
               type="text"
@@ -164,22 +235,20 @@ export default function Skills() {
                 <X className="h-4 w-4" />
               </button>
             )}
-          </div> */}
+          </div>
         </div>
 
         {mounted && (
           <AnimatePresence mode="wait">
             <motion.div
-              style={{ willChange: 'transform, opacity' }}
-
+              style={{ willChange: "transform, opacity" }}
               className="flex flex-wrap justify-center gap-4 sm:gap-6"
               layout
               transition={{ type: "spring", stiffness: 300, damping: 30 }}
             >
               {filteredSkills.map((skill, ind) => (
                 <motion.div
-                style={{ willChange: 'transform, opacity' }}
-
+                  style={{ willChange: "transform, opacity" }}
                   key={ind + skill?.filename}
                   className="flex flex-col gap-2 items-center justify-center group"
                   initial={{ opacity: 0, scale: 0.8 }}
@@ -201,8 +270,7 @@ export default function Skills() {
                     ></div>
 
                     <motion.div
-                      style={{ willChange: 'transform, opacity' }}
-
+                      style={{ willChange: "transform, opacity" }}
                       className={cn(
                         "relative flex items-center justify-center",
                         "w-14 h-14 sm:w-16 sm:h-16 md:w-18 md:h-18",
@@ -242,8 +310,7 @@ export default function Skills() {
 
                   {/* Skill name with better visibility */}
                   <motion.p
-                    style={{ willChange: 'transform, opacity' }}
-
+                    style={{ willChange: "transform, opacity" }}
                     className="font-medium text-foreground dark:text-gray-200 text-xs sm:text-sm transition-colors"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}

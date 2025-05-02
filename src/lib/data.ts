@@ -9,43 +9,46 @@ const navBarTitles = [
 ] as const;
 
 const projectsImagesSkills = [
-  // docker and kubernetes in learning journey
-  { filename: "typescript.svg", name: "typescript" },
-  { filename: "sql.png",name : "sql"},
-  // { filename: "sql1.png",name : "sql"},
-  
-  { filename: "nextjs.svg", name: "next js" },
-  { filename: "javascript.svg", name: "javascript" },
-  { filename: "react.svg", name: "react" },
-  // { filename: "astrojs.svg", name: "astro js" }, if it commented i will learn it later because you must limit your skills
-  // { filename: "tauri.svg", name: "tauri" },
-  // { filename: "electronjs.svg", name: "electron js" },
-  { filename: "tailwindcss.svg", name: "tailwind css" },
-  { filename: "reactrouter.svg", name: "react router" },
-  { filename: "reduxtoolkit.svg", name: "redux toolkit" },
-  // { filename: "reactquery.svg", name: "react query" },
-  // { filename: "swr.svg", name: "swr" },
-  { filename: "prisma.svg", name: "prisma" },
-  { filename: "zodlogo.svg", name: "zod" },
-  // { filename: "langchain.png", name: "langchain" },
-  { filename: "nextauth.webp", name: "auth js" },
-  // { filename: "auth0.svg", name: "auth0" },
-  { filename: "nodejs.svg", name: "node js" },
-  { filename: "deno.svg", name: "deno" },
-  { filename: "jwt.svg", name: "jwt" },
-  { filename: "expressjs.svg", name: "express js" },
-  // { filename: "nestjs.svg", name: "nest js" },
-  // { filename: "sanity.svg", name: "sanity" },
-  { filename: "supabase.svg", name: "supabase" },
-  { filename: "firebase.svg", name: "firebase" },
-  { filename: "mongodb.svg", name: "mongodb" },
-  { filename: "icons8-git.svg", name: "git" },
-  { filename: "stripe.svg", name: "stripe" },
-  
+  // Frontend
+  { filename: "typescript.svg", name: "TypeScript" },
+  { filename: "javascript.svg", name: "JavaScript" },
+  { filename: "react.svg", name: "React" },
+  { filename: "nextjs.svg", name: "Next.js" },
+  { filename: "tailwindcss.svg", name: "Tailwind CSS" },
+  { filename: "mui.svg", name: "Material UI" },
+  { filename: "reactrouter.svg", name: "React Router" },
+  { filename: "reduxtoolkit.svg", name: "Redux Toolkit" },
 
-  { filename: "postgressql.svg", name: "postgressql" },
-  // { filename: "mysql.svg", name: "mysql" },
-  // { filename: "sqlite.svg", name: "sqlite" },
+  // Backend
+  { filename: "nodejs.svg", name: "Node.js" },
+  { filename: "expressjs.svg", name: "Express.js" },
+  { filename: "go.svg", name: "Go" },
+  { filename: "fiber.png", name: "Go Fiber" },
+  { filename: "dingo.png", name: "Dingo (DI)" },
+  { filename: "laravel.svg", name: "Laravel" },
+  { filename: "deno.svg", name: "Deno" },
+
+  // Databases
+  { filename: "mongodb.svg", name: "MongoDB" },
+  { filename: "mysql.svg", name: "MySQL" },
+  { filename: "postgressql.svg", name: "PostgreSQL" },
+  { filename: "sqlite.svg", name: "SQLite" },
+  { filename: "prisma.svg", name: "Prisma" },
+
+  // Services & APIs
+  { filename: "supabase.svg", name: "Supabase" },
+  { filename: "firebase.svg", name: "Firebase" },
+  { filename: "nextauth.webp", name: "Auth.js" },
+  { filename: "auth0.svg", name: "Auth0" },
+  { filename: "jwt.svg", name: "JWT" },
+  { filename: "stripe.svg", name: "Stripe" },
+
+  // DevOps & Tools
+  { filename: "docker.svg", name: "Docker" },
+  { filename: "icons8-git.svg", name: "Git" },
+  { filename: "Jest.svg", name: "Jest" },
+  { filename: "zodlogo.svg", name: "Zod" },
+  { filename: "electronjs.svg", name: "Electron" },
 ] as const;
 // const projectsImagesSkills = [
 //   { filename: "typescript.svg", name: "typescript" },
@@ -222,4 +225,4 @@ const projects = [
   },
 ];
 
-export { navBarTitles, projectsImagesSkills ,projects};
+export { navBarTitles, projectsImagesSkills, projects };
