@@ -93,7 +93,7 @@ export default function Hero() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="relative order-first lg:order-last mx-auto w-[280px] sm:w-[350px] md:w-[400px] lg:w-[450px] xl:w-[500px] aspect-square"
+            className="relative order-first lg:order-last mx-auto w-[220px] sm:w-[280px] md:w-[320px] lg:w-[360px] xl:w-[400px] aspect-square"
           >
             <div className="relative z-10 aspect-square">
               <div className="w-full h-full rounded-full bg-gradient-to-br from-purple-600 to-pink-600 opacity-20 absolute animate-pulse" />
@@ -101,8 +101,8 @@ export default function Hero() {
                 <Image
                   src={ProfilePicture}
                   alt="profile-picture"
-                  width={500}
-                  height={500}
+                  width={400}
+                  height={400}
                   priority
                   className="rounded-full object-cover w-full h-full relative z-10"
                 />
