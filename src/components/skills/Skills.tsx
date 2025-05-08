@@ -197,7 +197,7 @@ export default function Skills() {
         {/* Search and filter controls - FIXED FOR MOBILE */}
         <div className="flex flex-col  justify-center items-center gap-4 mb-8">
           {/* Category filter pills - FIXED FOR MOBILE */}
-          <div className="flex flex-wrap justify-center w-full overflow-x-auto py-1 px-1.5 rounded-full gap-1 sm:gap-2 bg-muted/40 backdrop-blur-sm border border-muted/30 dark:bg-gray-800/40 dark:border-gray-700/30">
+          <div className="flex flex-wrap w-fit justify-center  overflow-x-auto py-1 px-1.5 rounded-full gap-1 sm:gap-2 bg-muted/40 backdrop-blur-sm border border-muted/30 dark:bg-gray-800/40 dark:border-gray-700/30">
             {categories.map((category) => (
               <button
                 key={category.id}
