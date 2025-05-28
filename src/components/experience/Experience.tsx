@@ -58,6 +58,30 @@ export default function Experience() {
       },
     },
     {
+      title: "SaaS Boiler CLI - Co-Creator",
+      company: "Open Source Project",
+      website: "https://www.npmjs.com/package/saas-boiler-cli",
+      period: "2024",
+      description:
+        "Co-developed a SaaS template generator CLI tool with 500+ peak downloads on npm. Built to streamline SaaS application development across multiple tech stacks with support for various frontend frameworks and backend technologies.",
+      skills: [
+        "Go",
+        "Nuxt",
+        "Angular",
+        "Next.js",
+        "TypeScript",
+        "REST APIs",
+        "Team Collaboration",
+        "CLI Development",
+      ],
+      achievements: [
+        "500+ peak downloads on npm",
+        "Multiple framework support (Next.js, Nuxt, Angular)",
+        "Backend support (Express, Python)",
+        "Published and maintained on npm registry",
+      ],
+    },
+    {
       title: "Web Development Intern",
       company: "Exclusive Labs",
       period: "December 2023 - February 2024",
