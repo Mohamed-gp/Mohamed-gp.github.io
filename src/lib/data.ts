@@ -82,10 +82,11 @@ const projectsImagesSkills = [
 // ] as const;
 const projects = [
   {
-    title: "SwiftBuy - Ultimate eCommerce Platform",
+    title: "Ultimate eCommerce Platform",
     description:
       "A full-stack eCommerce platform featuring a comprehensive shopping experience with wishlist, advanced filtering, and secure payment integration using Stripe.",
-    image: "/project1.png",
+    image:
+      "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=600&h=400&fit=crop&auto=format&q=80",
     liveLink: "https://swiftbuy.production-server.tech/",
     githubLink: "https://github.com/Mohamed-gp/ecommerce_mern",
     techUsed: [
@@ -116,10 +117,11 @@ const projects = [
     thereIsAdmin: true,
   },
   {
-    title: "Krelli - Comprehensive Renting Platform",
+    title: "Property Rental Platform",
     description:
       "A full-stack renting platform offering a seamless experience for property rentals with advanced search, booking management, and secure payment processing.",
-    image: "/project2.png",
+    image:
+      "https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=600&h=400&fit=crop&auto=format&q=80",
     liveLink: "https://krelli.production-server.tech/",
     githubLink: "https://github.com/Mohamed-gp/Krelli_x86",
     techUsed: [
@@ -154,10 +156,11 @@ const projects = [
     thereIsAdmin: true,
   },
   {
-    title: "SocialSync - Dynamic Social Media Platform",
+    title: "Social Media Platform",
     description:
       "A full-stack social media platform enabling users to connect, share, and interact with advanced features like real-time messaging, post filtering, and secure authentication.",
-    image: "/project3.png",
+    image:
+      "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=600&h=400&fit=crop&auto=format&q=80",
     liveLink: "https://socialsync.production-server.tech/",
     githubLink: "https://github.com/Mohamed-gp/SocialSync",
     techUsed: [
@@ -186,10 +189,11 @@ const projects = [
     thereIsAdmin: false,
   },
   {
-    title: "YumYum - Food Store and Delivery Platform",
+    title: "Food Delivery Platform",
     description:
       "A full-stack food store and delivery platform with a mobile app, offering a seamless ordering experience, real-time tracking, and secure payment integration.",
-    image: "/project4.png",
+    image:
+      "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&h=400&fit=crop&auto=format&q=80",
     liveLink: "https://yumyum.production-server.tech/",
     githubLink: "https://github.com/Mohamed-gp/YumYum",
     techUsed: [
@@ -199,13 +203,9 @@ const projects = [
       { filename: "tailwindcss.svg", name: "tailwind css" },
       { filename: "reactrouter.svg", name: "react router" },
       { filename: "reduxtoolkit.svg", name: "redux toolkit" },
-      { filename: "prisma.svg", name: "prisma" },
-      { filename: "zodlogo.svg", name: "zod" },
       { filename: "nodejs.svg", name: "node js" },
-      { filename: "deno.svg", name: "deno" },
       { filename: "jwt.svg", name: "jwt" },
       { filename: "expressjs.svg", name: "express js" },
-
       { filename: "supabase.svg", name: "supabase" },
       { filename: "firebase.svg", name: "firebase" },
       { filename: "mongodb.svg", name: "mongodb" },

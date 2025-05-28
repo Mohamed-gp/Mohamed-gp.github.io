@@ -65,10 +65,13 @@ export default function About() {
               for creating elegant solutions to complex problems.
             </p>
             <p className="text-muted-foreground">
-              I've focused on building my expertise through hands-on freelance
-              projects that challenge me to deliver professional solutions for
-              clients worldwide. Each project provides valuable experience and
-              expands my professional capabilities.
+              Through hands-on freelance projects, I've had the opportunity to
+              work with diverse teams and collaborate with clients worldwide.
+              Each project has taught me valuable lessons about teamwork,
+              communication, and delivering solutions that truly meet user
+              needs. This experience has been instrumental in developing my
+              professional capabilities and understanding of real-world business
+              requirements.
             </p>
             <p className="text-muted-foreground">
               I'm constantly learning and adapting to new technologies, ensuring
@@ -76,11 +79,41 @@ export default function About() {
               landscape. My goal is to create applications that not only
               function flawlessly but also provide exceptional user experiences.
             </p>
+
+            {/* Key Strengths */}
+            <div className="space-y-4 pt-4">
+              <h4 className="text-lg font-semibold">What I Bring to Teams:</h4>
+              <div className="grid sm:grid-cols-2 gap-3">
+                <div className="flex items-start gap-2">
+                  <span className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0" />
+                  <span className="text-sm text-muted-foreground">
+                    Strong problem-solving mindset
+                  </span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <span className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0" />
+                  <span className="text-sm text-muted-foreground">
+                    Collaborative team player
+                  </span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <span className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0" />
+                  <span className="text-sm text-muted-foreground">
+                    Clear communication skills
+                  </span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <span className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0" />
+                  <span className="text-sm text-muted-foreground">
+                    Commitment to code quality
+                  </span>
+                </div>
+              </div>
+            </div>
           </motion.div>
 
           <motion.div
-            style={{ willChange: 'transform, opacity' }}
-
+            style={{ willChange: "transform, opacity" }}
             custom={1}
             variants={fadeIn}
             initial="hidden"

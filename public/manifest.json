@@ -1,23 +1,40 @@
 {
-  "name": "PWA App",
-  "short_name": "App",
-  "icons": [
-    {
-      "purpose": "maskable",
-      "sizes": "512x512",
-      "src": "icon512_maskable.png",
-      "type": "image/png"
-    },
-    {
-      "purpose": "any",
-      "sizes": "512x512",
-      "src": "icon512_rounded.png",
-      "type": "image/png"
-    }
-  ],
-  "theme_color": "#FFFFFF",
-  "background_color": "#FFFFFF",
+  "name": "Mohamed Outerbah Portfolio",
+  "short_name": "Mohamed Portfolio",
+  "description": "Full Stack Developer Portfolio - Mohamed Outerbah",
   "start_url": "/",
   "display": "standalone",
-  "orientation": "portrait"
+  "background_color": "#000000",
+  "theme_color": "#ffffff",
+  "orientation": "portrait-primary",
+  "categories": ["business", "productivity", "portfolio"],
+  "lang": "en",
+  "dir": "ltr",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "16x16 32x32 48x48",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/profile/profilePicture2mb.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/profile/profilePicture2mb.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/profile/profilePicture2mb.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "label": "Mohamed Outerbah Portfolio Homepage"
+    }
+  ]
 }

@@ -54,10 +54,16 @@ export default function Hero() {
                   <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Link>
               </Button>
-              <Button asChild variant="outline" size="lg">
+              <Button asChild variant="outline" size="lg" className="group">
                 <Link href="/resume/resume.pdf" target="_blank">
-                  <Download className="mr-2 h-4 w-4" />
-                  Resume
+                  <Download className="mr-2 h-4 w-4 transition-transform group-hover:translate-y-0.5" />
+                  Download Resume
+                </Link>
+              </Button>
+              <Button asChild variant="ghost" size="lg" className="group">
+                <Link href="#contact">
+                  <Mail className="mr-2 h-4 w-4" />
+                  Let's Talk
                 </Link>
               </Button>
             </div>
