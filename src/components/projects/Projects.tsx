@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, PanInfo } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
@@ -28,10 +28,11 @@ import {
 import Link from "next/link";
 import Image from "next/image";
 import { projects } from "@/lib/data";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 export default function Projects() {
   const [activeTab, setActiveTab] = useState("all");
+  const tabsRef = useRef<HTMLDivElement>(null);
 
   // Filter projects by type
   const webProjects = projects.filter((p) => p.projectType.includes("Web"));
@@ -47,6 +48,26 @@ export default function Projects() {
         return mobileProjects;
       default:
         return projects;
+    }
+  };
+
+  const tabs = ["all", "web", "mobile"];
+  const currentTabIndex = tabs.indexOf(activeTab);
+
+  const handleSwipe = (
+    event: MouseEvent | TouchEvent | PointerEvent,
+    info: PanInfo
+  ) => {
+    const threshold = 50;
+
+    if (Math.abs(info.offset.x) > threshold) {
+      if (info.offset.x > 0 && currentTabIndex > 0) {
+        // Swipe right - go to previous tab
+        setActiveTab(tabs[currentTabIndex - 1]);
+      } else if (info.offset.x < 0 && currentTabIndex < tabs.length - 1) {
+        // Swipe left - go to next tab
+        setActiveTab(tabs[currentTabIndex + 1]);
+      }
     }
   };
 
@@ -98,7 +119,7 @@ export default function Projects() {
           </p>
         </motion.div>
 
-        {/* Enhanced Tabs */}
+        {/* Enhanced Tabs with Mobile Swipe */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -110,29 +131,45 @@ export default function Projects() {
             onValueChange={setActiveTab}
             className="w-full"
           >
-            <TabsList className="grid w-full max-w-md mx-auto grid-cols-3 mb-12 h-12 p-1 bg-muted/50 backdrop-blur-sm">
-              <TabsTrigger
-                value="all"
-                className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground transition-all duration-300 text-sm font-medium"
-              >
-                <Users className="mr-2 h-4 w-4" />
-                All
-              </TabsTrigger>
-              <TabsTrigger
-                value="web"
-                className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground transition-all duration-300 text-sm font-medium"
-              >
-                <Globe className="mr-2 h-4 w-4" />
-                Web
-              </TabsTrigger>
-              <TabsTrigger
-                value="mobile"
-                className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground transition-all duration-300 text-sm font-medium"
-              >
-                <Smartphone className="mr-2 h-4 w-4" />
-                Mobile
-              </TabsTrigger>
-            </TabsList>
+            {/* Mobile Swipe Indicator */}
+            <div className="block md:hidden text-center mb-4">
+              <p className="text-xs text-muted-foreground">
+                👈 Swipe left or right to switch categories 👉
+              </p>
+            </div>
+
+            <motion.div
+              ref={tabsRef}
+              drag="x"
+              dragConstraints={{ left: 0, right: 0 }}
+              dragElastic={0.1}
+              onDragEnd={handleSwipe}
+              className="cursor-grab active:cursor-grabbing md:cursor-default md:pointer-events-none"
+            >
+              <TabsList className="grid w-full max-w-md mx-auto grid-cols-3 mb-12 h-12 p-1 bg-muted/50 backdrop-blur-sm">
+                <TabsTrigger
+                  value="all"
+                  className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground transition-all duration-300 text-sm font-medium"
+                >
+                  <Users className="mr-2 h-4 w-4" />
+                  All
+                </TabsTrigger>
+                <TabsTrigger
+                  value="web"
+                  className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground transition-all duration-300 text-sm font-medium"
+                >
+                  <Globe className="mr-2 h-4 w-4" />
+                  Web
+                </TabsTrigger>
+                <TabsTrigger
+                  value="mobile"
+                  className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground transition-all duration-300 text-sm font-medium"
+                >
+                  <Smartphone className="mr-2 h-4 w-4" />
+                  Mobile
+                </TabsTrigger>
+              </TabsList>
+            </motion.div>
 
             {["all", "web", "mobile"].map((tab) => (
               <TabsContent key={tab} value={tab} className="mt-0">

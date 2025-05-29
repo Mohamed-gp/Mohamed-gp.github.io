@@ -7,7 +7,7 @@ import { Users, Star, Code, Trophy, Calendar, Coffee } from "lucide-react";
 const stats = [
   {
     icon: <Users className="h-6 w-6 text-blue-500" />,
-    value: "10+",
+    value: "+10",
     label: "Happy Clients",
     description: "Satisfied clients worldwide",
   },
@@ -19,25 +19,25 @@ const stats = [
   },
   {
     icon: <Code className="h-6 w-6 text-green-500" />,
-    value: "20+",
+    value: "+20",
     label: "Live Projects",
     description: "Deployed applications",
   },
   {
     icon: <Trophy className="h-6 w-6 text-purple-500" />,
-    value: "5+",
+    value: "+5",
     label: "Hackathons",
     description: "Competitions participated",
   },
   {
     icon: <Calendar className="h-6 w-6 text-orange-500" />,
-    value: "3+",
-    label: "Years Experience",
+    value: "+3",
+    label: "Years of Experience",
     description: "In web development",
   },
   {
     icon: <Coffee className="h-6 w-6 text-amber-600" />,
-    value: "1000+",
+    value: "+1000",
     label: "Hours Coded",
     description: "Lines of code written",
   },

@@ -38,12 +38,11 @@ export default function About() {
             </Badge>
           </div>
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            From Curiosity to 500+ Downloads: My Developer Journey
+            Full Stack Developer & Problem Solver
           </h2>
           <p className="text-muted-foreground max-w-3xl mx-auto text-lg">
-            What started as late-night coding sessions turned into building
-            tools used by developers worldwide. Here's how I went from "Hello
-            World" to helping others build their SaaS dreams.
+            Passionate about creating efficient, scalable solutions that make a
+            real impact.
           </p>
         </motion.div>
 
@@ -57,68 +56,48 @@ export default function About() {
             viewport={{ once: true }}
             className="space-y-6"
           >
-            <h3 className="text-2xl font-semibold">
-              The Plot Twist That Changed Everything
-            </h3>
+            <h3 className="text-2xl font-semibold">Experience & Expertise</h3>
             <p className="text-muted-foreground">
-              It all started with a simple question:{" "}
-              <em>"Why does this button not work?"</em>
-              Fast forward a few years, and I'm the guy clients trust to build
-              their entire digital presence. That broken button curiosity
-              evolved into a full-stack obsession where no bug is too stubborn,
-              and no user experience is "good enough."
+              Full Stack Developer with 3+ years of experience building web
+              applications and mobile solutions. I specialize in modern web
+              development with a strong focus on TypeScript and have a proven
+              track record of delivering high-quality projects on time.
             </p>
             <p className="text-muted-foreground">
-              Here's the thing about freelancing on Fiverr with a{" "}
-              <strong>4.8-star rating</strong> — every project is a masterclass
-              in problem-solving under pressure. One day I'm building an
-              e-commerce platform with real-time inventory tracking, the next
-              I'm creating a property rental system that handles payments across
-              multiple currencies. Each client taught me something new, and
-              somehow I became the developer who
-              <em>"just makes things work."</em>
-            </p>
-            <p className="text-muted-foreground">
-              But here's what I'm most proud of: co-creating the{" "}
-              <strong>SaaS Boiler CLI</strong> that hit{" "}
-              <strong>500+ downloads</strong> on npm. Watching developers use
-              our tool to launch their own SaaS products? That's the kind of
-              impact that keeps me coding until 3 AM (and loving every minute of
-              it).
+              My freelance work has earned me a <strong>4.8-star rating</strong>{" "}
+              on Fiverr, where I've successfully completed projects ranging from
+              e-commerce platforms to property management systems. I also
+              co-created the <strong>SaaS Boiler CLI</strong> tool, which has
+              reached <strong>500+ downloads</strong> on npm.
             </p>
 
-            {/* Fun Facts */}
+            {/* Professional Highlights */}
             <div className="space-y-4 pt-4 bg-muted/30 p-6 rounded-lg">
-              <h4 className="text-lg font-semibold">
-                Fun Developer Facts About Me:
-              </h4>
+              <h4 className="text-lg font-semibold">Key Achievements</h4>
               <div className="grid gap-3">
-                <div className="flex items-start gap-2">
-                  <span className="text-lg">🚀</span>
-                  <span className="text-sm text-muted-foreground">
-                    My code has processed thousands of Stripe transactions
-                    without a single failed payment
-                  </span>
-                </div>
-                <div className="flex items-start gap-2">
-                  <span className="text-lg">⚡</span>
-                  <span className="text-sm text-muted-foreground">
-                    I can switch between TypeScript, Go, and Python faster than
-                    you can say "tech stack"
-                  </span>
-                </div>
                 <div className="flex items-start gap-2">
                   <span className="text-lg">🎯</span>
                   <span className="text-sm text-muted-foreground">
-                    Perfect 4.8/5 rating on Fiverr because I treat every project
-                    like it's the next unicorn startup
+                    4.8/5 rating on Fiverr with 100% project completion rate
+                  </span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <span className="text-lg">🚀</span>
+                  <span className="text-sm text-muted-foreground">
+                    20+ production applications deployed and maintained
+                  </span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <span className="text-lg">💡</span>
+                  <span className="text-sm text-muted-foreground">
+                    Open source CLI tool with 500+ npm downloads
                   </span>
                 </div>
                 <div className="flex items-start gap-2">
                   <span className="text-lg">🌍</span>
                   <span className="text-sm text-muted-foreground">
-                    Built applications for clients from 15+ countries (and
-                    learned to code in multiple timezones)
+                    International client collaborations across multiple time
+                    zones
                   </span>
                 </div>
               </div>
