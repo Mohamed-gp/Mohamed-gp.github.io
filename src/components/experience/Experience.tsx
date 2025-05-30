@@ -59,7 +59,15 @@ export default function Experience() {
     },
     {
       title: "SaaS Boiler CLI - Co-Creator",
-      company: "Open Source Project",
+      company: (
+        <Link
+          href="https://www.npmjs.com/package/saas-boiler-cli"
+          target="_blank"
+          className="text-primary font-medium text-sm sm:text-base flex items-center gap-2 underline"
+        >
+          Open Source Project
+        </Link>
+      ),
       website: "https://www.npmjs.com/package/saas-boiler-cli",
       period: "2024",
       description:
