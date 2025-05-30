@@ -77,7 +77,7 @@ export default function Hero() {
                 <span className="sr-only">GitHub</span>
               </Link>
               <Link
-                href="https://www.linkedin.com/in/mohamed-outerbah-b97469257"
+                href="https://www.linkedin.com/in/mohamedouterbah"
                 target="_blank"
                 className="hover:text-primary transition-colors cursor-pointer"
               >

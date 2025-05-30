@@ -39,7 +39,7 @@ export default function Experience() {
       title: "Freelance Developer",
       company: "Fiverr",
       website:
-        "https://www.fiverr.com/mohamedouterbah?source=gig_cards&referrer_gig_slug=be-your-nextjs-developer&ref_ctx_id=1df0d7ee3e474d0ebb7d3d9a4e954981&imp_id=9f7d27c2-91c1-4397-a085-2bfb79de53fa",
+        "https://www.fiverr.com/mohamedouterbah?public_mode=true",
       period: "2022 - Present",
       description:
         "Developing custom web applications and websites for clients worldwide. Maintaining a high satisfaction rate with clients through effective communication and quality deliverables.",

@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   authors: [
     {
       name: "Mohamed Outerbah",
-      url: "https://www.linkedin.com/in/mohamed-outerbah-b97469257",
+      url: "https://www.linkedin.com/in/mohamedouterbah",
     },
   ],
   creator: "Mohamed Outerbah",
@@ -146,7 +146,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
                 "https://mohamedouterbah.vercel.app/profile/profilePicture2mb.png",
               sameAs: [
                 "https://github.com/Mohamed-gp",
-                "https://www.linkedin.com/in/mohamed-outerbah-b97469257",
+                "https://www.linkedin.com/in/mohamedouterbah",
               ],
               knowsAbout: [
                 "JavaScript",

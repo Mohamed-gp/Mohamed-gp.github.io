@@ -10,8 +10,7 @@ export default function Contact() {
     <section id="contact" className="py-20 bg-muted/30 dark:bg-gray-900/30">
       <div className="container px-4 sm:px-6">
         <motion.div
-          style={{ willChange: 'transform, opacity' }}
-
+          style={{ willChange: "transform, opacity" }}
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -35,8 +34,7 @@ export default function Contact() {
           <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
             {/* Email Card */}
             <motion.div
-              style={{ willChange: 'transform, opacity' }}
-
+              style={{ willChange: "transform, opacity" }}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -64,8 +62,7 @@ export default function Contact() {
 
             {/* LinkedIn Card */}
             <motion.div
-              style={{ willChange: 'transform, opacity' }}
-
+              style={{ willChange: "transform, opacity" }}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -81,7 +78,7 @@ export default function Contact() {
                     Connect with me professionally
                   </p>
                   <a
-                    href="https://www.linkedin.com/in/mohamed-outerbah-b97469257"
+                    href="https://www.linkedin.com/in/mohamedouterbah"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="mt-auto inline-flex items-center gap-1 text-primary hover:underline font-medium"
@@ -107,8 +104,7 @@ export default function Contact() {
 
             {/* GitHub Card */}
             <motion.div
-              style={{ willChange: 'transform, opacity' }}
-
+              style={{ willChange: "transform, opacity" }}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -151,8 +147,7 @@ export default function Contact() {
 
           {/* Additional message */}
           <motion.div
-            style={{ willChange: 'transform, opacity' }}
-
+            style={{ willChange: "transform, opacity" }}
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
