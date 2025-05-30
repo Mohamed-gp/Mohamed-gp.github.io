@@ -57,19 +57,34 @@ export default function Experience() {
         platform: "Fiverr",
       },
     },
+
+    {
+      title: "Web Development Intern",
+      company: "Exclusive Labs",
+      period: "December 2024 - February 2025",
+      description:
+        "Assisted in the development of client websites and web applications. Gained hands-on experience with modern web development technologies and methodologies.",
+      skills: [
+        "React",
+        "Next.js",
+        "TypeScript",
+        "REST APIs",
+        "Team Collaboration",
+      ],
+    },
     {
       title: "SaaS Boiler CLI - Co-Creator",
       company: (
         <Link
           href="https://www.npmjs.com/package/saas-boiler-cli"
           target="_blank"
-          className="text-primary font-medium text-sm sm:text-base flex items-center gap-2 underline"
+          className="text-primary font-medium text-sm sm:text-base flex items-center gap-2"
         >
           Open Source Project
         </Link>
       ),
       website: "https://www.npmjs.com/package/saas-boiler-cli",
-      period: "2024",
+      period: "2022 - Present",
       description:
         "Co-developed a SaaS template generator CLI tool with 500+ peak downloads on npm. Built to streamline SaaS application development across multiple tech stacks with support for various frontend frameworks and backend technologies.",
       skills: [
@@ -87,20 +102,6 @@ export default function Experience() {
         "Multiple framework support (Next.js, Nuxt, Angular)",
         "Backend support (Express, Python)",
         "Published and maintained on npm registry",
-      ],
-    },
-    {
-      title: "Web Development Intern",
-      company: "Exclusive Labs",
-      period: "December 2023 - February 2024",
-      description:
-        "Assisted in the development of client websites and web applications. Gained hands-on experience with modern web development technologies and methodologies.",
-      skills: [
-        "React",
-        "Next.js",
-        "TypeScript",
-        "REST APIs",
-        "Team Collaboration",
       ],
     },
   ];
