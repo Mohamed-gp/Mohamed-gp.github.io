@@ -92,8 +92,8 @@ const projects = [
         password: "123456",
       },
       admin: {
-        email: "admin@gmail.com",
-        password: "123456",
+        email: "admin@admin.com",
+        password: "admin@admin.com",
       },
     },
   },
@@ -138,8 +138,8 @@ const projects = [
         password: "123456",
       },
       admin: {
-        email: "admin@gmail.com",
-        password: "123456",
+        email: "admin@admin.com",
+        password: "admin@admin.com",
       },
     },
   },
@@ -181,8 +181,8 @@ const projects = [
         password: "123456",
       },
       admin: {
-        email: "admin@gmail.com",
-        password: "123456",
+        email: "admin@admin.com",
+        password: "admin@admin.com",
       },
     },
   },
