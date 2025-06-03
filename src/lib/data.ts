@@ -56,8 +56,7 @@ const projects = [
     title: "Ultimate eCommerce Platform",
     description:
       "A comprehensive full-stack eCommerce web platform featuring advanced shopping experience with wishlist, filtering, secure payment integration using Stripe, and complete admin dashboard for inventory management.",
-    image:
-      "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=600&h=400&fit=crop&auto=format&q=80",
+    image: "/projects/ecommerce/hero.png",
     liveLink: "https://swiftbuy.production-server.tech/",
     githubLink: "https://github.com/Mohamed-gp/ecommerce_mern",
     techUsed: [
@@ -88,8 +87,8 @@ const projects = [
     thereIsAdmin: true,
     demoCredentials: {
       user: {
-        email: "user@gmail.com",
-        password: "123456",
+        email: "user@demo.com",
+        password: "user@demo.com",
       },
       admin: {
         email: "admin@admin.com",
@@ -103,8 +102,8 @@ const projects = [
       "A sophisticated full-stack web platform for property rentals offering seamless booking experience with advanced search filters, payment processing, user reviews, and comprehensive property management system.",
     image:
       "https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=600&h=400&fit=crop&auto=format&q=80",
-    liveLink: "https://krelli.production-server.tech/",
-    githubLink: "https://github.com/Mohamed-gp/Krelli_x86",
+    liveLink: "https://gl.production-server.tech/",
+    githubLink: "https://github.com/Mohamed-gp/Property-Rentals",
     techUsed: [
       { filename: "nextjs.svg", name: "Next.js" },
       { filename: "javascript.svg", name: "JavaScript" },
@@ -126,6 +125,7 @@ const projects = [
       "Secure payment integration with Stripe",
       "User reviews and ratings system",
       "Property owner dashboard for listing management",
+      "PostgreSQL database with optimized SQL queries for efficient data retrieval",
       "Real-time availability and pricing updates",
       "Interactive property image galleries",
       "Location-based search with map integration",
@@ -144,12 +144,12 @@ const projects = [
     },
   },
   {
-    title: "YumYum - Food Delivery Mobile App",
+    title: "Food Delivery Mobile App",
     description:
-      "A complete mobile application for food ordering and delivery built with React Native and Expo. Features real-time order tracking, restaurant browsing, secure payments, and seamless user experience across iOS and Android platforms.",
+      "A complete mobile application for food ordering and delivery built with React Native and Expo. Features real-time order tracking, restaurant browsing, secure payments, and seamless user experience across iOS and Android platforms. I learned team work during this project.",
     image:
-      "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&h=400&fit=crop&auto=format&q=80",
-    liveLink: "https://yumyum.production-server.tech/",
+      "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600&h=400&fit=crop&auto=format&q=80",
+    liveLink: null, // No live preview
     githubLink: "https://github.com/Mohamed-gp/YumYum",
     techUsed: [
       { filename: "expo.svg", name: "Expo" },
@@ -167,6 +167,7 @@ const projects = [
       "Cross-platform mobile app for iOS and Android",
       "Real-time order tracking and notifications",
       "Restaurant browsing with menu management",
+      "Redis caching for improved performance and reduced database load",
       "Secure in-app payment processing",
       "User authentication and profile management",
       "Push notifications for order updates",
@@ -174,17 +175,8 @@ const projects = [
       "Location-based restaurant discovery",
     ],
     projectType: "Mobile Application (React Native)",
-    thereIsAdmin: true,
-    demoCredentials: {
-      user: {
-        email: "user@gmail.com",
-        password: "123456",
-      },
-      admin: {
-        email: "admin@admin.com",
-        password: "admin@admin.com",
-      },
-    },
+    thereIsAdmin: false,
+    demoCredentials: undefined,
   },
 ];
 

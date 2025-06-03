@@ -116,7 +116,7 @@ export default function Testimonials() {
               ))}
             </div>
             <span className="ml-2 font-medium text-sm sm:text-base">
-              4.8 on Fiverr
+              5 on Fiverr
             </span>
           </div>
         </motion.div>

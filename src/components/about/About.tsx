@@ -64,7 +64,7 @@ export default function About() {
               track record of delivering high-quality projects on time.
             </p>
             <p className="text-muted-foreground">
-              My freelance work has earned me a <strong>4.8-star rating</strong>{" "}
+              My freelance work has earned me a <strong>5-star rating</strong>{" "}
               on Fiverr, where I've successfully completed projects ranging from
               e-commerce platforms to property management systems. I also
               co-created the <strong>SaaS Boiler CLI</strong> tool, which has
@@ -78,7 +78,7 @@ export default function About() {
                 <div className="flex items-start gap-2">
                   <span className="text-lg">🎯</span>
                   <span className="text-sm text-muted-foreground">
-                    4.8/5 rating on Fiverr with 100% project completion rate
+                    5/5 rating on Fiverr with 100% project completion rate
                   </span>
                 </div>
                 <div className="flex items-start gap-2">

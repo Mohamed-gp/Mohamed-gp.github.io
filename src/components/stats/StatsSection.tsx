@@ -13,7 +13,7 @@ const stats = [
   },
   {
     icon: <Star className="h-6 w-6 text-yellow-500" />,
-    value: "4.8/5",
+    value: "5/5",
     label: "Client Rating",
     description: "Average rating on Fiverr",
   },

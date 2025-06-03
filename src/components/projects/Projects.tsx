@@ -209,7 +209,7 @@ export default function Projects() {
             <p className="text-muted-foreground max-w-2xl mx-auto">
               Check out my GitHub repositories for additional projects and
               contributions.
-              <span className="block mt-2 text-sm italic flex items-center justify-center gap-2">
+              <span className="mt-2 text-sm italic flex items-center justify-center gap-2">
                 <Star className="h-4 w-4 text-yellow-500" />
                 If you find any repositories helpful, a star would be greatly
                 appreciated!
@@ -254,17 +254,25 @@ function ProjectCard({ project, index }: { project: any; index: number }) {
   return (
     <Card className="overflow-hidden h-full flex flex-col group border border-primary/10 bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:to-gray-950 shadow-lg hover:shadow-2xl transition-all duration-500 hover:border-primary/20">
       {/* Enhanced Project Image */}
-      <div className="relative h-48 sm:h-56 overflow-hidden bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-800 dark:to-gray-900">
-        <Image
-          src={project.image}
-          alt={project.title}
-          fill
-          className="object-cover transition-transform duration-500 group-hover:scale-110"
-          sizes="(max-width: 768px) 100vw, 50vw"
-          onError={(e) => {
-            e.currentTarget.style.display = "none";
-          }}
-        />
+      <div className="relative h-48 sm:h-56 overflow-hidden bg-gray-100 dark:bg-gray-800">
+        {project.image ? (
+          <Image
+            src={project.image}
+            alt={project.title}
+            fill
+            className={`object-cover w-full h-full object-center transition-transform duration-500 group-hover:scale-110 ${
+              project.title === "Ultimate eCommerce Platform"
+                ? "object-top"
+                : ""
+            }`}
+            sizes="(max-width: 768px) 100vw, 50vw"
+            priority={index < 3}
+          />
+        ) : (
+          <div className="w-full h-full flex items-center justify-center">
+            <Code2 className="h-16 w-16 text-muted-foreground/30" />
+          </div>
+        )}
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
 
         {/* Enhanced Badges */}
@@ -363,26 +371,41 @@ function ProjectCard({ project, index }: { project: any; index: number }) {
 
       {/* Enhanced Footer with Info Button */}
       <CardFooter className="p-6 pt-0 flex gap-2">
-        <Button asChild className="flex-1 group">
-          <Link
-            href={project.liveLink}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <ExternalLink className="mr-2 h-4 w-4 transition-transform group-hover:scale-110" />
-            Live Demo
-          </Link>
-        </Button>
-        <Button asChild variant="outline" className="flex-1 group">
-          <Link
-            href={project.githubLink}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Github className="mr-2 h-4 w-4 transition-transform group-hover:rotate-12" />
-            Code
-          </Link>
-        </Button>
+        {project.liveLink ? (
+          <>
+            <Button asChild className="flex-1 group">
+              <Link
+                href={project.liveLink}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <ExternalLink className="mr-2 h-4 w-4 transition-transform group-hover:scale-110" />
+                Live Demo
+              </Link>
+            </Button>
+            <Button asChild variant="outline" className="flex-1 group">
+              <Link
+                href={project.githubLink}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Github className="mr-2 h-4 w-4 transition-transform group-hover:rotate-12" />
+                Code
+              </Link>
+            </Button>
+          </>
+        ) : (
+          <Button asChild className="flex-1 group">
+            <Link
+              href={project.githubLink}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Github className="mr-2 h-4 w-4 transition-transform group-hover:rotate-12" />
+              View Code
+            </Link>
+          </Button>
+        )}
 
         {/* Info Modal */}
         <Dialog>
@@ -403,14 +426,16 @@ function ProjectCard({ project, index }: { project: any; index: number }) {
 
             <div className="space-y-6">
               {/* Project Image */}
-              <div className="relative h-64 w-full rounded-lg overflow-hidden">
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  fill
-                  className="object-cover"
-                />
-              </div>
+              {project.image && (
+                <div className="relative h-64 w-full rounded-lg overflow-hidden">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              )}
 
               {/* Description */}
               <div className="space-y-3">
@@ -423,75 +448,77 @@ function ProjectCard({ project, index }: { project: any; index: number }) {
                 </p>
               </div>
 
-              {/* User Demo Link */}
-              <div className="space-y-3">
-                <h3 className="text-lg font-semibold flex items-center gap-2">
-                  <Play className="h-5 w-5 text-green-500" />
-                  Live Demo
-                </h3>
-                <div className="flex items-center gap-4 flex-wrap">
-                  <Button asChild variant="outline" className="group">
-                    <Link
-                      href={project.liveLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <ExternalLink className="mr-2 h-4 w-4" />
-                      Try Live Demo
-                      <ArrowUpRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
-                    </Link>
-                  </Button>
-                  {project.thereIsAdmin && (
-                    <Badge
-                      variant="secondary"
-                      className="bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-200"
-                    >
-                      Admin Panel Available
-                    </Badge>
-                  )}
-                </div>
+              {/* User Demo Link - Only show if live link exists */}
+              {project.liveLink && (
+                <div className="space-y-3">
+                  <h3 className="text-lg font-semibold flex items-center gap-2">
+                    <Play className="h-5 w-5 text-green-500" />
+                    Live Demo
+                  </h3>
+                  <div className="flex items-center gap-4 flex-wrap">
+                    <Button asChild variant="outline" className="group">
+                      <Link
+                        href={project.liveLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <ExternalLink className="mr-2 h-4 w-4" />
+                        Try Live Demo
+                        <ArrowUpRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+                      </Link>
+                    </Button>
+                    {project.thereIsAdmin && (
+                      <Badge
+                        variant="secondary"
+                        className="bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-200"
+                      >
+                        Admin Panel Available
+                      </Badge>
+                    )}
+                  </div>
 
-                {/* Demo Credentials */}
-                {project.demoCredentials && (
-                  <div className="grid md:grid-cols-2 gap-4 mt-4">
-                    <div className="bg-blue-50 dark:bg-blue-950/20 p-4 rounded-lg border border-blue-200 dark:border-blue-800">
-                      <h4 className="font-semibold text-blue-700 dark:text-blue-300 mb-2 flex items-center gap-2">
-                        <Users className="h-4 w-4" />
-                        User Demo
-                      </h4>
-                      <div className="space-y-1 text-sm">
-                        <p className="text-blue-600 dark:text-blue-400">
-                          <span className="font-medium">Email:</span>{" "}
-                          {project.demoCredentials.user.email}
-                        </p>
-                        <p className="text-blue-600 dark:text-blue-400">
-                          <span className="font-medium">Password:</span>{" "}
-                          {project.demoCredentials.user.password}
-                        </p>
-                      </div>
-                    </div>
-
-                    {project.demoCredentials.admin && (
-                      <div className="bg-purple-50 dark:bg-purple-950/20 p-4 rounded-lg border border-purple-200 dark:border-purple-800">
-                        <h4 className="font-semibold text-purple-700 dark:text-purple-300 mb-2 flex items-center gap-2">
-                          <Star className="h-4 w-4" />
-                          Admin Demo
+                  {/* Demo Credentials */}
+                  {project.demoCredentials && (
+                    <div className="grid md:grid-cols-2 gap-4 mt-4">
+                      <div className="bg-blue-50 dark:bg-blue-950/20 p-4 rounded-lg border border-blue-200 dark:border-blue-800">
+                        <h4 className="font-semibold text-blue-700 dark:text-blue-300 mb-2 flex items-center gap-2">
+                          <Users className="h-4 w-4" />
+                          User Demo
                         </h4>
                         <div className="space-y-1 text-sm">
-                          <p className="text-purple-600 dark:text-purple-400">
+                          <p className="text-blue-600 dark:text-blue-400">
                             <span className="font-medium">Email:</span>{" "}
-                            {project.demoCredentials.admin.email}
+                            {project.demoCredentials.user.email}
                           </p>
-                          <p className="text-purple-600 dark:text-purple-400">
+                          <p className="text-blue-600 dark:text-blue-400">
                             <span className="font-medium">Password:</span>{" "}
-                            {project.demoCredentials.admin.password}
+                            {project.demoCredentials.user.password}
                           </p>
                         </div>
                       </div>
-                    )}
-                  </div>
-                )}
-              </div>
+
+                      {project.demoCredentials.admin && (
+                        <div className="bg-purple-50 dark:bg-purple-950/20 p-4 rounded-lg border border-purple-200 dark:border-purple-800">
+                          <h4 className="font-semibold text-purple-700 dark:text-purple-300 mb-2 flex items-center gap-2">
+                            <Star className="h-4 w-4" />
+                            Admin Demo
+                          </h4>
+                          <div className="space-y-1 text-sm">
+                            <p className="text-purple-600 dark:text-purple-400">
+                              <span className="font-medium">Email:</span>{" "}
+                              {project.demoCredentials.admin.email}
+                            </p>
+                            <p className="text-purple-600 dark:text-purple-400">
+                              <span className="font-medium">Password:</span>{" "}
+                              {project.demoCredentials.admin.password}
+                            </p>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  )}
+                </div>
+              )}
 
               {/* Complete Features List */}
               <div className="space-y-3">
@@ -533,26 +560,41 @@ function ProjectCard({ project, index }: { project: any; index: number }) {
 
               {/* Links */}
               <div className="flex gap-4 pt-4 border-t">
-                <Button asChild className="flex-1">
-                  <Link
-                    href={project.liveLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <ExternalLink className="mr-2 h-4 w-4" />
-                    Visit Live Site
-                  </Link>
-                </Button>
-                <Button asChild variant="outline" className="flex-1">
-                  <Link
-                    href={project.githubLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Github className="mr-2 h-4 w-4" />
-                    View Source Code
-                  </Link>
-                </Button>
+                {project.liveLink ? (
+                  <>
+                    <Button asChild className="flex-1">
+                      <Link
+                        href={project.liveLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <ExternalLink className="mr-2 h-4 w-4" />
+                        Visit Live Site
+                      </Link>
+                    </Button>
+                    <Button asChild variant="outline" className="flex-1">
+                      <Link
+                        href={project.githubLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <Github className="mr-2 h-4 w-4" />
+                        View Source Code
+                      </Link>
+                    </Button>
+                  </>
+                ) : (
+                  <Button asChild className="flex-1">
+                    <Link
+                      href={project.githubLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Github className="mr-2 h-4 w-4" />
+                      View Source Code
+                    </Link>
+                  </Button>
+                )}
               </div>
             </div>
           </DialogContent>
