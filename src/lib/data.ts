@@ -82,19 +82,10 @@ const projects = [
       "Real-time inventory tracking and management",
       "Order history and tracking system",
       "Responsive design for all devices",
+      "Demo credentials available on login page for easy exploration",
     ],
     projectType: "Full-Stack Web Application",
     thereIsAdmin: true,
-    demoCredentials: {
-      user: {
-        email: "user@demo.com",
-        password: "user@demo.com",
-      },
-      admin: {
-        email: "admin@admin.com",
-        password: "admin@admin.com",
-      },
-    },
   },
   {
     title: "Property Rental Platform",
@@ -128,19 +119,10 @@ const projects = [
       "Real-time availability and pricing updates",
       "Interactive property image galleries",
       "Location-based search with map integration",
+      "Demo credentials available on login page for easy exploration",
     ],
     projectType: "Full-Stack Web Application",
     thereIsAdmin: true,
-    demoCredentials: {
-      user: {
-        email: "user@gmail.com",
-        password: "123456",
-      },
-      admin: {
-        email: "admin@admin.com",
-        password: "admin@admin.com",
-      },
-    },
   },
   {
     title: "Food Delivery Mobile App",
@@ -175,7 +157,6 @@ const projects = [
     ],
     projectType: "Mobile Application (React Native)",
     thereIsAdmin: false,
-    demoCredentials: undefined,
   },
 ];
 
