@@ -100,8 +100,7 @@ const projects = [
     title: "Property Rental Platform",
     description:
       "A sophisticated full-stack web platform for property rentals offering seamless booking experience with advanced search filters, payment processing, user reviews, and comprehensive property management system.",
-    image:
-      "https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=600&h=400&fit=crop&auto=format&q=80",
+    image: "/projects/property-rentals/hero.png",
     liveLink: "https://gl.production-server.tech/",
     githubLink: "https://github.com/Mohamed-gp/Property-Rentals",
     techUsed: [
