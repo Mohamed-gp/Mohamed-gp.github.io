@@ -55,7 +55,10 @@ export default function Hero() {
                 </Link>
               </Button>
               <Button asChild variant="outline" size="lg" className="group">
-                <Link href="/resume/resume.pdf" target="_blank">
+                <Link
+                  href="/resume/Mohamed_Outerbah_Resume.pdf"
+                  target="_blank"
+                >
                   <Download className="mr-2 h-4 w-4 transition-transform group-hover:translate-y-0.5" />
                   Download Resume
                 </Link>
