@@ -58,9 +58,10 @@ export default function Projects() {
     event: MouseEvent | TouchEvent | PointerEvent,
     info: PanInfo
   ) => {
-    const threshold = 50;
+    const threshold = 100; // Increased threshold for better control
+    const velocity = Math.abs(info.velocity.x);
 
-    if (Math.abs(info.offset.x) > threshold) {
+    if (Math.abs(info.offset.x) > threshold || velocity > 500) {
       if (info.offset.x > 0 && currentTabIndex > 0) {
         // Swipe right - go to previous tab
         setActiveTab(tabs[currentTabIndex - 1]);
@@ -138,46 +139,51 @@ export default function Projects() {
               </p>
             </div>
 
-            <motion.div
-              ref={tabsRef}
-              drag="x"
-              dragConstraints={{ left: 0, right: 0 }}
-              dragElastic={0.1}
-              onDragEnd={handleSwipe}
-              className="cursor-grab active:cursor-grabbing md:cursor-default md:pointer-events-none"
-            >
-              <TabsList className="grid w-full max-w-md mx-auto grid-cols-3 mb-12 h-12 p-1 bg-muted/50 backdrop-blur-sm">
+            {/* Tab List - Fixed for proper clicking */}
+            <div className="flex justify-center mb-12">
+              <TabsList className="grid w-full max-w-md mx-auto grid-cols-3 h-12 p-1 bg-muted/50 backdrop-blur-sm">
                 <TabsTrigger
                   value="all"
-                  className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground transition-all duration-300 text-sm font-medium"
+                  className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground transition-all duration-300 text-sm font-medium pointer-events-auto"
+                  onClick={() => setActiveTab("all")}
                 >
                   <Users className="mr-2 h-4 w-4" />
                   All
                 </TabsTrigger>
                 <TabsTrigger
                   value="web"
-                  className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground transition-all duration-300 text-sm font-medium"
+                  className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground transition-all duration-300 text-sm font-medium pointer-events-auto"
+                  onClick={() => setActiveTab("web")}
                 >
                   <Globe className="mr-2 h-4 w-4" />
                   Web
                 </TabsTrigger>
                 <TabsTrigger
                   value="mobile"
-                  className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground transition-all duration-300 text-sm font-medium"
+                  className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground transition-all duration-300 text-sm font-medium pointer-events-auto"
+                  onClick={() => setActiveTab("mobile")}
                 >
                   <Smartphone className="mr-2 h-4 w-4" />
                   Mobile
                 </TabsTrigger>
               </TabsList>
-            </motion.div>
+            </div>
 
+            {/* Tab Content with Swipe Support */}
             {["all", "web", "mobile"].map((tab) => (
               <TabsContent key={tab} value={tab} className="mt-0">
                 <motion.div
+                  ref={tab === activeTab ? tabsRef : null}
+                  drag="x"
+                  dragConstraints={{ left: 0, right: 0 }}
+                  dragElastic={0.2}
+                  dragTransition={{ bounceStiffness: 300, bounceDamping: 20 }}
+                  onDragEnd={handleSwipe}
                   variants={tabVariants}
                   initial="hidden"
                   animate="visible"
-                  className="grid md:grid-cols-2 xl:grid-cols-3 gap-6 sm:gap-8"
+                  className="grid md:grid-cols-2 xl:grid-cols-3 gap-6 sm:gap-8 cursor-grab active:cursor-grabbing md:cursor-default"
+                  style={{ touchAction: "pan-y" }} // Allow vertical scrolling but control horizontal
                 >
                   {getProjectsForTab(tab).map((project, index) => (
                     <motion.div

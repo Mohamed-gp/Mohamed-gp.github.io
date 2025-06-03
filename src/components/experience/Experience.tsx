@@ -38,8 +38,7 @@ export default function Experience() {
     {
       title: "Freelance Developer",
       company: "Fiverr",
-      website:
-        "https://www.fiverr.com/mohamedouterbah?public_mode=true",
+      website: "https://www.fiverr.com/mohamedouterbah?public_mode=true",
       period: "2022 - Present",
       description:
         "Developing custom web applications and websites for clients worldwide. Maintaining a high satisfaction rate with clients through effective communication and quality deliverables.",
@@ -53,7 +52,7 @@ export default function Experience() {
         "and more",
       ],
       rating: {
-        score: 4.8,
+        score: 5,
         platform: "Fiverr",
       },
     },
