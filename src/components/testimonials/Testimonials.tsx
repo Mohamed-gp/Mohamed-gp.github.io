@@ -1,266 +1,247 @@
 "use client";
+import { useState, useRef } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import type { Swiper as SwiperType } from "swiper";
 
-import { motion, PanInfo, useAnimation } from "framer-motion";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+
 import {
+  ChevronLeft,
+  ChevronRight,
   ExternalLink,
   Quote,
   Star,
-  ChevronLeft,
-  ChevronRight,
 } from "lucide-react";
-import Link from "next/link";
-import { useState, useRef, useEffect } from "react";
 
 export default function Testimonials() {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [isDragging, setIsDragging] = useState(false);
-  const controls = useAnimation();
-  const constraintsRef = useRef(null);
+  const swiperRef = useRef<SwiperType>();
 
   const testimonials = [
     {
       id: 1,
+      name: "crimsonbison",
+      company: "analytics depot",
+      role: "",
+      avatar: "/clients/crimsonbison.webp",
+      rating: 5,
+      country: "🇺🇸",
+      countryName: "United States",
+      text: "Mohamed is truly a remarkable software developer! He not only EXCEEDED our expectations with his detailed and well-documented work, but his proactive communication and quick responsiveness made collaborating a breeze. Highly recommend! 👏",
+      fiverr_link: "https://www.fiverr.com/mohamedouterbah?public_mode=true",
+    },
+    {
+      id: 2,
       name: "hamididz",
       company: "artisbay",
       role: "",
       avatar: "/clients/hamididz.webp",
-      rating: 4.7,
+      rating: 5,
+      country: "🇯🇵",
+      countryName: "Japan",
       text: "We assigned him the task of enhancing font responsiveness, which he executed flawlessly. Beyond that, he proactively suggested valuable improvements that further optimized the design. His communication was clear and professional, and his skills were truly outstanding. Highly recommended!",
-      fiverr_link:
-        "https://www.fiverr.com/mohamedouterbah?source=gig_cards&referrer_gig_slug=be-your-nextjs-developer&ref_ctx_id=1df0d7ee3e474d0ebb7d3d9a4e954981&imp_id=9f7d27c2-91c1-4397-a085-2bfb79de53fa",
+      fiverr_link: "https://www.fiverr.com/mohamedouterbah?public_mode=true",
     },
   ];
 
-  // Simplified animation control - fixes the disappearing issue
-  useEffect(() => {
-    controls.start({
-      x: `calc(-${activeIndex * 100}% / ${testimonials.length})`,
-      transition: {
-        type: "spring",
-        stiffness: 300,
-        damping: 30,
-      },
-    });
-  }, [activeIndex, controls, testimonials.length]);
-
-  const handleNext = () => {
-    setActiveIndex((prev) => (prev === testimonials.length - 1 ? 0 : prev + 1));
-  };
-
-  const handlePrev = () => {
-    setActiveIndex((prev) => (prev === 0 ? testimonials.length - 1 : prev - 1));
-  };
-
-  const handleDragEnd = (
-    event: MouseEvent | TouchEvent | PointerEvent,
-    info: PanInfo
-  ) => {
-    setIsDragging(false);
-    const threshold = 50; // Reduced threshold for more responsive dragging
-
-    if (Math.abs(info.offset.x) > threshold) {
-      if (info.offset.x > 0) {
-        handlePrev();
-      } else {
-        handleNext();
-      }
-    } else {
-      // Reset position if not dragged far enough
-      controls.start({
-        x: `calc(-${activeIndex * 100}% / ${testimonials.length})`,
-        transition: {
-          type: "spring",
-          stiffness: 300,
-          damping: 30,
-        },
-      });
-    }
-  };
-
   return (
     <section id="testimonials" className="py-16 sm:py-20 bg-muted/30">
-      <div className="container px-4 sm:px-6">
-        <motion.div
-          style={{ willChange: "transform, opacity" }}
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-12 sm:mb-16 max-w-3xl mx-auto"
-        >
-          <Badge
-            variant="outline"
-            className="mb-4 px-3 py-1 text-sm border-primary/20"
-          >
+      <div className="container px-4 sm:px-6 max-w-6xl mx-auto">
+        {/* Header */}
+        <div className="text-center mb-12 sm:mb-16 max-w-3xl mx-auto">
+          <div className="inline-flex items-center gap-2 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 px-4 py-2 rounded-full text-sm font-medium mb-6">
+            <Star className="h-4 w-4 fill-current" />
             Client Feedback
-          </Badge>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
+          </div>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-gray-900 via-blue-800 to-indigo-800 dark:from-white dark:via-blue-200 dark:to-indigo-200 bg-clip-text text-transparent">
             What My Clients Say
           </h2>
-          <p className="text-muted-foreground">
+          <p className="text-muted-foreground text-lg leading-relaxed">
             I've had the privilege of working with amazing clients who have
             shared their experiences working with me. Here's what they have to
             say.
           </p>
-          <div className="flex items-center justify-center mt-4">
+          <div className="flex items-center justify-center mt-6 gap-3">
             <div className="flex">
               {[1, 2, 3, 4, 5].map((star) => (
                 <Star
                   key={star}
-                  className="h-4 w-4 sm:h-5 sm:w-5 text-yellow-400 fill-yellow-400"
+                  className="h-5 w-5 sm:h-6 sm:w-6 text-yellow-400 fill-yellow-400"
                 />
               ))}
             </div>
-            <span className="ml-2 font-medium text-sm sm:text-base">
-              5 on Fiverr
+            <span className="font-semibold text-lg text-foreground">
+              5.0 on Fiverr
             </span>
           </div>
-        </motion.div>
+        </div>
 
-        {/* Fixed slider container */}
-        <div className="relative max-w-4xl mx-auto" ref={constraintsRef}>
-          <div className="overflow-hidden">
-            <motion.div
-              drag="x"
-              dragConstraints={{ left: 0, right: 0 }}
-              dragElastic={0.1}
-              onDragStart={() => setIsDragging(true)}
-              onDragEnd={handleDragEnd}
-              animate={controls}
-              initial={{ x: 0 }}
-              className="flex"
-              style={{
-                cursor: isDragging ? "grabbing" : "grab",
-                width: `${testimonials.length * 100}%`,
-                willChange: "transform, opacity",
-              }}
-            >
-              {testimonials.map((testimonial) => (
-                <div
-                  key={testimonial.id}
-                  className="px-4"
-                  style={{ width: `${100 / testimonials.length}%` }}
-                >
-                  <Card className="h-full border-0 shadow-lg bg-gradient-to-br from-background to-muted/50">
-                    <CardContent className="p-4 sm:p-8 h-full">
-                      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-4 sm:gap-0 mb-6">
-                        <div className="flex items-center gap-4">
-                          <Avatar className="h-12 w-12 sm:h-16 sm:w-16 border-2 border-primary/20">
-                            <AvatarImage
+        {/* Slider Container */}
+        <div className="relative max-w-5xl mx-auto">
+          <Swiper
+            modules={[Navigation, Pagination, Autoplay]}
+            spaceBetween={32}
+            slidesPerView={1}
+            autoplay={{
+              delay: 5000,
+              disableOnInteraction: false,
+            }}
+            speed={500}
+            onSwiper={(swiper) => {
+              swiperRef.current = swiper;
+            }}
+            onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
+            className="testimonials-swiper !overflow-visible"
+          >
+            {testimonials.map((testimonial) => (
+              <SwiperSlide key={testimonial.id} className="px-4">
+                <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-100 dark:border-gray-700 overflow-hidden">
+                  {/* Card Header */}
+                  <div className="bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 p-6 text-white">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-4">
+                        <div className="relative">
+                          <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm overflow-hidden border-2 border-white/30">
+                            <img
                               src={testimonial.avatar}
-                              alt={testimonial.name}
+                              alt={`${testimonial.name} profile picture`}
+                              className="w-full h-full object-cover"
+                              onError={(e) => {
+                                const target = e.target as HTMLImageElement;
+                                const fallback =
+                                  target.nextElementSibling as HTMLDivElement;
+                                target.style.display = "none";
+                                if (fallback) {
+                                  fallback.style.display = "flex";
+                                }
+                              }}
                             />
-                            <AvatarFallback>
-                              {testimonial.name.charAt(0)}
-                            </AvatarFallback>
-                          </Avatar>
-                          <div>
-                            <h4 className="font-semibold text-lg">
-                              {testimonial.name}
-                            </h4>
-                            {testimonial.role && testimonial.company && (
-                              <p className="text-muted-foreground">
-                                {testimonial.role}, {testimonial.company}
-                              </p>
-                            )}
-                            <div className="flex mt-1">
-                              {Array.from({ length: 5 }).map((_, i) => (
-                                <Star
-                                  key={i}
-                                  className={`h-4 w-4 ${
-                                    i < testimonial.rating
-                                      ? "text-yellow-400 fill-yellow-400"
-                                      : "text-muted"
-                                  }`}
-                                />
-                              ))}
+                            <div
+                              className="w-full h-full flex items-center justify-center text-2xl font-bold text-white"
+                              style={{ display: "none" }}
+                            >
+                              {testimonial.name.charAt(0).toUpperCase()}
                             </div>
                           </div>
+                          <div className="absolute -bottom-1 -right-1 text-2xl">
+                            {testimonial.country}
+                          </div>
                         </div>
-                        <Button
-                          asChild
-                          variant="ghost"
-                          size="icon"
-                          className="rounded-full self-end sm:self-auto"
-                        >
-                          <Link href={testimonial.fiverr_link} target="_blank">
-                            <ExternalLink className="h-5 w-5" />
-                            <span className="sr-only">Verify on Fiverr</span>
-                          </Link>
-                        </Button>
+                        <div>
+                          <h4 className="font-bold text-xl">
+                            {testimonial.name}
+                          </h4>
+                          <p className="text-blue-100 font-medium">
+                            {testimonial.company}
+                          </p>
+                          <p className="text-blue-200 text-sm">
+                            {testimonial.countryName}
+                          </p>
+                        </div>
                       </div>
-                      <div className="relative">
-                        <Quote className="h-8 w-8 text-primary/20 absolute -top-4 -left-2" />
-                        <p className="text-muted-foreground relative z-10 pl-6">
-                          {testimonial.text}
-                        </p>
-                      </div>
-                      <div className="mt-6 flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-0">
-                        <Badge variant="outline" className="px-3 py-1">
-                          Verified Client
-                        </Badge>
-                        <Button
-                          asChild
-                          variant="link"
-                          size="sm"
-                          className="text-primary"
-                        >
-                          <Link href={testimonial.fiverr_link} target="_blank">
-                            Verify on Fiverr
-                            <ExternalLink className="ml-1 h-3 w-3" />
-                          </Link>
-                        </Button>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </div>
-              ))}
-            </motion.div>
-          </div>
+                      <a
+                        href={testimonial.fiverr_link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="bg-white/20 hover:bg-white/30 transition-colors p-3 rounded-full"
+                      >
+                        <ExternalLink className="h-5 w-5" />
+                      </a>
+                    </div>
 
-          {/* Navigation dots */}
-          <div className="flex justify-center mt-6 sm:mt-8 gap-1 sm:gap-2">
+                    {/* Rating */}
+                    <div className="flex items-center gap-2 mt-4">
+                      <div className="flex">
+                        {Array.from({ length: 5 }).map((_, i) => (
+                          <Star
+                            key={i}
+                            className="h-5 w-5 text-yellow-300 fill-yellow-300"
+                          />
+                        ))}
+                      </div>
+                      <span className="font-semibold text-lg">
+                        {testimonial.rating}.0
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Card Content */}
+                  <div className="p-8">
+                    <div className="relative">
+                      <Quote className="h-12 w-12 text-blue-200 dark:text-blue-800 absolute -top-6 -left-2 opacity-50" />
+                      <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed relative z-10 pl-8 font-medium">
+                        {testimonial.text}
+                      </p>
+                    </div>
+
+                    {/* Footer */}
+                    <div className="mt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+                      <div className="bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 px-4 py-2 rounded-full text-sm font-semibold">
+                        ✓ Verified Client
+                      </div>
+                      <a
+                        href={testimonial.fiverr_link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 font-semibold text-sm flex items-center gap-1 transition-colors"
+                      >
+                        Verify on Fiverr
+                        <ExternalLink className="h-4 w-4" />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+
+          {/* Navigation Dots */}
+          <div className="flex justify-center mt-8 gap-3">
             {testimonials.map((_, index) => (
               <button
                 key={index}
-                onClick={() => setActiveIndex(index)}
-                className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-colors ${
+                onClick={() => swiperRef.current?.slideTo(index)}
+                className={`w-3 h-3 rounded-full transition-all duration-300 ${
                   activeIndex === index
-                    ? "bg-primary"
-                    : "bg-muted-foreground/30"
+                    ? "bg-blue-600 scale-125"
+                    : "bg-gray-300 dark:bg-gray-600 hover:bg-gray-400 dark:hover:bg-gray-500"
                 }`}
                 aria-label={`Go to testimonial ${index + 1}`}
               />
             ))}
           </div>
+
+          {/* Navigation Arrows */}
           {testimonials.length > 1 && (
-            <div className="flex justify-center mt-6 sm:mt-8 gap-3 sm:gap-4">
-              <Button
-                variant="outline"
-                size="icon"
-                onClick={handlePrev}
-                className="rounded-full h-8 w-8 sm:h-10 sm:w-10"
+            <div className="flex justify-center mt-6 gap-4">
+              <button
+                onClick={() => swiperRef.current?.slidePrev()}
+                className="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-300 group"
                 aria-label="Previous testimonial"
               >
-                <ChevronLeft className="h-4 w-4" />
-              </Button>
-              <Button
-                variant="outline"
-                size="icon"
-                onClick={handleNext}
-                className="rounded-full h-8 w-8 sm:h-10 sm:w-10"
+                <ChevronLeft className="h-5 w-5 text-gray-600 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors" />
+              </button>
+              <button
+                onClick={() => swiperRef.current?.slideNext()}
+                className="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-300 group"
                 aria-label="Next testimonial"
               >
-                <ChevronRight className="h-4 w-4" />
-              </Button>
+                <ChevronRight className="h-5 w-5 text-gray-600 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors" />
+              </button>
             </div>
           )}
         </div>
       </div>
+
+      <style jsx global>{`
+        .testimonials-swiper .swiper-slide {
+          height: auto;
+        }
+      `}</style>
     </section>
   );
 }
