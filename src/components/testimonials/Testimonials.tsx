@@ -3,6 +3,7 @@ import { useState, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import type { Swiper as SwiperType } from "swiper";
+import Image from "next/image";
 
 // Import Swiper styles
 import "swiper/css";
@@ -106,20 +107,26 @@ export default function Testimonials() {
                       <div className="flex items-center gap-4">
                         <div className="relative">
                           <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm overflow-hidden border-2 border-white/30">
-                            <img
-                              src={testimonial.avatar}
-                              alt={`${testimonial.name} profile picture`}
-                              className="w-full h-full object-cover"
-                              onError={(e) => {
-                                const target = e.target as HTMLImageElement;
-                                const fallback =
-                                  target.nextElementSibling as HTMLDivElement;
-                                target.style.display = "none";
-                                if (fallback) {
-                                  fallback.style.display = "flex";
-                                }
-                              }}
-                            />
+                            <div className="relative w-full h-full">
+                              <Image
+                                src={testimonial.avatar}
+                                alt={`${testimonial.name} profile picture`}
+                                fill
+                                sizes="64px"
+                                className="object-cover"
+                                onError={(e) => {
+                                  const target = e.target as HTMLImageElement;
+                                  const fallback = target.parentElement
+                                    ?.nextElementSibling as HTMLDivElement;
+                                  if (target.parentElement) {
+                                    target.parentElement.style.display = "none";
+                                  }
+                                  if (fallback) {
+                                    fallback.style.display = "flex";
+                                  }
+                                }}
+                              />
+                            </div>
                             <div
                               className="w-full h-full flex items-center justify-center text-2xl font-bold text-white"
                               style={{ display: "none" }}
