@@ -47,6 +47,18 @@ export default function Testimonials() {
       text: "We assigned him the task of enhancing font responsiveness, which he executed flawlessly. Beyond that, he proactively suggested valuable improvements that further optimized the design. His communication was clear and professional, and his skills were truly outstanding. Highly recommended!",
       fiverr_link: "https://www.fiverr.com/mohamedouterbah?public_mode=true",
     },
+    {
+      id: 3,
+      name: "mustafa nawaz",
+      company: "Web Application",
+      role: "8 months project",
+      avatar: "/clients/nonexistent-image.webp", // This will trigger the fallback
+      rating: 5,
+      country: "🇬🇧",
+      countryName: "United Kingdom",
+      text: "Mohamed is a great developer with a deep understanding of building a product end to end. Amazing communication - highly recommended.",
+      fiverr_link: "https://www.fiverr.com/mohamedouterbah?public_mode=true",
+    },
   ];
 
   return (
@@ -99,8 +111,8 @@ export default function Testimonials() {
             className="testimonials-swiper !overflow-visible"
           >
             {testimonials.map((testimonial) => (
-              <SwiperSlide key={testimonial.id} className="px-4">
-                <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-100 dark:border-gray-700 overflow-hidden">
+              <SwiperSlide key={testimonial.id} className="px-4 h-auto">
+                <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-100 dark:border-gray-700 overflow-hidden h-full flex flex-col">
                   {/* Card Header */}
                   <div className="bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 p-6 text-white">
                     <div className="flex items-center justify-between">
@@ -177,8 +189,8 @@ export default function Testimonials() {
                   </div>
 
                   {/* Card Content */}
-                  <div className="p-8">
-                    <div className="relative">
+                  <div className="p-8 flex-grow flex flex-col">
+                    <div className="relative flex-grow">
                       <Quote className="h-12 w-12 text-blue-200 dark:text-blue-800 absolute -top-6 -left-2 opacity-50" />
                       <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed relative z-10 pl-8 font-medium">
                         {testimonial.text}
@@ -247,6 +259,11 @@ export default function Testimonials() {
       <style jsx global>{`
         .testimonials-swiper .swiper-slide {
           height: auto;
+          display: flex;
+        }
+
+        .testimonials-swiper .swiper-wrapper {
+          align-items: stretch;
         }
       `}</style>
     </section>
