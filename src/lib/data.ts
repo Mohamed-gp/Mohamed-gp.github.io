@@ -25,8 +25,8 @@ const projectsImagesSkills = [
   // { filename: "go.svg", name: "Go" },
   // { filename: "fiber.png", name: "Go Fiber" },
   // { filename: "dingo.png", name: "Dingo (DI)" },
-  { filename: "laravel.svg", name: "Laravel" },
-  { filename: "deno.svg", name: "Deno" },
+  // { filename: "laravel.svg", name: "Laravel" },
+  // { filename: "deno.svg", name: "Deno" },
 
   // Databases
   { filename: "mongodb.svg", name: "MongoDB" },
