@@ -15,7 +15,7 @@ const projectsImagesSkills = [
   { filename: "react.svg", name: "React" },
   { filename: "nextjs.svg", name: "Next.js" },
   { filename: "tailwindcss.svg", name: "Tailwind CSS" },
-  { filename: "mui.svg", name: "Material UI" },
+  // { filename: "mui.svg", name: "Material UI" },
   { filename: "reactrouter.svg", name: "React Router" },
   { filename: "reduxtoolkit.svg", name: "Redux Toolkit" },
 
